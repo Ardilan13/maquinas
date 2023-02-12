@@ -1,0 +1,27 @@
+@use "../base/variables" as v;
+@use "base/mixins" as m;
+header {
+  background-color: v.$negro;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0 .5rem 0;
+  border-bottom: .4rem solid v.$azul;
+
+  a {
+    color: v.$blanco;
+    font-family: v.$fuentePrincipal;
+  }
+
+  nav a:not(:last-child) {
+    margin-right: 3rem;
+  }
+
+  .logo {
+    margin-left: -7%;
+  }
+
+  .redes svg {
+    margin-right: 3rem;
+  }
+}
