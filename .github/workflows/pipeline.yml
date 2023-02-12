@@ -1,4 +1,4 @@
-name: NodeJS with Gulp
+name: despliegue
 
 on:
   push:
@@ -6,9 +6,8 @@ on:
       - develop
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  deploy:
+    runs-on: ubuntu-18.04
     steps:
       - name: Build
         run: |
