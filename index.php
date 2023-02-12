@@ -3,7 +3,7 @@
 <main>
     <div class="container">
         <div class="header">
-            <p>Ingresar123456</p>
+            <p>Ingresar</p>
         </div>
         <div class="info">
             <form id="ingreso">
