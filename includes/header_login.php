@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +16,8 @@
 <body>
     <header>
         <p>Laboratorio de Geofisica - UIS</p>
-        <div id="header_user">
-            <a id="a_user"><?php echo $_SESSION["nombre"]; ?></a>
-            <a href="ajax/logout.php">Cerrar Sesion</a>
+        <div id="header_registro">
+            <a href="index.php">Ingresar</a>
+            <a href="registro.php">Registro</a>
         </div>
     </header>
