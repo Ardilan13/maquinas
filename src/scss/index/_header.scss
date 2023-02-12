@@ -1,27 +1,19 @@
 @use "../base/variables" as v;
 @use "base/mixins" as m;
 header {
-  background-color: v.$negro;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  background-color: v.$blanco;
   align-items: center;
-  padding: 1rem 0 .5rem 0;
-  border-bottom: .4rem solid v.$azul;
-
+  padding: 2rem 10rem;
+  box-shadow: 5px 3px 3px v.$grisO;
   a {
-    color: v.$blanco;
-    font-family: v.$fuentePrincipal;
+    text-decoration: none;
+    color: darkgray;
+    margin-right: 2rem;
   }
-
-  nav a:not(:last-child) {
-    margin-right: 3rem;
-  }
-
-  .logo {
-    margin-left: -7%;
-  }
-
-  .redes svg {
-    margin-right: 3rem;
+  a:hover {
+    color: v.$negro;
   }
 }

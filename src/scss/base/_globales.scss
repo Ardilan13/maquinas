@@ -12,24 +12,23 @@ html {
 }
 body {
   font-family: v.$fuentePrincipal;
-  background-color: v.$blanco;
   font-size: 1.6rem;
-  background-color: v.$negro;
+  background-color: v.$gris;
 }
 p {
   font-size: 2rem;
   font-weight: 500;
-  stop-color: v.$blanco;
   margin: 0;
   text-align: justify;
   font-family: v.$fuentePrincipal;
 }
-button{
+button {
   cursor: pointer;
 }
 a {
   text-decoration: none;
 }
+
 h1,
 h2,
 h3,
@@ -59,4 +58,34 @@ img {
 h2 {
   font-size: 5.5rem;
   font-weight: 800;
+}
+main {
+  .container {
+    margin: 5rem 20rem;
+    border-radius: 5px;
+    background-color: v.$blanco;
+    border: 1.5px solid v.$grisO;
+    width: auto;
+    height: 100%;
+
+    .header {
+      background-color: v.$gris;
+      border-bottom: 1.5px solid v.$grisO;
+      padding: 1.5rem;
+      p {
+        text-align: center;
+      }
+    }
+
+    .info {
+      text-align: center;
+      padding: 2rem;
+    }
+  }
+}
+input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1.5px solid v.$grisO;
+  border-style: solid;
 }
