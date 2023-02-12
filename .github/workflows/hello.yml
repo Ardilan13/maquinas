@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: Build
         run: |
-          git clone https://github.com/Ardilan13/maquinas.git
+          git pull
