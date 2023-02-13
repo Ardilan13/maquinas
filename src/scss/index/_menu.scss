@@ -1,0 +1,30 @@
+@use "../base/variables" as v;
+@use "base/mixins" as m;
+.menu_principal {
+  display: flex;
+  flex-direction: column;
+
+  .mp_btn,
+  #cerrar_sesion {
+    margin: 0 5rem;
+    padding: 1.5rem 0;
+    width: auto;
+    background-color: v.$verde;
+    color: v.$blanco;
+    margin-bottom: 1.2rem;
+    border-radius: 5px;
+  }
+
+  .mp_btn:hover {
+    background-color: darken(v.$verde, 10);
+  }
+
+  #cerrar_sesion {
+    background-color: v.$rojo;
+    margin-top: 2rem;
+  }
+
+  #cerrar_sesion:hover {
+    background-color: darken(v.$rojo, 10);
+  }
+}
