@@ -16,7 +16,19 @@
 
 <body>
     <header>
-        <p>Laboratorio de Geofisica - UIS</p>
+
+    <picture>
+                <source srcset="build/img/images.webp" type="image/webp">
+                <source srcset="build/img/images.jpg" type="image/jpeg">
+                <img class="logo" loading="lazy" src="build/img/images.jpg" alt="Texto entrada blog">
+                
+            </picture>
+            <p>Inventario de Maquinaria</p>
+            
+        
+
+       
+        
         <div id="header_user">
             <a id="a_user"><?php echo $_SESSION["nombre"]; ?></a>
             <a href="ajax/logout.php">Cerrar Sesion</a>
