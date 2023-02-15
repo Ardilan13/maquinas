@@ -12,23 +12,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
+
 </head>
 
 <body>
     <header>
-
-    <picture>
-                <source srcset="build/img/images.webp" type="image/webp">
-                <source srcset="build/img/images.jpg" type="image/jpeg">
-                <img class="logo" loading="lazy" src="build/img/images.jpg" alt="Texto entrada blog">
-                
-            </picture>
+        <picture>
+            <source srcset="build/img/images.webp" type="image/webp">
+            <source srcset="build/img/images.jpg" type="image/jpeg">
+            <img class="logo" loading="lazy" src="build/img/images.jpg" alt="Texto entrada blog">
+        </picture>
+        <div>
             <p>Inventario de Maquinaria</p>
-            
-        
-
-       
-        
+        </div>
         <div id="header_user">
             <a id="a_user"><?php echo $_SESSION["nombre"]; ?></a>
             <a href="ajax/logout.php">Cerrar Sesion</a>

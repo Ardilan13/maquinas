@@ -1,0 +1,29 @@
+@use "../base/variables" as v;
+@use "base/mixins" as m;
+
+.cont {
+    display: flex;
+    justify-content: space-evenly;
+
+    .cont_gen {
+        width:45%;
+    }
+
+    .btn_comp {
+        background-color: v.$verde;
+        color: v.$blanco;
+        padding: 2%;
+        width: 100%;
+    }
+
+    .btn_rep {
+        background-color: v.$verde;
+        color: v.$blanco;
+        padding: 2%;
+        width: 100%;
+    }
+
+    .th_comp {
+        width: 10%;
+    }
+}
