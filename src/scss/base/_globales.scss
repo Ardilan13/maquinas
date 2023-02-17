@@ -1,20 +1,24 @@
 @use "variables" as v; //trae el archivo _variables como v
 @use "base/mixins" as m;
+
 html {
   font-size: 62.5%;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
+
 body {
   font-family: v.$fuentePrincipal;
   font-size: 1.6rem;
   background-color: v.$gris;
 }
+
 p {
   font-size: 2rem;
   font-weight: 500;
@@ -22,9 +26,11 @@ p {
   text-align: justify;
   font-family: v.$fuentePrincipal;
 }
+
 button {
   cursor: pointer;
 }
+
 a {
   text-decoration: none;
 }
@@ -37,28 +43,35 @@ h4 {
   cursor: default;
   font-weight: 700;
 }
+
 h1 {
   font-size: 5rem;
 }
+
 h2 {
   font-size: 4.5rem;
+
   @include m.telefono {
     font-size: 4rem !important;
   }
 }
+
 h3 {
   font-size: 4rem;
 }
+
 img {
   max-width: 100%;
   width: 100%;
   height: auto;
   display: block;
 }
+
 h2 {
   font-size: 5.5rem;
   font-weight: 800;
 }
+
 main {
   .container {
     margin: 5rem 5%;
@@ -72,6 +85,7 @@ main {
       background-color: v.$gris;
       border-bottom: 1.5px solid v.$grisO;
       padding: 1.5rem;
+
       p {
         text-align: center;
       }
@@ -83,7 +97,17 @@ main {
     }
   }
 }
-input {
+
+.header_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+input,
+select {
   padding: 8px;
   border-radius: 5px;
   border: 1.5px solid v.$grisO;

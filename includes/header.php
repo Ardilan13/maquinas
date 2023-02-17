@@ -19,12 +19,13 @@
 
 <body>
     <header>
-        <picture>
-            <source srcset="build/img/images.webp" type="image/webp">
-            <source srcset="build/img/images.jpg" type="image/jpeg">
-            <img class="logo" loading="lazy" src="build/img/images.jpg" alt="Texto entrada blog">
-        </picture>
-        <div>
+
+        <div class="header_img">
+            <picture>
+                <source srcset="build/img/images.webp" type="image/webp">
+                <source srcset="build/img/images.jpg" type="image/jpeg">
+                <img class="logo" loading="lazy" src="build/img/images.jpg" alt="Texto entrada blog">
+            </picture>
             <p>Inventario de Maquinaria</p>
         </div>
         <div id="header_user">

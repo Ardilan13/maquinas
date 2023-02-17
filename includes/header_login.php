@@ -15,7 +15,7 @@
 
 <body>
     <header>
-        <p>Laboratorio de Geofisica - UIS</p>
+        <p>Inventario de Maquinaria</p>
         <div id="header_registro">
             <a href="index.php">Ingresar</a>
             <a href="registro.php">Registro</a>

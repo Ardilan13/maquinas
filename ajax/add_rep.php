@@ -2,11 +2,10 @@
 require_once '../conexion.php';
 $con = conectar();
 
-$maquina = $_POST["maquina"];
 $nombre = $_POST["nombre"];
-$tipo = $_POST["tipo"];
+$valor = $_POST["valor"];
 
-$registro = "INSERT INTO componente (id_maquina, nombre_componente, tipo) VALUES ($maquina, '$nombre', '$tipo')";
+$registro = "INSERT INTO repuesto (nombre, valor) VALUES ('$nombre', '$valor')";
 
 $resultado = mysqli_query($con, $registro);
 if ($resultado) {

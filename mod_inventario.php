@@ -18,7 +18,7 @@ $con = conectar(); ?>
                                 <th class="th_comp">Maquina</th>
                                 <th class="th_comp">Componente</th>
                                 <th class="th_comp">Tipo</th>
-                                <th class="th_comp">Borrar</th>
+                                <th class="th_comp th_borrar">Borrar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,8 +31,8 @@ $con = conectar(); ?>
                                         <td><?php echo $row["nombre"]; ?></td>
                                         <td><?php echo $row["nombre_componente"]; ?></td>
                                         <td><?php echo $row["tipo"]; ?></td>
-                                        
-                                        <td class="delete_comp" id="<?php echo $row["id"]; ?>">Borrar</td>
+
+                                        <td><button class="btn_delete_comp delete_comp" id="<?php echo $row["id"]; ?>">Borrar</button></td>
                                     </tr>
                             <?php }
                             } else {
@@ -48,19 +48,29 @@ $con = conectar(); ?>
                     <table id="repuesto" class="display" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Valor</th>
+                                <th class="th_rep">Nombre</th>
+                                <th class="th_rep">Valor</th>
+                                <th class="th_rep th_borrar">Borrar</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>repuesto</td>
-                                <td>3500</td>
-                            </tr>
+                            <?php
+                            $login = "SELECT * from repuesto;";
+                            $resultado = mysqli_query($con, $login);
+                            if ($resultado->num_rows > 0) {
+                                while ($row = mysqli_fetch_assoc($resultado)) { ?>
+                                    <tr>
+                                        <td><?php echo $row["nombre"]; ?></td>
+                                        <td><?php echo $row["valor"]; ?></td>
+                                        <td><button class="btn_delete_rep delete_rep" id="<?php echo $row["id"]; ?>">Borrar</button></td>
+                                    </tr>
+                            <?php }
+                            } else {
+                                echo "<td valign='top' colspan='8' class='dataTables_empty'>No hay repuestos para mostrar</td>";
+                            } ?>
                         </tbody>
                     </table>
                     <button hidden id="clonar1">clon</button>
-
                 </div>
             </div>
         </div>
