@@ -113,30 +113,30 @@ $(document).ready(function () {
     });
   });
 
- //estilo tabla maquina
- var table2 = $("#maqn").DataTable({
-  orderCellsTop: true,
-  fixedHeader: true,
-});
-let temp2 = $("#clonar2").clone();
-$("#clonar2").click(function () {
-  $("#clonar2").after(temp2);
-});
-
-//Crea el buscador de cada atributo
-/*   $("#productos thead tr").clone(true).appendTo("#productos thead");
- */
-$("#maqn thead tr:eq(1) th").each(function (i) {
-  var title = $(this).text(); //es el nombre de la columna
-  $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
-
-  $("input", this).on("keyup change", function () {
-    if (table2.column(i).search() !== this.value) {
-      table2.column(i).search(this.value).draw();
-
-    }
+  //estilo tabla maquina
+  var table2 = $("#maqn").DataTable({
+    orderCellsTop: true,
+    fixedHeader: true,
   });
-});
+  let temp2 = $("#clonar2").clone();
+  $("#clonar2").click(function () {
+    $("#clonar2").after(temp2);
+  });
+
+  //Crea el buscador de cada atributo
+  /*   $("#productos thead tr").clone(true).appendTo("#productos thead");
+   */
+  $("#maqn thead tr:eq(1) th").each(function (i) {
+    var title = $(this).text(); //es el nombre de la columna
+    $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
+
+    $("input", this).on("keyup change", function () {
+      if (table2.column(i).search() !== this.value) {
+        table2.column(i).search(this.value).draw();
+
+      }
+    });
+  });
 });
 
 
@@ -280,6 +280,13 @@ $(".ver_maq").on("click", function (e) {
 
 $("#btn_creacion_maqn").on("click", function (e) {
   e.preventDefault();
+
+  var nombre = $("#nombre").val();
+
+  if (nombre == "") {
+    alert("El campo de nombre es obligatorio");
+    return;
+  }
 
   $.ajax({
     url: "ajax/add_maqui.php",
