@@ -3,7 +3,7 @@
 <main>
     <div class="container">
         <div class="header">
-            <p>Ordenes de Trabajo</p>
+            <p>Orden de Trabajo</p>
         </div>
         
     </div>
@@ -11,3 +11,5 @@
 
 
 <?php require_once 'includes/footer.php'; ?>
+
+

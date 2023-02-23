@@ -3,7 +3,7 @@
 <main>
     <div class="container">
         <div class="header">
-            <p>Solicitudes de Servicio</p>
+            <p>Solicitud de Servicio</p>
         </div>
         
     </div>
