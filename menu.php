@@ -10,7 +10,6 @@
             <a class="mp_btn" href="mod_inventario.php">Inventario</a>
             <a class="mp_btn" href="mod_solicitud.php">Solicitudes de Servicio</a>
             <a class="mp_btn" href="mod_orden.php">Ordenes de Trabajo</a>
-            <a class="mp_btn" href="mod_prestamo.php">Prestamos</a>
             <a class="mp_btn" href="mod_tarea.php">Tareas</a>
             <a class="mp_btn" href="mod_calendario.php">Calendario</a>
             <a id="cerrar_sesion" href="ajax/logout.php">Cerrar Sesion</a>
