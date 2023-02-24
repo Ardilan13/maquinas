@@ -137,6 +137,30 @@ $(document).ready(function () {
       }
     });
   });
+    //estilo tabla Servicios
+    var table3 = $("#soli").DataTable({
+      orderCellsTop: true,
+      fixedHeader: true,
+    });
+    let temp3 = $("#clonar3").clone();
+    $("#clonar3").click(function () {
+      $("#clonar3").after(temp3);
+    });
+  
+    //Crea el buscador de cada atributo
+    /*   $("#productos thead tr").clone(true).appendTo("#productos thead");
+     */
+    $("#soli thead tr:eq(1) th").each(function (i) {
+      var title = $(this).text(); //es el nombre de la columna
+      $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
+  
+      $("input", this).on("keyup change", function () {
+        if (table3.column(i).search() !== this.value) {
+          table3.column(i).search(this.value).draw();
+  
+        }
+      });
+    });
 });
 
 
@@ -274,6 +298,11 @@ $(".ver_maq").on("click", function (e) {
   $(location).prop("href", "crear_maquina.php?id=" + $(this).attr("id"));
 });
 
+//accede al menu crear,solicitud de servicio y le pasa el id por metodo GET
+$(".ver_soli").on("click", function (e) {
+  e.preventDefault();
+  $(location).prop("href", "crear_servicio.php?id=" + $(this).attr("id"));
+});
 
 
 //ajax que tiene  implementada la funcion para crear una maquina mediante metodo post.
@@ -307,3 +336,36 @@ $("#btn_creacion_maqn").on("click", function (e) {
     },
   });
 });
+
+//ajax que tiene  implementada la funcion para crear una solicitud mediante metodo post.
+
+$("#btn_creacion_soli").on("click", function (e) {
+  e.preventDefault();
+
+  var solicitud = $("#solicitud").val();
+
+  if (solicitud == "") {
+    alert("El campo de solicitud es obligatorio");
+    return;
+  }
+
+  $.ajax({
+    url: "ajax/add_soli.php",
+    data: $("#agregar_soli").serialize(),
+    type: "POST",
+    dataType: "text",
+    success: function (text) {
+      if (text == 1) {
+        alert("Solicitud Creada!");
+        $(location).prop("href", "mod_solicitud.php");
+      } else {
+        alert("Error, intente nuevamente.");
+        console.log(text);
+      }
+    },
+    error: function (xhr, status, errorThrown) {
+      alert("Error");
+    },
+  });
+});
+

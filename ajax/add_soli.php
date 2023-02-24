@@ -3,8 +3,8 @@ require_once '../conexion.php';
 $con = conectar();
 
 $maquina = $_POST["maquina"];
-$fecha_solicitud = $_POST["fecha_solicitud"];
-$tipo_mantenimiento = $_POST["tipo_mantenimiento"];
+$fecha_solicitud = date('Y-m-d');
+$tipo_mantenimiento = $_POST["tipo_mantenimiento"]?? null;
 $descripcion = $_POST["descripcion"];
 $solicitud_material = $_POST["solicitud_material"];
 $solicitud = $_POST["solicitud"];

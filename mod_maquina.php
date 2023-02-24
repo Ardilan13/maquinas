@@ -33,7 +33,7 @@ $con = conectar(); ?>
                                     <td><?php echo $row["marca"]; ?></td>
                                     <td><?php echo $row["modelo"]; ?></td>
                                     <td><?php echo $row["ubicacion"]; ?></td>
-                                    <td><button class="btn_delete_rep ver_maq" id="<?php echo $row["id"]; ?>">Ver</button></td>
+                                    <td><button class="ver_maq" id="<?php echo $row["id"]; ?>">Ver</button></td>
                                 </tr>
                         <?php }
                         } else {

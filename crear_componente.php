@@ -1,4 +1,4 @@
-<?php require_once 'includes/header_login.php'; ?>
+<?php require_once 'includes/header.php'; ?>
 
 <main>
     <div class="container">

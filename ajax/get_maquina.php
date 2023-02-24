@@ -2,7 +2,7 @@
 require_once '../conexion.php';
 $con = conectar();
 
-$login = "SELECT id, nombre from maquina;";
+$login = "SELECT id, nombre, codigo from maquina;";
 
 $resultado = mysqli_query($con, $login);
 if ($resultado->num_rows > 0) {
