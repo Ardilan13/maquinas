@@ -22,11 +22,11 @@
 
         <div class="header_img">
             <picture>
-                <source srcset="build/img/images.webp" type="image/webp">
-                <source srcset="build/img/images.jpg" type="image/jpeg">
-                <img class="logo" loading="lazy" src="build/img/images.jpg" alt="Texto entrada blog">
+                <source srcset="build/img/logo.jpg" type="image/jpg">
+                <source srcset="build/img/logo.jpg" type="image/jpeg">
+                <img class="logo" loading="lazy" src="build/img/logo.jpg" alt="Texto entrada blog">
             </picture>
-            <p>Inventario de Maquinaria</p>
+            <p>MantUIS</p>
         </div>
         <div id="header_user">
             <a id="a_user"><?php echo $_SESSION["nombre"]; ?></a>

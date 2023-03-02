@@ -137,30 +137,79 @@ $(document).ready(function () {
       }
     });
   });
-    //estilo tabla Servicios
-    var table3 = $("#soli").DataTable({
-      orderCellsTop: true,
-      fixedHeader: true,
+  //estilo tabla Servicios
+  var table3 = $("#soli").DataTable({
+    orderCellsTop: true,
+    fixedHeader: true,
+  });
+  let temp3 = $("#clonar3").clone();
+  $("#clonar3").click(function () {
+    $("#clonar3").after(temp3);
+  });
+
+  //Crea el buscador de cada atributo
+  /*   $("#productos thead tr").clone(true).appendTo("#productos thead");
+   */
+  $("#soli thead tr:eq(1) th").each(function (i) {
+    var title = $(this).text(); //es el nombre de la columna
+    $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
+
+    $("input", this).on("keyup change", function () {
+      if (table3.column(i).search() !== this.value) {
+        table3.column(i).search(this.value).draw();
+
+      }
     });
-    let temp3 = $("#clonar3").clone();
-    $("#clonar3").click(function () {
-      $("#clonar3").after(temp3);
+  });
+
+
+  //estilo tabla Orden de Trabajo
+  var table4 = $("#orden").DataTable({
+    orderCellsTop: true,
+    fixedHeader: true,
+  });
+  let temp4 = $("#clonar4").clone();
+  $("#clonar4").click(function () {
+    $("#clonar4").after(temp4);
+  });
+
+  //Crea el buscador de cada atributo
+  /*   $("#productos thead tr").clone(true).appendTo("#productos thead");
+   */
+  $("#orden thead tr:eq(1) th").each(function (i) {
+    var title = $(this).text(); //es el nombre de la columna
+    $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
+
+    $("input", this).on("keyup change", function () {
+      if (table4.column(i).search() !== this.value) {
+        table4.column(i).search(this.value).draw();
+      }
     });
+  });
   
-    //Crea el buscador de cada atributo
-    /*   $("#productos thead tr").clone(true).appendTo("#productos thead");
-     */
-    $("#soli thead tr:eq(1) th").each(function (i) {
-      var title = $(this).text(); //es el nombre de la columna
-      $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
-  
-      $("input", this).on("keyup change", function () {
-        if (table3.column(i).search() !== this.value) {
-          table3.column(i).search(this.value).draw();
-  
-        }
-      });
+  //estilo tabla Tareas
+  var table5 = $("#tarea").DataTable({
+    orderCellsTop: true,
+    fixedHeader: true,
+  });
+  let temp5 = $("#clonar5").clone();
+  $("#clonar5").click(function () {
+    $("#clonar5").after(temp5);
+  });
+
+  //Crea el buscador de cada atributo
+  /*   $("#productos thead tr").clone(true).appendTo("#productos thead");
+   */
+  $("#tarea thead tr:eq(1) th").each(function (i) {
+    var title = $(this).text(); //es el nombre de la columna
+    $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
+
+    $("input", this).on("keyup change", function () {
+      if (table5.column(i).search() !== this.value) {
+        table5.column(i).search(this.value).draw();
+      }
     });
+  });
 });
 
 

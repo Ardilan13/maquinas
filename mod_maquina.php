@@ -13,11 +13,11 @@ $con = conectar(); ?>
                 <table id="maqn" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th class='th_comp'>Codigo</th>
+                            <th class='th_comp'>Codificacion</th>
                             <th class='th_comp'>Nombre</th>
                             <th class='th_comp'>Marca</th>
                             <th class='th_comp'>Modelo</th>
-                            <th class='th_comp'>Ubicacion</th>
+                            <th class='th_comp'>Numero de Inventario</th>
                             <th class='th_comp'>Ver</th>
                         </tr>
                     </thead>
