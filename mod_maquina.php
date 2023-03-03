@@ -19,6 +19,7 @@ $con = conectar(); ?>
                             <th class='th_comp'>Modelo</th>
                             <th class='th_comp'>Numero de Inventario</th>
                             <th class='th_comp'>Ver</th>
+                            <th class='th_comp'>Borrar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,6 +35,7 @@ $con = conectar(); ?>
                                     <td><?php echo $row["modelo"]; ?></td>
                                     <td><?php echo $row["ubicacion"]; ?></td>
                                     <td><button class="ver_maq" id="<?php echo $row["id"]; ?>">Ver</button></td>
+                                    <td><button class="btn_delete_rep delete_maq" id="<?php echo $row["id"]; ?>">Borrar</button></td>
                                 </tr>
                         <?php }
                         } else {

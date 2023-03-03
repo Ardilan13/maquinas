@@ -2,58 +2,54 @@
 @use "base/mixins" as m;
 
 .cont {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 
-    .cont_gen {
-        width: 45%;
-    }
+  .cont_gen {
+    width: 45%;
+  }
 
-    .btn_comp {
-        background-color: v.$verde;
-        color: v.$blanco;
-        padding: 2%;
-        width: 100%;
-    }
+  .btn_comp {
+    background-color: v.$verde;
+    color: v.$blanco;
+    padding: 2%;
+    width: 100%;
+  }
 
-    .btn_rep {
-        background-color: v.$verde;
-        color: v.$blanco;
-        padding: 2%;
-        width: 100%;
-    }
+  .btn_rep {
+    background-color: v.$verde;
+    color: v.$blanco;
+    padding: 2%;
+    width: 100%;
+  }
 
-    
+  .btn_delete_comp {
+    background-color: v.$rojo;
+    color: v.$blanco;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+  }
 
-    .btn_delete_comp {
-        background-color: v.$rojo;
-        color: v.$blanco;
-        cursor: pointer;
-        padding: 0.5rem 1.5rem;
-    }
+  .btn_delete_comp:hover {
+    background-color: darken(v.$rojo, 10);
+  }
 
-    .btn_delete_comp:hover {
-        background-color: darken(v.$rojo, 10);
-    }
+  .btn_delete_rep {
+    background-color: v.$rojo !important;
+    color: v.$blanco !important;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+  }
 
-    .btn_delete_rep {
-        background-color: v.$rojo;
-        color: v.$blanco;
-        cursor: pointer;
-        padding: 0.5rem 1.5rem;
-    }
+  .btn_delete_rep:hover {
+    background-color: darken(v.$rojo, 10);
+  }
 
-    .btn_delete_rep:hover {
-        background-color: darken(v.$rojo, 10);
-    }
+  .th_comp {
+    width: 10%;
+  }
 
-    .th_comp {
-        width: 10%;
-    }
-
-    .th_borrar {
-        width: 7%;
-    }
-   
+  .th_borrar {
+    width: 7%;
+  }
 }
-

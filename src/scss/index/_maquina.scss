@@ -1,8 +1,40 @@
 @use "../base/variables" as v;
 @use "base/mixins" as m;
 
+.delete_maq {
+  background-color: v.$rojo !important;
+  color: v.$blanco !important;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+}
 
+#agregar_maqn {
+  margin: 0 5%;
 
+  .flex {
+    display: flex;
+    width: 100%;
+    gap: 5%;
+    justify-content: center;
+  }
+  input {
+    width: 100%;
+  }
+  .input {
+    margin-right: 0;
+  }
+  p {
+    text-align: center;
+    margin-bottom: 3%;
+  }
 
+  .input_radio {
+    display: flex;
+    flex-direction: column;
+  }
 
-
+  .radios {
+    display: flex;
+    margin-top: 5%;
+  }
+}

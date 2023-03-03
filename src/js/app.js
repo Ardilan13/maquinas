@@ -49,7 +49,6 @@ $("#btn_registro").on("click", function (e) {
   }
 });
 
-
 $(document).ready(function () {
   $.ajax({
     url: "ajax/get_maquina.php",
@@ -57,7 +56,7 @@ $(document).ready(function () {
     type: "POST",
     dataType: "text",
     success: function (text) {
-      $("#maquina").html(text)
+      $("#maquina").html(text);
     },
     error: function (xhr, status, errorThrown) {
       alert("Error");
@@ -83,7 +82,6 @@ $(document).ready(function () {
     $("input", this).on("keyup change", function () {
       if (table.column(i).search() !== this.value) {
         table.column(i).search(this.value).draw();
-
       }
     });
   });
@@ -108,7 +106,6 @@ $(document).ready(function () {
     $("input", this).on("keyup change", function () {
       if (table1.column(i).search() !== this.value) {
         table1.column(i).search(this.value).draw();
-
       }
     });
   });
@@ -133,7 +130,6 @@ $(document).ready(function () {
     $("input", this).on("keyup change", function () {
       if (table2.column(i).search() !== this.value) {
         table2.column(i).search(this.value).draw();
-
       }
     });
   });
@@ -157,11 +153,9 @@ $(document).ready(function () {
     $("input", this).on("keyup change", function () {
       if (table3.column(i).search() !== this.value) {
         table3.column(i).search(this.value).draw();
-
       }
     });
   });
-
 
   //estilo tabla Orden de Trabajo
   var table4 = $("#orden").DataTable({
@@ -186,7 +180,7 @@ $(document).ready(function () {
       }
     });
   });
-  
+
   //estilo tabla Tareas
   var table5 = $("#tarea").DataTable({
     orderCellsTop: true,
@@ -212,8 +206,6 @@ $(document).ready(function () {
   });
 });
 
-
-
 //ajax que tiene  implementada la funcion para eliminar un componente.
 
 $(".delete_comp").on("click", function (e) {
@@ -221,13 +213,13 @@ $(".delete_comp").on("click", function (e) {
 
   $.ajax({
     url: "ajax/delete_comp.php",
-    data: 'id=' + $(this).attr("id"),
+    data: "id=" + $(this).attr("id"),
     type: "POST",
     dataType: "text",
     success: function (text) {
       if (text == 1) {
         alert("Componente Eliminado!");
-        window.location.href = 'mod_inventario.php'
+        window.location.href = "mod_inventario.php";
       } else {
         alert("Error, su componente no fue eliminado");
         terminal(text);
@@ -246,13 +238,13 @@ $(".delete_rep").on("click", function (e) {
 
   $.ajax({
     url: "ajax/delete_rep.php",
-    data: 'id=' + $(this).attr("id"),
+    data: "id=" + $(this).attr("id"),
     type: "GET",
     dataType: "text",
     success: function (text) {
       if (text == 1) {
         alert("Repuesto Eliminado!");
-        window.location.href = 'mod_inventario.php'
+        window.location.href = "mod_inventario.php";
       } else {
         alert("Error, su repuesto no fue eliminado");
         terminal(text);
@@ -268,22 +260,45 @@ $(".delete_rep").on("click", function (e) {
 $(".btn_comp").on("click", function (e) {
   e.preventDefault();
   window.location.href = "crear_componente.php";
-})
+});
 
 $(".btn_maq").on("click", function (e) {
   e.preventDefault();
   window.location.href = "crear_maquina.php";
-})
+});
+
+$(".delete_maq").on("click", function (e) {
+  e.preventDefault();
+
+  $.ajax({
+    url: "ajax/delete_maquina.php",
+    data: "id=" + $(this).attr("id"),
+    type: "GET",
+    dataType: "text",
+    success: function (text) {
+      if (text == 1) {
+        alert("Maquina Eliminada!");
+        window.location.href = "mod_maquina.php";
+      } else {
+        alert("Error, su maquina no fue eliminada");
+        console.log(text);
+      }
+    },
+    error: function (xhr, status, errorThrown) {
+      alert("Error");
+    },
+  });
+});
 
 $(".btn_rep").on("click", function (e) {
   e.preventDefault();
   window.location.href = "crear_repuesto.php";
-})
+});
 
 $(".btn_serv").on("click", function (e) {
   e.preventDefault();
   window.location.href = "crear_servicio.php";
-})
+});
 
 //ajax que tiene  implementada la funcion para crear un respuesto mediante metodo post.
 
@@ -310,10 +325,10 @@ $("#btn_creacion_rep").on("click", function (e) {
   });
 });
 
-$('.header_img').on("click", function (e) {
+$(".header_img").on("click", function (e) {
   e.preventDefault();
   window.location.href = "menu.php";
-})
+});
 
 //ajax que tiene  implementada la funcion para crear un componente mediante metodo post.
 
@@ -340,7 +355,6 @@ $("#btn_creacion_comp").on("click", function (e) {
   });
 });
 
-
 //accede al menu crear,maquina y le pasa el id por metodo GET
 $(".ver_maq").on("click", function (e) {
   e.preventDefault();
@@ -352,7 +366,6 @@ $(".ver_soli").on("click", function (e) {
   e.preventDefault();
   $(location).prop("href", "crear_servicio.php?id=" + $(this).attr("id"));
 });
-
 
 //ajax que tiene  implementada la funcion para crear una maquina mediante metodo post.
 
@@ -417,4 +430,3 @@ $("#btn_creacion_soli").on("click", function (e) {
     },
   });
 });
-
