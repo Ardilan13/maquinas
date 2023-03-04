@@ -12,6 +12,17 @@ if ($id != null) {
     $descripcion = $row['descripcion'];
     $solicitud_material = $row['solicitud_material'];
     $solicitud = $row['solicitud'];
+
+    // Agregar código para seleccionar datos de la tabla maquina
+    $query = "SELECT * FROM maquina WHERE id=$maquina";
+    $result = mysqli_query($con, $query);
+    $maquina_data = mysqli_fetch_assoc($result);
+
+    $nombre = $maquina_data['nombre'];
+    $codigo = $maquina_data['codigo'];
+    $marca = $maquina_data['marca'];
+    $modelo = $maquina_data['modelo'];
+    $ubicacion = $maquina_data['ubicacion'];
 } else {
     $maquina = '';
     $fecha_solicitud = '';
@@ -19,6 +30,11 @@ if ($id != null) {
     $descripcion = '';
     $solicitud_material = '';
     $solicitud = '';
+    $nombre = '';
+    $codigo = '';
+    $marca = '';
+    $modelo = '';
+    $ubicacion = '';
 }
 
 ?>
@@ -31,13 +47,44 @@ if ($id != null) {
             <form id="agregar_soli">
                 <div class="input">
                     <label for="maquina">Maquina:</label>
-                    <select id="maquina" name="maquina" value="<?php echo $maquina; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    <select id="" name="maquina" <?php if ($id != null) echo 'disabled '; ?>>
+                        <?php if ($id != null) { ?>
+                            <option value="<?php echo $maquina; ?>"><?php echo $nombre; ?></option>
+                        <?php } else { ?>
+                            <?php
+                            // Agregar código para seleccionar todas las maquinas de la tabla maquina
+                            $query = "SELECT * FROM maquina";
+                            $result = mysqli_query($con, $query);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                            ?>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['nombre']; ?></option>
+                            <?php } ?>
+                        <?php } ?>
                     </select>
                 </div>
+                <?php if ($id != null) { ?>
+                    <div class="input">
+                        <label for="codigo">Codificacion:</label>
+                        <input type="text" id="codigo" name="codigo" value="<?php echo $codigo; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    </div>
+                    <div class="input">
+                        <label for="marca">Marca:</label>
+                        <input type="text" id="marca" name="marca" value="<?php echo $marca; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    </div>
+                    <div class="input">
+                        <label for="modelo">Modelo:</label>
+                        <input type="text" id="modelo" name="modelo" value="<?php echo $modelo; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    </div>
+                    <div class="input">
+                        <label for="ubicacion">Numero de Inventario:</label>
+                        <input type="text" id="ubicacion" name="ubicacion" value="<?php echo $ubicacion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    </div>
+                <?php } ?>
                 <div class="input">
                     <label for="fecha_solicitud">Fecha y Hora de la Solicitud:</label>
                     <input type="date" id="fecha_solicitud" name="fecha_solicitud" value="<?php echo $fecha_solicitud; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                 </div>
+
 
                 <div class="input">
                     <label for="tipo_mantenimiento">Tipo de Mantenimiento:</label>
@@ -75,7 +122,7 @@ if ($id != null) {
                     <label for="solicitud">Solicitado Por:</label>
                     <input type="text" id="solicitud" name="solicitud" value="<?php echo $solicitud; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                 </div>
-                <?php if($id == null){ ?>
+                <?php if ($id == null) { ?>
                     <button id="btn_creacion_soli">Crear Solicitud</button>
                 <?php } ?>
             </form>

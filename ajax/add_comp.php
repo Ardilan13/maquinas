@@ -4,9 +4,10 @@ $con = conectar();
 
 $maquina = $_POST["maquina"];
 $nombre = $_POST["nombre"];
-$tipo = $_POST["tipo"];
+$marca = $_POST["marca"];
+$referencia = $_POST["referencia"];
 
-$registro = "INSERT INTO componente (id_maquina, nombre_componente, tipo) VALUES ($maquina, '$nombre', '$tipo')";
+$registro = "INSERT INTO componente (id_maquina, nombre_componente, marca, referencia) VALUES ($maquina, '$nombre', '$marca', '$referencia' )";
 
 $resultado = mysqli_query($con, $registro);
 if ($resultado) {

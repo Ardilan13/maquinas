@@ -256,6 +256,7 @@ $(".delete_rep").on("click", function (e) {
   });
 });
 
+
 //Botones que reenvian a los modulos de creacion
 $(".btn_comp").on("click", function (e) {
   e.preventDefault();
@@ -430,3 +431,4 @@ $("#btn_creacion_soli").on("click", function (e) {
     },
   });
 });
+

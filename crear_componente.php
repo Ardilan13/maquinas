@@ -18,8 +18,12 @@
                     <input type="text" id="nombre" name="nombre">
                 </div>
                 <div class="input">
-                    <label for="tipo">Tipo:</label>
-                    <input type="text" id="tipo" name="tipo">
+                    <label for="marca">marca:</label>
+                    <input type="text" id="marca" name="marca">
+                </div>
+                <div class="input">
+                    <label for="referencia">referencia:</label>
+                    <input type="text" id="referencia" name="referencia">
                 </div>
             </form>
             <button id="btn_creacion_comp">Agregar Componente</button>
