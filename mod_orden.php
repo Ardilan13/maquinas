@@ -23,7 +23,7 @@ $con = conectar(); ?>
                     </thead>
                     <tbody>
                         <?php
-                        $login = "SELECT m.nombre, o.fecha_hora_inicio, o.fecha_hora_fin, o.estado, o.id from orden o INNER JOIN maquina m ON o.id_maquina= m.id ;";
+                        $login = "SELECT m.nombre, o.fecha_hora_inicio, o.fecha_hora_fin, o.estado, o.id FROM orden o INNER JOIN maquina m ON o.id_maquina= m.id ;";
                         $resultado = mysqli_query($con, $login);
                         if ($resultado->num_rows > 0) {
                             while ($row = mysqli_fetch_assoc($resultado)) { ?>
@@ -46,4 +46,3 @@ $con = conectar(); ?>
         </div>
     </div>
     <?php require_once 'includes/footer.php'; ?>
-
