@@ -1,0 +1,83 @@
+<?php require_once 'includes/header.php';
+require_once 'conexion.php';
+$con = conectar();
+$id = $_GET["id"] ?? null;
+if ($id != null) {
+    $registro = "SELECT * from tarea where id=$id";
+    $resultado = mysqli_query($con, $registro);
+    $row = mysqli_fetch_assoc($resultado);
+    $maquina = $row['id_maquina'];
+    $activacion = date('Y-m-d');
+    $proxima_activacion = date('Y-m-d');
+    
+
+    // Agregar código para seleccionar datos de la tabla maquina
+    $query = "SELECT * FROM maquina WHERE id=$maquina";
+    $result = mysqli_query($con, $query);
+    $maquina_data = mysqli_fetch_assoc($result);
+
+    $nombre = $maquina_data['nombre'];
+    $periodicidad = $maquina_data['periodicidad'];
+    $descripcion = $maquina_data['descripcion'];
+} else {
+    $activacion = '';
+    $proxima_activacion = '';
+    $maquina = '';
+    $nombre = '';
+    $periodicidad = '';
+    $descripcion = '';
+}
+
+?>
+<main>
+    <div class="container">
+        <div class="header">
+            <p>Solicitud de Tarea</p>
+        </div>
+        <div class="info">
+            <form id="agregar_tar">
+                <div class="input">
+                    <label for="maquina">Maquina:</label>
+                    <select id="" name="maquina" <?php if ($id != null) echo 'disabled '; ?>>
+                        <?php if ($id != null) { ?>
+                            <option value="<?php echo $maquina; ?>"><?php echo $nombre; ?></option>
+                        <?php } else { ?>
+                            <?php
+                            // Agregar código para seleccionar todas las maquinas de la tabla maquina
+                            $query = "SELECT * FROM maquina";
+                            $result = mysqli_query($con, $query);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                            ?>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['nombre']; ?></option>
+                            <?php } ?>
+                        <?php } ?>
+                    </select>
+                </div>
+                <?php if ($id != null) { ?>
+                    <div class="input">
+                        <label for="periodicidad">Periodicidad:</label>
+                        <input type="text" id="periodicidad" name="periodicidad" value="<?php echo $periodicidad; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    </div>
+                    <div class="input">
+                        <label for="descripcion">Descripcion:</label>
+                        <input type="text" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    </div>
+                <?php } ?>
+
+                <div class="input">
+                    <label for="activacion">Activacion:</label>
+                    <input type="date" id="activacion" name="activacion" value="<?php echo $activacion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                </div>
+                <div class="input">
+                    <label for="proxima_activacion">Proxima_Activacion:</label>
+                    <input type="date" id="proxima_activacion" name="proxima_activacion" value="<?php echo $proxima_activacion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                </div>
+                <?php if ($id == null) { ?>
+                    <button id="btn_creacion_tar">Crear Tarea</button>
+                <?php } ?>
+            </form>
+        </div>
+    </div>
+</main>
+
+<?php require_once 'includes/footer.php'; ?>

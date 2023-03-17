@@ -301,6 +301,11 @@ $(".btn_serv").on("click", function (e) {
   window.location.href = "crear_servicio.php";
 });
 
+$(".btn_tar").on("click", function (e) {
+  e.preventDefault();
+  window.location.href = "crear_tarea.php";
+});
+
 //ajax que tiene  implementada la funcion para crear un respuesto mediante metodo post.
 
 $("#btn_creacion_rep").on("click", function (e) {
@@ -368,6 +373,12 @@ $(".ver_soli").on("click", function (e) {
   $(location).prop("href", "crear_servicio.php?id=" + $(this).attr("id"));
 });
 
+//accede al menu crear,solicitud de servicio y le pasa el id por metodo GET
+$(".ver_tarea").on("click", function (e) {
+  e.preventDefault();
+  $(location).prop("href", "crear_tarea.php?id=" + $(this).attr("id"));
+});
+
 //ajax que tiene  implementada la funcion para crear una maquina mediante metodo post.
 
 $("#btn_creacion_maqn").on("click", function (e) {
@@ -432,3 +443,68 @@ $("#btn_creacion_soli").on("click", function (e) {
   });
 });
 
+//ajax que tiene  implementada la funcion para crear una tarea mediante metodo post.
+
+$("#btn_creacion_tar").on("click", function (e) {
+  e.preventDefault();
+
+  var activacion = $("#activacion").val();
+
+  if (activacion == "") {
+    alert("El campo de activacion es obligatorio");
+    return;
+  }
+
+  $.ajax({
+    url: "ajax/add_tare.php",
+    data: $("#agregar_tar").serialize(),
+    type: "POST",
+    dataType: "text",
+    success: function (text) {
+      if (text == 1) {
+        alert("Tarea Creada!");
+        $(location).prop("href", "mod_tarea.php");
+      } else {
+        alert("Error, intente nuevamente.");
+        console.log(text);
+      }
+    },
+    error: function (xhr, status, errorThrown) {
+      alert("Error");
+    },
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var btnFiltrar = document.getElementById('filtrar');
+  var selectPeriodicidad = document.getElementById('periodicidad');
+  var tablaTareas = document.getElementById('tarea');
+  
+  btnFiltrar.addEventListener('click', function() {
+      var filtro = selectPeriodicidad.value;
+      var filas = tablaTareas.getElementsByTagName('tr');
+      for (var i = 0; i < filas.length; i++) {
+          var fila = filas[i];
+          if (filtro == '' || fila.classList.contains(filtro)) {
+              fila.style.display = '';
+          } else {
+              fila.style.display = 'none';
+          }
+      }
+  });
+});
+
+$(document).ready(function() {
+  // ...
+  
+  // Controlador de eventos para el botón "Ver"
+  $('.ver_tarea').on('click', function() {
+    var tarea_id = $(this).data('tarea');
+    var maquina_id = $(this).closest('tr').data('maquina');
+    $('#tarea tr').hide();
+    $('#tarea tr[data-maquina="' + maquina_id + '"][data-tarea="' + tarea_id + '"]').show();
+    $('#clonar5').trigger('click');
+  });
+  
+  // ...
+});

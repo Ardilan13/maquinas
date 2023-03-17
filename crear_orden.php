@@ -168,18 +168,19 @@ if ($id != null) {
                             <label for="periodo">Periodicidad:</label>
                         </div>
                         <div class="radios">
-                            <label for="periodicidad">Mensual</label>
                             <input type="radio" name="periodicidad" value="mensual" <?php if ($id != null) echo 'disabled ';
                                                                                     if ($periodicidad == 'mensual') echo 'checked'; ?>>
-                            <label for="periodicidad">Trimestral</label>
+                            <label for="periodicidad">Mensual</label>
                             <input type="radio" name="periodicidad" value="trimestral" <?php if ($id != null) echo 'disabled ';
                                                                                         if ($periodicidad == 'trimestral') echo 'checked'; ?>>
-                            <label for="periodicidad">Semestral</label>
+                            <label for="periodicidad">Trimestral</label>
                             <input type="radio" name="periodicidad" value="semestral" <?php if ($id != null) echo 'disabled ';
                                                                                         if ($periodicidad == 'semestral') echo 'checked'; ?>>
-                            <label for="periodicidad">Anual</label>
+                            <label for="periodicidad">Semestral</label>
                             <input type="radio" name="periodicidad" value="anual" <?php if ($id != null) echo 'disabled ';
                                                                                     if ($periodicidad == 'anual') echo 'checked'; ?>>
+
+                            <label for="periodicidad">Anual</label>
                         </div>
                     </div>
                 </div>

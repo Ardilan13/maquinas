@@ -10,6 +10,18 @@ $con = conectar(); ?>
         <div class="info">
             <div class="cont_gen">
                 <button class="btn_tar">Crear Tarea</button>
+                <div>
+    <label for="periodicidad">Ver tareas por periodicidad:</label>
+    <select id="periodicidad">
+        <option value="">Todas</option>
+        <option value="mensual">Mensual</option>
+        <option value="trimestral">Trimestral</option>
+        <option value="semestral">Semestral</option>
+        <option value="anual">Anual</option>
+    </select>
+    <button id="filtrar">Filtrar</button>
+</div>
+
                 <table id="tarea" class="display" style="width:100%">
                     <thead>
                         <tr>
@@ -22,11 +34,11 @@ $con = conectar(); ?>
                     </thead>
                     <tbody>
                         <?php
-                        $login = "SELECT m.nombre, t.activacion, t.periodicidad, t.id from tarea t INNER JOIN maquina m ON t.id_maquina= m.id ;";
+                        $login = "SELECT m.nombre, t.activacion, m.periodicidad, t.id from tarea t INNER JOIN maquina m ON t.id_maquina= m.id ;";
                         $resultado = mysqli_query($con, $login);
                         if ($resultado->num_rows > 0) {
                             while ($row = mysqli_fetch_assoc($resultado)) { ?>
-                                <tr>
+                                <tr class="<?php echo $row['periodicidad']; ?>">
                                     <td><?php echo $row["id"]; ?></td>
                                     <td><?php echo $row["nombre"]; ?></td>
                                     <td><?php echo $row["activacion"]; ?></td>

@@ -4,13 +4,10 @@ $con = conectar();
 
 $maquina = $_POST["maquina"];
 $activacion = date('Y-m-d');
-$periodicidad = $_POST["periodicidad"]?? null;
-$descripcion = $_POST["descripcion"];
-$solicitud_material = $_POST["solicitud_material"];
-$solicitud = $_POST["solicitud"];
+$proxima_activacion = date('Y-m-d');
 
-$registro = "INSERT INTO orden (id_maquina, fecha_solicitud, tipo_mantenimiento, descripcion, solicitud_material, solicitud) VALUES ($maquina, '$fecha_solicitud', '$tipo_mantenimiento', 
-'$descripcion', '$solicitud_material', '$solicitud')";
+
+$registro = "INSERT INTO tarea (id_maquina, activacion, proxima_activacion) VALUES ($maquina, '$activacion', '$proxima_activacion')";
 
 $resultado = mysqli_query($con, $registro);
 if ($resultado) {

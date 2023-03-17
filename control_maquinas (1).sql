@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3309
--- Tiempo de generación: 03-03-2023 a las 19:10:18
+-- Tiempo de generación: 17-03-2023 a las 19:41:25
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -78,7 +78,6 @@ CREATE TABLE `maquina` (
 
 INSERT INTO `maquina` (`id`, `codigo`, `nombre`, `marca`, `modelo`, `ubicacion`, `serial`, `voltaje`, `vigencia`, `lugar_origen`, `datos_proveedor`, `uso_diario`, `temperatura`, `tiempo_carga`, `nivel_ruido`, `personal`, `tipo`, `periodicidad`, `descripcion`) VALUES
 (47, 'MwC Component', 'Dilan', 'Barcel', 'epitelios', '23', '4567', 'amperios', '2023-02-23', 'alemania', 'Es importante ', '43', '23', '25', '56', 'interno', 'preventivo', 'semestral', 'Por favor Arreglen'),
-(55, '', 'dfdfdf', '', '', '', '', '', '2023-02-23', '', '', '', '', '', '', '', '', '', ''),
 (56, '', 'dilanchito', '', '', '', '', '', '2023-02-23', '', '', '', '', '', '', '', '', '', ''),
 (57, 'fjgfg', 'bmmmh', '', '', '', 'fggfg', '', '2023-02-24', '', '', '', '', '', '', 'interno', 'correctivo', 'trimestral', '');
 
@@ -131,7 +130,13 @@ INSERT INTO `orden` (`id`, `id_maquina`, `fecha_solicitud`, `descripcion`, `soli
 (12, 47, '2023-03-03', 'Por favor Arreglen', 'sapo ternero', 'sebastian Messi', '', '', 'mecanico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
 (13, 57, '2023-03-03', 'scsscsc', 'ggn', 'gmg', '', '', 'electrico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
 (14, 56, '2023-03-03', '', 'ss', 'ss', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(15, 47, '2023-03-03', '', '', 'sc', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto');
+(15, 47, '2023-03-03', '', '', 'sc', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
+(16, 56, '2023-03-03', 'no tienen nada que ver', 'por favor damelos', 'sebancho ', '', '', 'mecanico_conflictivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
+(17, 57, '2023-03-03', 'hola que hace', 'donde estas', 'pedro', '', '', 'electrico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
+(18, 47, '2023-03-03', 'scsscsc', 'd3d3d3d', '3d3d3d', '', '', 'electrico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
+(19, 57, '2023-03-03', 'yo soy CRPINGA', 'venga deme', 'dilan corredor leonel andress vinicus', '', '', 'mecanico_conflictivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
+(20, 47, '2023-03-03', 'NECESITO ARREGLAR PRONTO ESTO', 'Necesito cobre, oro, y a dilan', 'Sebastian Andres Messi', '', '', 'mecanico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
+(21, 47, '2023-03-16', 'scsscsc', 'hbhbf', 'fg', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto');
 
 -- --------------------------------------------------------
 
@@ -155,6 +160,9 @@ CREATE TABLE `orden_repuestos` (
 CREATE TABLE `repuesto` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
+  `marca` varchar(20) NOT NULL,
+  `referencia` varchar(30) NOT NULL,
+  `cantidad` varchar(50) NOT NULL,
   `valor` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -162,10 +170,11 @@ CREATE TABLE `repuesto` (
 -- Volcado de datos para la tabla `repuesto`
 --
 
-INSERT INTO `repuesto` (`id`, `nombre`, `valor`) VALUES
-(14, 'sebastian', '4567'),
-(21, 'sebancho', '4567'),
-(22, 'sebancho', '234');
+INSERT INTO `repuesto` (`id`, `nombre`, `marca`, `referencia`, `cantidad`, `valor`) VALUES
+(21, 'sebancho', '', '', '0', '4567'),
+(22, 'sebancho', '', '', '0', '234'),
+(24, 'un repuesto', 'marcador', 'no sabria decirle', '5', '35353'),
+(25, 'kmklmfld', 'kdmfldfm', 'dkmdlfmdlf', '33', '34');
 
 -- --------------------------------------------------------
 
@@ -187,7 +196,8 @@ CREATE TABLE `tarea` (
 --
 
 INSERT INTO `tarea` (`id`, `id_maquina`, `activacion`, `periodicidad`, `descripcion`, `proxima_activacion`) VALUES
-(3, 57, '2023-03-08', 'Mensual', '', NULL);
+(3, 57, '2023-03-08', 'Mensual', '', NULL),
+(4, 47, '2023-03-17', '', '', '2023-03-17');
 
 -- --------------------------------------------------------
 
@@ -284,7 +294,7 @@ ALTER TABLE `maquina`
 -- AUTO_INCREMENT de la tabla `orden`
 --
 ALTER TABLE `orden`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `orden_repuestos`
@@ -296,13 +306,13 @@ ALTER TABLE `orden_repuestos`
 -- AUTO_INCREMENT de la tabla `repuesto`
 --
 ALTER TABLE `repuesto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `tarea`
 --
 ALTER TABLE `tarea`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

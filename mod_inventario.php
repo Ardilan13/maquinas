@@ -51,6 +51,9 @@ $con = conectar(); ?>
                         <thead>
                             <tr>
                                 <th class="th_rep">Nombre</th>
+                                <th class="th_rep">Marca</th>
+                                <th class="th_rep">Referencia</th>
+                                <th class="th_rep">Cantidad</th>
                                 <th class="th_rep">Valor</th>
                                 <th class="th_rep th_borrar">Borrar</th>
                             </tr>
@@ -63,6 +66,9 @@ $con = conectar(); ?>
                                 while ($row = mysqli_fetch_assoc($resultado)) { ?>
                                     <tr>
                                         <td><?php echo $row["nombre"]; ?></td>
+                                        <td><?php echo $row["marca"]; ?></td>
+                                        <td><?php echo $row["referencia"]; ?></td>
+                                        <td><?php echo $row["cantidad"]; ?></td>
                                         <td><?php echo $row["valor"]; ?></td>
                                         <td><button class="btn_delete_rep delete_rep" id="<?php echo $row["id"]; ?>">Borrar</button></td>
                                     </tr>
