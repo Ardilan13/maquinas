@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3309
--- Tiempo de generación: 17-03-2023 a las 19:41:25
+-- Tiempo de generación: 17-03-2023 a las 19:51:52
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -196,8 +196,9 @@ CREATE TABLE `tarea` (
 --
 
 INSERT INTO `tarea` (`id`, `id_maquina`, `activacion`, `periodicidad`, `descripcion`, `proxima_activacion`) VALUES
-(3, 57, '2023-03-08', 'Mensual', '', NULL),
-(4, 47, '2023-03-17', '', '', '2023-03-17');
+(9, 57, '2023-03-17', '', '', '2023-03-17'),
+(12, 57, '2023-03-16', '', '', '2023-03-18'),
+(13, 57, '2023-03-17', '', '', '2023-03-17');
 
 -- --------------------------------------------------------
 
@@ -266,7 +267,7 @@ ALTER TABLE `repuesto`
 --
 ALTER TABLE `tarea`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `fk_id_maquina` (`id_maquina`);
+  ADD KEY `fk_id_maquina` (`id_maquina`) USING BTREE;
 
 --
 -- Indices de la tabla `usuario`
@@ -312,7 +313,7 @@ ALTER TABLE `repuesto`
 -- AUTO_INCREMENT de la tabla `tarea`
 --
 ALTER TABLE `tarea`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
