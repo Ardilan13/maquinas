@@ -94,7 +94,7 @@ if ($id != null) {
                                                                                                     if ($tipo_mantenimiento == 'mecanico_preventivo') echo 'checked'; ?>>
                     </div>
                     <div>
-                        <label for="tipo_mantenimiento">Mecanico Conflictivo</label>
+                        <label for="tipo_mantenimiento">Mecanico Correctivo</label>
                         <input type="radio" name="tipo_mantenimiento" value="mecanico_conflictivo" <?php if ($id != null) echo 'disabled ';
                                                                                                     if ($tipo_mantenimiento == 'mecanico_conflictivo') echo 'checked'; ?>>
                     </div>
@@ -104,14 +104,14 @@ if ($id != null) {
                                                                                                     if ($tipo_mantenimiento == 'electrico_preventivo') echo 'checked'; ?>>
                     </div>
                     <div>
-                        <label for="tipo_mantenimiento">Electrico Conflictivo</label>
+                        <label for="tipo_mantenimiento">Electrico Correctivo</label>
                         <input type="radio" name="tipo_mantenimiento" value="electrico_conflictivo" <?php if ($id != null) echo 'disabled ';
                                                                                                     if ($tipo_mantenimiento == 'electrico_conflictivo') echo 'checked'; ?>>
                     </div>
                 </div>
 
                 <div class="input">
-                    <label for="descripcion">Descripcion:</label>
+                    <label for="descripcion">Descripcion del Servicio:</label>
                     <input type="text" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                 </div>
                 <div class="input">
@@ -122,6 +122,8 @@ if ($id != null) {
                     <label for="solicitud">Solicitado Por:</label>
                     <input type="text" id="solicitud" name="solicitud" value="<?php echo $solicitud; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                 </div>
+                <button id="regresar_soli">Volver</button>
+
                 <?php if ($id == null) { ?>
                     <button id="btn_creacion_soli">Crear Solicitud</button>
                 <?php } ?>

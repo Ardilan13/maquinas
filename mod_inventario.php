@@ -81,6 +81,7 @@ $con = conectar(); ?>
                     <button hidden id="clonar1">clon</button>
                 </div>
             </div>
+            <button id="regresar_menu">Menu Principal</button>
         </div>
     </div>
     <?php require_once 'includes/footer.php'; ?>

@@ -72,6 +72,7 @@ if ($id != null) {
                     <label for="proxima_activacion">Proxima_Activacion:</label>
                     <input type="date" id="proxima_activacion" name="proxima_activacion" value="<?php echo $proxima_activacion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                 </div>
+                <button id="regresar_tar">Volver</button>
                 <?php if ($id == null) { ?>
                     <button id="btn_creacion_tar">Crear Tarea</button>
                 <?php } ?>

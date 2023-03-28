@@ -7,11 +7,11 @@ $correctivo = 0; ?>
 <main>
     <div class="container">
         <div class="header">
-            <p>Maquinas</p>
+            <p>Activos</p>
         </div>
         <div class="info">
             <div class="cont_gen">
-                <button class="btn_maq">Crear Maquina</button>
+                <button class="btn_maq">Crear Activo</button>
                 <table id="maqn" class="display" style="width:100%">
                     <thead>
                         <tr>
@@ -20,8 +20,8 @@ $correctivo = 0; ?>
                             <th class='th_comp'>Marca</th>
                             <th class='th_comp'>Modelo</th>
                             <th class='th_comp'>Numero de Inventario</th>
-                            <th class='th_comp'>O. Pre</th>
-                            <th class='th_comp'>O. Cor</th>
+                            <th class='th_comp'>OTs Pre</th>
+                            <th class='th_comp'>OTs Cor</th>
                             <th class='th_comp'>Ver</th>
                             <th class='th_comp'>Borrar</th>
                         </tr>
@@ -67,6 +67,7 @@ $correctivo = 0; ?>
                 </table>
                 <button hidden id="clonar2">clon</button>
             </div>
+            <button id="regresar_menu">Menu Principal</button>
         </div>
     </div>
     <?php require_once 'includes/footer.php'; ?>

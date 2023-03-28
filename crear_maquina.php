@@ -51,7 +51,7 @@ if ($id != null) {
 <main>
     <div class="container">
         <div class="header">
-            <p>Consultar Maquina</p>
+            <p>Consultar Activo</p>
         </div>
         <div class="info">
 
@@ -78,7 +78,10 @@ if ($id != null) {
                         <label for="datos_proveedor">Datos del Proveedor:</label>
                         <input type="text" id="datos_proveedor" name="datos_proveedor" value="<?php echo $datos_proveedor; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
-
+                    <div class="input">
+                        <label for="ubicacion">Numero de Inventario:</label>
+                        <input type="text" id="ubicacion" name="ubicacion" value="<?php echo $ubicacion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    </div>
                     <div class="input">
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" value="<?php echo $nombre; ?>" <?php if ($id != null) echo 'disabled '; ?>>
@@ -99,10 +102,7 @@ if ($id != null) {
                         <label for="modelo">Modelo:</label>
                         <input type="text" id="modelo" name="modelo" value="<?php echo $modelo; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
-                    <div class="input">
-                        <label for="lugar_origen">Lugar_Origen:</label>
-                        <input type="text" id="lugar_origen" name="lugar_origen" value="<?php echo $lugar_origen; ?>" <?php if ($id != null) echo 'disabled '; ?>>
-                    </div>
+
                 </div>
                 <div class="flex"></div>
 
@@ -114,12 +114,12 @@ if ($id != null) {
                         <input type="text" id="uso_diario" name="uso_diario" value="<?php echo $uso_diario; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
                     <div class="input">
-                        <label for="temperatura">Temperatura de operación:</label>
+                        <label for="temperatura">Temperatura de operación (°C):</label>
                         <input type="text" id="temperatura" name="temperatura" value="<?php echo $temperatura; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
                     <div class="input">
-                        <label for="tiempo_carga">Tiempo de carga:</label>
-                        <input type="text" id="tiempo_carga" name="tiempo_carga" value="<?php echo $tiempo_carga; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                        <label for="datos_proveedor">Datos del Proveedor:</label>
+                        <input type="text" id="datos_proveedor" name="datos_proveedor" value="<?php echo $datos_proveedor; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
                 </div>
                 <div class="flex">
@@ -128,8 +128,12 @@ if ($id != null) {
                         <input type="text" id="nivel_ruido" name="nivel_ruido" value="<?php echo $nivel_ruido; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
                     <div class="input">
-                        <label for="ubicacion">Ubicacion:</label>
-                        <input type="text" id="ubicacion" name="ubicacion" value="<?php echo $ubicacion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                        <label for="tiempo_carga">Indicadores de desempeño:</label>
+                        <input type="text" id="tiempo_carga" name="tiempo_carga" value="<?php echo $tiempo_carga; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    </div>
+                    <div class="input">
+                        <label for="lugar_origen">Fecha de Operacion:</label>
+                        <input type="date" id="lugar_origen" name="lugar_origen" value="<?php echo $lugar_origen; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
                 </div>
                 <p>Mantenimiento</p>
@@ -184,12 +188,12 @@ if ($id != null) {
                     </div>
                 </div>
                 <div class="input">
-                    <label for="descripcion">Descripcion:</label>
+                    <label for="descripcion">Descripcion del Mantenimiento:</label>
                     <input type="text" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                 </div>
-
+                <button id="regresar_maqn">Volver</button>
                 <?php if ($id == null) { ?>
-                    <button id="btn_creacion_maqn">Agregar Maquina</button>
+                    <button id="btn_creacion_maqn">Agregar Activo</button>
                 <?php } ?>
 
             </form>

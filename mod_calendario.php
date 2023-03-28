@@ -3,9 +3,9 @@
 <main>
     <div class="container">
         <div class="header">
-            <p>Calendario</p>
+            <p>Programación</p>
+            <button id="regresar_menu">Menu Principal</button>
         </div>
-        
     </div>
 </main>
 

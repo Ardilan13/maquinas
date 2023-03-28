@@ -11,7 +11,7 @@
             <a class="mp_btn" href="mod_solicitud.php">Solicitudes de Mantenimiento</a>
             <a class="mp_btn" href="mod_orden.php">Ordenes de Trabajo</a>
             <a class="mp_btn" href="mod_tarea.php">Planes de Mantenimiento</a>
-            <a class="mp_btn" href="mod_calendario.php">Calendario</a>
+            <a class="mp_btn" href="mod_calendario.php">Programación</a>
             <a id="cerrar_sesion" href="ajax/logout.php">Cerrar Sesion</a>
         </div>
     </div>
