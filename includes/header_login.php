@@ -15,9 +15,21 @@
 
 <body>
     <header>
-        <p>MantUIS</p>
+        <div class="header_img">
+            <picture>
+                <source srcset="build/img/logo.jpg" type="image/jpg">
+                <source srcset="build/img/logo.jpg" type="image/jpeg">
+                <img class="logo" loading="lazy" src="build/img/logo.jpg" alt="Texto entrada blog">
+            </picture>
+            <p>MantUIS</p>
+        </div>
         <div id="header_registro">
             <a href="index.php">Ingresar</a>
             <a href="registro.php">Registro</a>
         </div>
     </header>
+    <nav>
+        <div class="links">
+            <a></a>
+        </div>
+    </nav>

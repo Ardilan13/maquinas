@@ -1,8 +1,8 @@
 @use "../base/variables" as v;
 @use "base/mixins" as m;
 .menu_principal {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
   .mp_btn,
   #cerrar_sesion {
@@ -13,6 +13,11 @@
     color: v.$blanco;
     margin-bottom: 1.2rem;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+    font-size: 2rem;
   }
   .mp_btn:hover {
     background-color: darken(v.$verde, 10);

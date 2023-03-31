@@ -6,8 +6,8 @@ header {
   justify-content: space-between;
   background-color: v.$blanco;
   align-items: center;
-  padding: 2rem 10rem;
-  box-shadow: 5px 3px 3px v.$grisO;
+  padding: 1rem 10rem;
+  /* box-shadow: 5px 3px 3px v.$grisO; */
   a {
     text-decoration: none;
     color: darkgray;
@@ -16,18 +16,39 @@ header {
   a:hover {
     color: v.$negro;
   }
-   
 
-  picture{
-    
+  picture {
     display: flex; /*alinear vertical y horizontalmente*/
-     height: 40px;
-     width: 40px;
-    
-     
-   }
+    height: 40px;
+    width: 40px;
+  }
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: v.$verde;
 
+  .links {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 
+    a {
+      text-decoration: none;
+      color: v.$blanco;
+      font-size: 1.5rem;
+      margin-right: 2rem;
+      padding: 0.5% 0;
+    }
+    a:hover {
+      color: v.$grisO;
+    }
+  }
+}
 
+#cerrar {
+  color: v.$rojo;
+}

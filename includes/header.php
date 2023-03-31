@@ -22,7 +22,7 @@
 <body>
     <header>
 
-        <div class="header_img">
+        <div class="header_img_login">
             <picture>
                 <source srcset="build/img/logo.jpg" type="image/jpg">
                 <source srcset="build/img/logo.jpg" type="image/jpeg">
@@ -32,6 +32,17 @@
         </div>
         <div id="header_user">
             <a id="a_user"><?php echo $_SESSION["nombre"]; ?></a>
-            <a href="ajax/logout.php">Cerrar Sesion</a>
+            <a id="cerrar" href="ajax/logout.php">Cerrar Sesion</a>
         </div>
     </header>
+    <nav>
+        <div class="links">
+            <a href="menu.php">Inicio</a>
+            <a href="mod_maquina.php">Activos</a>
+            <a href="mod_inventario.php">Inventario</a>
+            <a href="mod_solicitud.php">Solicitudes</a>
+            <a href="mod_orden.php">Ordenes</a>
+            <a href="mod_tarea.php">Planes</a>
+            <a href="mod_calendario.php">Programacion</a>
+        </div>
+    </nav>

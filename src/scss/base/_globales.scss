@@ -16,7 +16,9 @@ html {
 body {
   font-family: v.$fuentePrincipal;
   font-size: 1.6rem;
-  background-color: v.$gris;
+  background-image: url("../img/guati.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 p {
@@ -98,7 +100,8 @@ main {
   }
 }
 
-.header_img {
+.header_img,
+.header_img_login {
   display: flex;
   align-items: center;
   justify-content: center;

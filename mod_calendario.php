@@ -4,7 +4,8 @@
     <div class="container">
         <div class="header">
             <p>Programación</p>
-            <button id="regresar_menu">Menu Principal</button>
+        </div>
+        <div class="info">
         </div>
     </div>
 </main>

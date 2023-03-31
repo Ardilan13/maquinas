@@ -63,146 +63,24 @@ $(document).ready(function () {
     },
   });
 
-  var table = $("#componente").DataTable({
-    orderCellsTop: true,
-    fixedHeader: true,
-  });
-  let temp = $("#clonar").clone();
-  $("#clonar").click(function () {
-    $("#clonar").after(temp);
-  });
-
-  //Crea el buscador de cada atributo
-  /*   $("#productos thead tr").clone(true).appendTo("#productos thead");
-   */
-  $("#componente thead tr:eq(1) th").each(function (i) {
-    var title = $(this).text(); //es el nombre de la columna
-    $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
-
-    $("input", this).on("keyup change", function () {
-      if (table.column(i).search() !== this.value) {
-        table.column(i).search(this.value).draw();
-      }
-    });
-  });
-
-  //estilo tabla repuesto
-  var table1 = $("#repuesto").DataTable({
-    orderCellsTop: true,
-    fixedHeader: true,
-  });
-  let temp1 = $("#clonar1").clone();
-  $("#clonar1").click(function () {
-    $("#clonar1").after(temp1);
-  });
-
-  //Crea el buscador de cada atributo
-  /*   $("#productos thead tr").clone(true).appendTo("#productos thead");
-   */
-  $("#repuesto thead tr:eq(1) th").each(function (i) {
-    var title = $(this).text(); //es el nombre de la columna
-    $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
-
-    $("input", this).on("keyup change", function () {
-      if (table1.column(i).search() !== this.value) {
-        table1.column(i).search(this.value).draw();
-      }
-    });
-  });
-
-  //estilo tabla maquina
-  var table2 = $("#maqn").DataTable({
-    orderCellsTop: true,
-    fixedHeader: true,
-  });
-  let temp2 = $("#clonar2").clone();
-  $("#clonar2").click(function () {
-    $("#clonar2").after(temp2);
-  });
-
-  //Crea el buscador de cada atributo
-  /*   $("#productos thead tr").clone(true).appendTo("#productos thead");
-   */
-  $("#maqn thead tr:eq(1) th").each(function (i) {
-    var title = $(this).text(); //es el nombre de la columna
-    $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
-
-    $("input", this).on("keyup change", function () {
-      if (table2.column(i).search() !== this.value) {
-        table2.column(i).search(this.value).draw();
-      }
-    });
-  });
-  //estilo tabla Servicios
-  var table3 = $("#soli").DataTable({
-    orderCellsTop: true,
-    fixedHeader: true,
-  });
-  let temp3 = $("#clonar3").clone();
-  $("#clonar3").click(function () {
-    $("#clonar3").after(temp3);
-  });
-
-  //Crea el buscador de cada atributo
-  /*   $("#productos thead tr").clone(true).appendTo("#productos thead");
-   */
-  $("#soli thead tr:eq(1) th").each(function (i) {
-    var title = $(this).text(); //es el nombre de la columna
-    $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
-
-    $("input", this).on("keyup change", function () {
-      if (table3.column(i).search() !== this.value) {
-        table3.column(i).search(this.value).draw();
-      }
-    });
-  });
-
-  //estilo tabla Orden de Trabajo
-  var table4 = $("#orden").DataTable({
-    orderCellsTop: true,
-    fixedHeader: true,
-  });
-  let temp4 = $("#clonar4").clone();
-  $("#clonar4").click(function () {
-    $("#clonar4").after(temp4);
-  });
-
-  //Crea el buscador de cada atributo
-  /*   $("#productos thead tr").clone(true).appendTo("#productos thead");
-   */
-  $("#orden thead tr:eq(1) th").each(function (i) {
-    var title = $(this).text(); //es el nombre de la columna
-    $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
-
-    $("input", this).on("keyup change", function () {
-      if (table4.column(i).search() !== this.value) {
-        table4.column(i).search(this.value).draw();
-      }
-    });
-  });
-
-  //estilo tabla Tareas
-  var table5 = $("#tarea").DataTable({
-    orderCellsTop: true,
-    fixedHeader: true,
-  });
-  let temp5 = $("#clonar5").clone();
-  $("#clonar5").click(function () {
-    $("#clonar5").after(temp5);
-  });
-
-  //Crea el buscador de cada atributo
-  /*   $("#productos thead tr").clone(true).appendTo("#productos thead");
-   */
-  $("#tarea thead tr:eq(1) th").each(function (i) {
-    var title = $(this).text(); //es el nombre de la columna
-    $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
-
-    $("input", this).on("keyup change", function () {
-      if (table5.column(i).search() !== this.value) {
-        table5.column(i).search(this.value).draw();
-      }
-    });
+  var table = $("table").DataTable({
+    colReorder: true,
+    fixedColumns: true,
+    language: {
+      lengthMenu: "Mostrar _MENU_ registros por página",
+      zeroRecords: "No se encontraron registros",
+      info: "Mostrando página _PAGE_ de _PAGES_",
+      infoEmpty: "No hay registros disponibles",
+      infoFiltered: "(filtrado de _MAX_ registros totales)",
+      search: "Buscar:",
+      paginate: {
+        first: "Primero",
+        last: "Último",
+        next: "Siguiente",
+        previous: "Anterior",
+      },
+    },
+    responsive: false,
   });
 });
 
@@ -282,8 +160,6 @@ $(".delete_soli").on("click", function (e) {
 });
 
 //Boton actualizar datos de solicitud
-
-
 
 //Botones que reenvian a los modulos de creacion
 $(".btn_comp").on("click", function (e) {
@@ -504,20 +380,20 @@ $("#btn_creacion_tar").on("click", function (e) {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  var btnFiltrar = document.getElementById('filtrar');
-  var selectPeriodicidad = document.getElementById('periodicidad');
-  var tablaTareas = document.getElementById('tarea');
+document.addEventListener("DOMContentLoaded", function () {
+  var btnFiltrar = document.getElementById("filtrar");
+  var selectPeriodicidad = document.getElementById("periodicidad");
+  var tablaTareas = document.getElementById("tarea");
 
-  btnFiltrar.addEventListener('click', function () {
+  btnFiltrar.addEventListener("click", function () {
     var filtro = selectPeriodicidad.value;
-    var filas = tablaTareas.getElementsByTagName('tr');
+    var filas = tablaTareas.getElementsByTagName("tr");
     for (var i = 0; i < filas.length; i++) {
       var fila = filas[i];
-      if (filtro == '' || fila.classList.contains(filtro)) {
-        fila.style.display = '';
+      if (filtro == "" || fila.classList.contains(filtro)) {
+        fila.style.display = "";
       } else {
-        fila.style.display = 'none';
+        fila.style.display = "none";
       }
     }
   });
@@ -527,15 +403,19 @@ $(document).ready(function () {
   // ...
 
   // Controlador de eventos para el botón "Ver"
-  $('.ver_tarea').on('click', function () {
-    var tarea_id = $(this).data('tarea');
-    var maquina_id = $(this).closest('tr').data('maquina');
-    $('#tarea tr').hide();
-    $('#tarea tr[data-maquina="' + maquina_id + '"][data-tarea="' + tarea_id + '"]').show();
-    $('#clonar5').trigger('click');
+  $(".ver_tarea").on("click", function () {
+    var tarea_id = $(this).data("tarea");
+    var maquina_id = $(this).closest("tr").data("maquina");
+    $("#tarea tr").hide();
+    $(
+      '#tarea tr[data-maquina="' +
+        maquina_id +
+        '"][data-tarea="' +
+        tarea_id +
+        '"]'
+    ).show();
+    $("#clonar5").trigger("click");
   });
-
-  // ...
 });
 
 //regresar a la parte del datatables
