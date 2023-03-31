@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3309
--- Tiempo de generación: 17-03-2023 a las 19:51:52
+-- Tiempo de generación: 31-03-2023 a las 05:48:55
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -60,7 +60,7 @@ CREATE TABLE `maquina` (
   `serial` text NOT NULL,
   `voltaje` varchar(10) NOT NULL,
   `vigencia` date DEFAULT NULL,
-  `lugar_origen` varchar(50) NOT NULL,
+  `lugar_origen` date NOT NULL,
   `datos_proveedor` text NOT NULL,
   `uso_diario` varchar(30) NOT NULL,
   `temperatura` varchar(10) NOT NULL,
@@ -77,9 +77,11 @@ CREATE TABLE `maquina` (
 --
 
 INSERT INTO `maquina` (`id`, `codigo`, `nombre`, `marca`, `modelo`, `ubicacion`, `serial`, `voltaje`, `vigencia`, `lugar_origen`, `datos_proveedor`, `uso_diario`, `temperatura`, `tiempo_carga`, `nivel_ruido`, `personal`, `tipo`, `periodicidad`, `descripcion`) VALUES
-(47, 'MwC Component', 'Dilan', 'Barcel', 'epitelios', '23', '4567', 'amperios', '2023-02-23', 'alemania', 'Es importante ', '43', '23', '25', '56', 'interno', 'preventivo', 'semestral', 'Por favor Arreglen'),
-(56, '', 'dilanchito', '', '', '', '', '', '2023-02-23', '', '', '', '', '', '', '', '', '', ''),
-(57, 'fjgfg', 'bmmmh', '', '', '', 'fggfg', '', '2023-02-24', '', '', '', '', '', '', 'interno', 'correctivo', 'trimestral', '');
+(47, 'MwC Component', 'Dilan', 'Barcel', 'epitelios', '23', '4567', 'amperios', '2023-02-23', '0000-00-00', 'Es importante ', '43', '23', '25', '56', 'interno', 'preventivo', 'semestral', 'Por favor Arreglen'),
+(56, '', 'dilanchito', '', '', '', '', '', '2023-02-23', '0000-00-00', '', '', '', '', '', '', '', '', ''),
+(57, 'fjgfg', 'bmmmh', '', '', '', 'fggfg', '', '2023-02-24', '0000-00-00', '', '', '', '', '', 'interno', 'correctivo', 'trimestral', ''),
+(58, '', 'sebastian', '', '', '', 'vbb', '', '2023-03-27', '2023-03-27', '', '', '', '', '', '', '', '', ''),
+(59, '', 'huevo', '', '', '', '', '', '2023-03-27', '2023-03-27', 'DIOSSSSSSSS', '', '', '45', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -118,11 +120,7 @@ CREATE TABLE `orden` (
 --
 
 INSERT INTO `orden` (`id`, `id_maquina`, `fecha_solicitud`, `descripcion`, `solicitud_material`, `solicitud`, `lugar_orden`, `asignacion`, `tipo_mantenimiento`, `motivo`, `descripcion_tarea`, `herramientas`, `reporte`, `observaciones`, `fecha_hora_inicio`, `fecha_hora_fin`, `mano_obra`, `transportes`, `consumibles`, `otros`, `valor_repuestos`, `total`, `estado`) VALUES
-(3, 47, '2023-02-08', '', '', '', '', '', 'afk', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(4, 47, '0000-00-00', 'gmgm', 'ggn', 'gmg', '', '', 'gng', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
 (5, 47, '2023-02-24', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(6, 56, '2023-02-24', 'scsscsc', 'ggn', 'olis olis', '', '', 'mecanico_conflictivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(7, 56, '2023-02-24', 'fsfsf', 'scsc', 'scscs', '', '', 'mecanico_conflictivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
 (8, 56, '2023-02-25', 'NECESITO ARREGLAR PRONTO ESTO', 'Necesito cobre, oro, y a dilan', 'Sebastian Andres Messi', '', '', 'mecanico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
 (9, 47, '2023-02-25', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
 (10, 47, '2023-02-25', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
@@ -289,7 +287,7 @@ ALTER TABLE `componente`
 -- AUTO_INCREMENT de la tabla `maquina`
 --
 ALTER TABLE `maquina`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de la tabla `orden`
