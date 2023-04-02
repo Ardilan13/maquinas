@@ -85,28 +85,32 @@ if ($id != null) {
                     <input type="date" id="fecha_solicitud" name="fecha_solicitud" value="<?php echo $fecha_solicitud; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                 </div>
 
+                <div class="radio_buttons">
+                    <div>
+                        <label for="tipo_mantenimiento">Tipo de Mantenimiento:</label>
+                    </div>
+                    <div class="radios">
+                        <div>
+                            <input type="radio" name="tipo_mantenimiento" value="mecanico_preventivo" <?php if ($id != null) echo 'disabled ';
+                                                                                                        if ($tipo_mantenimiento == 'mecanico_preventivo') echo 'checked'; ?>>
 
-                <div class="input">
-                    <label for="tipo_mantenimiento">Tipo de Mantenimiento:</label>
-                    <div>
-                        <label for="tipo_mantenimiento">Mecanico Preventivo</label>
-                        <input type="radio" name="tipo_mantenimiento" value="mecanico_preventivo" <?php if ($id != null) echo 'disabled ';
-                                                                                                    if ($tipo_mantenimiento == 'mecanico_preventivo') echo 'checked'; ?>>
-                    </div>
-                    <div>
-                        <label for="tipo_mantenimiento">Mecanico Correctivo</label>
-                        <input type="radio" name="tipo_mantenimiento" value="mecanico_conflictivo" <?php if ($id != null) echo 'disabled ';
-                                                                                                    if ($tipo_mantenimiento == 'mecanico_conflictivo') echo 'checked'; ?>>
-                    </div>
-                    <div>
-                        <label for="tipo_mantenimiento">Electrico Preventivo</label>
-                        <input type="radio" name="tipo_mantenimiento" value="electrico_preventivo" <?php if ($id != null) echo 'disabled ';
-                                                                                                    if ($tipo_mantenimiento == 'electrico_preventivo') echo 'checked'; ?>>
-                    </div>
-                    <div>
-                        <label for="tipo_mantenimiento">Electrico Correctivo</label>
-                        <input type="radio" name="tipo_mantenimiento" value="electrico_conflictivo" <?php if ($id != null) echo 'disabled ';
-                                                                                                    if ($tipo_mantenimiento == 'electrico_conflictivo') echo 'checked'; ?>>
+                            <label for="tipo_mantenimiento">Mecanico Preventivo</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="tipo_mantenimiento" value="mecanico_conflictivo" <?php if ($id != null) echo 'disabled ';
+                                                                                                        if ($tipo_mantenimiento == 'mecanico_conflictivo') echo 'checked'; ?>>
+                            <label for="tipo_mantenimiento">Mecanico Correctivo</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="tipo_mantenimiento" value="electrico_preventivo" <?php if ($id != null) echo 'disabled ';
+                                                                                                        if ($tipo_mantenimiento == 'electrico_preventivo') echo 'checked'; ?>>
+                            <label for="tipo_mantenimiento">Electrico Preventivo</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="tipo_mantenimiento" value="electrico_conflictivo" <?php if ($id != null) echo 'disabled ';
+                                                                                                        if ($tipo_mantenimiento == 'electrico_conflictivo') echo 'checked'; ?>>
+                            <label for="tipo_mantenimiento">Electrico Correctivo</label>
+                        </div>
                     </div>
                 </div>
 

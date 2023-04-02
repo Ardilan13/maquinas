@@ -67,7 +67,6 @@ $correctivo = 0; ?>
                 </table>
                 <button hidden id="clonar2">clon</button>
             </div>
-            <button id="regresar_menu">Menu Principal</button>
         </div>
     </div>
     <?php require_once 'includes/footer.php'; ?>

@@ -10,17 +10,6 @@ $con = conectar(); ?>
         <div class="info">
             <div class="cont_gen">
                 <button class="btn_tar">Crear Tarea</button>
-                <div>
-    <label for="periodicidad">Ver tareas por periodicidad:</label>
-    <select id="periodicidad">
-        <option value="">Todas</option>
-        <option value="mensual">Mensual</option>
-        <option value="trimestral">Trimestral</option>
-        <option value="semestral">Semestral</option>
-        <option value="anual">Anual</option>
-    </select>
-    <button id="filtrar">Filtrar</button>
-</div>
 
                 <table id="tarea" class="display" style="width:100%">
                     <thead>
@@ -53,7 +42,17 @@ $con = conectar(); ?>
                 </table>
                 <button hidden id="clonar5">clon</button>
             </div>
-            <button id="regresar_menu">Menu Principal</button>
+            <div>
+                <label for="periodicidad">Ver tareas por periodicidad:</label>
+                <select id="periodicidad">
+                    <option value="">Todas</option>
+                    <option value="mensual">Mensual</option>
+                    <option value="trimestral">Trimestral</option>
+                    <option value="semestral">Semestral</option>
+                    <option value="anual">Anual</option>
+                </select>
+                <button id="filtrar">Filtrar</button>
+            </div>
         </div>
     </div>
     <?php require_once 'includes/footer.php'; ?>

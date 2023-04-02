@@ -443,10 +443,3 @@ $("#regresar_maqn").on("click", function (e) {
   e.preventDefault();
   window.location.href = "mod_maquina.php";
 });
-
-//regresar al menu principal
-
-$("#regresar_menu").on("click", function (e) {
-  e.preventDefault();
-  window.location.href = "menu.php";
-});

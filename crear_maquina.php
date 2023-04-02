@@ -72,8 +72,6 @@ if ($id != null) {
                         <label for="voltaje">Voltaje:</label>
                         <input type="text" id="voltaje" name="voltaje" value="<?php echo $voltaje; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
-                </div>
-                <div class="flex">
                     <div class="input">
                         <label for="datos_proveedor">Datos del Proveedor:</label>
                         <input type="text" id="datos_proveedor" name="datos_proveedor" value="<?php echo $datos_proveedor; ?>" <?php if ($id != null) echo 'disabled '; ?>>
@@ -86,8 +84,6 @@ if ($id != null) {
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" value="<?php echo $nombre; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
-                </div>
-                <div class="flex">
                     <div class="input">
                         <label for="marca">Marca:</label>
                         <input type="text" id="marca" name="marca" value="<?php echo $marca; ?>" <?php if ($id != null) echo 'disabled '; ?>>
@@ -96,17 +92,13 @@ if ($id != null) {
                         <label for="vigencia">Vigente desde(YYYY-MM-DD):</label>
                         <input type="date" id="vigencia" name="vigencia" value="<?php echo $vigencia; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
-                </div>
-                <div class="flex">
                     <div class="input">
                         <label for="modelo">Modelo:</label>
                         <input type="text" id="modelo" name="modelo" value="<?php echo $modelo; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
-
                 </div>
-                <div class="flex"></div>
 
-                <p>Condiciones de Operacion</p>
+                <p id="p_issue">Condiciones de Operacion</p>
 
                 <div class="flex">
                     <div class="input">
@@ -121,8 +113,6 @@ if ($id != null) {
                         <label for="datos_proveedor">Datos del Proveedor:</label>
                         <input type="text" id="datos_proveedor" name="datos_proveedor" value="<?php echo $datos_proveedor; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
-                </div>
-                <div class="flex">
                     <div class="input">
                         <label for="nivel_ruido">Nivel de Ruido:</label>
                         <input type="text" id="nivel_ruido" name="nivel_ruido" value="<?php echo $nivel_ruido; ?>" <?php if ($id != null) echo 'disabled '; ?>>
@@ -137,7 +127,7 @@ if ($id != null) {
                     </div>
                 </div>
                 <p>Mantenimiento</p>
-                <div class="flex">
+                <div class="grid">
                     <div class="input input_radio">
                         <label for="personal">Personal:</label>
                         <div class="radios">
@@ -150,8 +140,28 @@ if ($id != null) {
                             <label for="personal">Externo</label>
                         </div>
                     </div>
-                </div>
-                <div class="flex">
+                    <div class="input input_radio">
+                        <div>
+                            <label for="periodo">Periodicidad:</label>
+                        </div>
+                        <div class="radios">
+                            <input type="radio" name="periodicidad" value="mensual" <?php if ($id != null) echo 'disabled ';
+                                                                                    if ($periodicidad == 'mensual') echo 'checked'; ?>>
+                            <label for="periodicidad">Mensual</label>
+
+                            <input type="radio" name="periodicidad" value="trimestral" <?php if ($id != null) echo 'disabled ';
+                                                                                        if ($periodicidad == 'trimestral') echo 'checked'; ?>>
+                            <label for="periodicidad">Trimestral</label>
+
+                            <input type="radio" name="periodicidad" value="semestral" <?php if ($id != null) echo 'disabled ';
+                                                                                        if ($periodicidad == 'semestral') echo 'checked'; ?>>
+                            <label for="periodicidad">Semestral</label>
+
+                            <input type="radio" name="periodicidad" value="anual" <?php if ($id != null) echo 'disabled ';
+                                                                                    if ($periodicidad == 'anual') echo 'checked'; ?>>
+                            <label for="periodicidad">Anual</label>
+                        </div>
+                    </div>
                     <div class="input input_radio">
                         <div>
                             <label for="tipo">Tipo:</label>
@@ -163,27 +173,6 @@ if ($id != null) {
                             <input type="radio" name="tipo" value="preventivo" <?php if ($id != null) echo 'disabled ';
                                                                                 if ($tipo == 'preventivo') echo 'checked'; ?>>
                             <label for="tipo">Preventivo</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex">
-                    <div class="input input_radio">
-                        <div>
-                            <label for="periodo">Periodicidad:</label>
-                        </div>
-                        <div class="radios">
-                            <label for="periodicidad">Mensual</label>
-                            <input type="radio" name="periodicidad" value="mensual" <?php if ($id != null) echo 'disabled ';
-                                                                                    if ($periodicidad == 'mensual') echo 'checked'; ?>>
-                            <label for="periodicidad">Trimestral</label>
-                            <input type="radio" name="periodicidad" value="trimestral" <?php if ($id != null) echo 'disabled ';
-                                                                                        if ($periodicidad == 'trimestral') echo 'checked'; ?>>
-                            <label for="periodicidad">Semestral</label>
-                            <input type="radio" name="periodicidad" value="semestral" <?php if ($id != null) echo 'disabled ';
-                                                                                        if ($periodicidad == 'semestral') echo 'checked'; ?>>
-                            <label for="periodicidad">Anual</label>
-                            <input type="radio" name="periodicidad" value="anual" <?php if ($id != null) echo 'disabled ';
-                                                                                    if ($periodicidad == 'anual') echo 'checked'; ?>>
                         </div>
                     </div>
                 </div>

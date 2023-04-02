@@ -9,7 +9,6 @@ $con = conectar(); ?>
         </div>
         <div class="info">
             <div class="cont_gen">
-                <button class="btn_maq">Crear Orden de Trabajo</button>
                 <table id="orden" class="display" style="width:100%">
                     <thead>
                         <tr>
@@ -43,7 +42,6 @@ $con = conectar(); ?>
                 </table>
                 <button hidden id="clonar4">clon</button>
             </div>
-            <button id="regresar_menu">Menu Principal</button>
         </div>
     </div>
     <?php require_once 'includes/footer.php'; ?>

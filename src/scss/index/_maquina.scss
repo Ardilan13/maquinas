@@ -12,20 +12,35 @@
   margin: 0 5%;
 
   .flex {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     width: 100%;
     gap: 5%;
+    justify-content: center;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 3%;
     justify-content: center;
   }
   input {
     width: 100%;
   }
   .input {
+    display: grid;
+    grid-template-columns: 20% 80%;
     margin-right: 0;
   }
   p {
     text-align: center;
     margin-bottom: 3%;
+    margin-top: 1%;
+  }
+
+  #p_issue {
+    margin: 5% 0 3% 0;
   }
 
   .input_radio {
