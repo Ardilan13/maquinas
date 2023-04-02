@@ -63,7 +63,7 @@ $(document).ready(function () {
     },
   });
 
-  var table = $("table").DataTable({
+  var table = $(".display").DataTable({
     colReorder: true,
     fixedColumns: true,
     language: {
@@ -82,6 +82,7 @@ $(document).ready(function () {
     },
     responsive: false,
   });
+  $(".fc-today-button").html("Hoy ");
 });
 
 //ajax que tiene  implementada la funcion para eliminar un componente.
@@ -415,6 +416,11 @@ $(document).ready(function () {
         '"]'
     ).show();
     $("#clonar5").trigger("click");
+  });
+
+  $("#calendar").datetimepicker({
+    format: "L",
+    inline: true,
   });
 });
 
