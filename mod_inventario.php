@@ -36,7 +36,7 @@ $con = conectar(); ?>
                                         <td><?php echo $row["referencia"]; ?></td>
                                         <td><button class="ver_comp" id="<?php echo $row["id"]; ?>">Ver</button></td>
                                         <td><button class="delete_comp" id="<?php echo $row["id"]; ?>">Borrar</button></td>
-        
+
                                     </tr>
                             <?php }
                             } else {
@@ -59,7 +59,7 @@ $con = conectar(); ?>
                                 <th class="th_rep">Valor</th>
                                 <th class="th_rep">Ver</th>
                                 <th class="th_rep">Borrar</th>
-                               
+
                             </tr>
                         </thead>
                         <tbody>
