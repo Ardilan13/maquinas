@@ -35,7 +35,7 @@ $con = conectar(); ?>
                                         <td><?php echo $row["marca"]; ?></td>
                                         <td><?php echo $row["referencia"]; ?></td>
                                         <td><button class="ver_comp" id="<?php echo $row["id"]; ?>">Ver</button></td>
-                                        <td><button class="delete_comp" id="<?php echo $row["id"]; ?>">Borrar</button></td>
+                                        <td><button class="delete_comp delete" id="<?php echo $row["id"]; ?>">Borrar</button></td>
         
                                     </tr>
                             <?php }
@@ -75,7 +75,7 @@ $con = conectar(); ?>
                                         <td><?php echo $row["cantidad"]; ?></td>
                                         <td><?php echo $row["valor"]; ?></td>
                                         <td><button class="ver_rep" id="<?php echo $row["id"]; ?>">Ver</button></td>
-                                        <td><button class="delete_rep" id="<?php echo $row["id"]; ?>">Borrar</button></td>
+                                        <td><button class="delete_rep delete" id="<?php echo $row["id"]; ?>">Borrar</button></td>
                                     </tr>
                             <?php }
                             } else {

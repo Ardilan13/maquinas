@@ -34,7 +34,7 @@ $con = conectar(); ?>
                                     <td><?php echo $row["activacion"]; ?></td>
                                     <td><?php echo $row["periodicidad"]; ?></td>
                                     <td><button class="ver_tarea" id="<?php echo $row["id"]; ?>">Ver</button></td>
-                                    <td><button class="delete_tarea" id="<?php echo $row["id"]; ?>">Borrar</button></td>
+                                    <td><button class="delete_tarea delete" id="<?php echo $row["id"]; ?>">Borrar</button></td>
                                 </tr>
                         <?php }
                         } else {

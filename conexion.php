@@ -2,11 +2,11 @@
 
 function conectar()
 {
-    $usuario = "ardilan";
-    $contra = "transformice13";
+    $usuario = "sebas";
+    $contra = "sebas13";
     $ip = "localhost";
     $bd = "control_maquinas";
-    $port = "3306";
+    $port = "3309";
 
     $conexion = new mysqli($ip, $usuario, $contra, $bd, $port);
 
