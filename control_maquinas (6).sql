@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3309
--- Tiempo de generación: 03-04-2023 a las 08:21:49
+-- Tiempo de generación: 03-04-2023 a las 19:51:54
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -40,7 +40,8 @@ CREATE TABLE `componente` (
 --
 
 INSERT INTO `componente` (`id`, `id_maquina`, `nombre_componente`, `marca`, `referencia`) VALUES
-(77, 47, 'sebastiannnn', 'fernandooooo', '12mendito');
+(77, 47, 'sebastiannnns', 'fernandooooos', '12menditoo'),
+(80, 60, 'sebastiannnn', 'fernando', 'dkmdlfmdlf');
 
 -- --------------------------------------------------------
 
@@ -75,11 +76,11 @@ CREATE TABLE `maquina` (
 --
 
 INSERT INTO `maquina` (`id`, `codigo`, `nombre`, `marca`, `modelo`, `ubicacion`, `serial`, `voltaje`, `vigencia`, `lugar_origen`, `datos_proveedor`, `uso_diario`, `temperatura`, `tiempo_carga`, `nivel_ruido`, `personal`, `tipo`, `periodicidad`, `descripcion`) VALUES
-(47, 'MwC Component', 'Dilan 2.0', 'Barcel', 'epitelios', '23', '4567', 'amperios', '2023-04-03', '2023-04-03', 'Es importante ', '43', '23', '25', '56', 'interno', 'preventivo', 'semestral', 'Por favor Arreglen'),
-(56, '', 'dilanchito', '', '', '', '', '', '2023-04-03', '2023-04-03', '', '', '', '', '', '', '', '', ''),
+(47, 'MwC Component', 'Dilan 2.0', 'Barcel', 'epitelios', '23', '4567', 'amperios', '2023-04-03', '2023-04-03', 'Es importante ', '43', '23', '25', '56', 'interno', 'correctivo', 'trimestral', 'Por favor Arreglen'),
+(56, '', 'dilanchito', '', '', '', '', '', '2023-04-03', '2023-04-03', '', '', '', '', '', '', '', 'semestral', ''),
 (57, 'fjgfg', 'bmmmh', '', '', '', 'fggfg', '', '2023-02-24', '0000-00-00', '', '', '', '', '', 'interno', 'correctivo', 'trimestral', ''),
-(58, '', 'sebastian', '', '', '', 'vbb', '', '2023-03-27', '2023-03-27', '', '', '', '', '', '', '', '', ''),
-(59, '', 'huevo', '', '', '', '', '', '2023-03-27', '2023-03-27', 'DIOSSSSSSSS', '', '', '45', '', '', '', '', '');
+(59, '', 'huevo', '', '', '', '', '', '2023-03-27', '2023-03-27', 'DIOSSSSSSSS', '', '', '45', '', '', '', '', ''),
+(60, '2191969', 'Martillo Volador', 'madrid ', 'epitelios', '23', '4949', '34', '2023-04-03', '2023-04-03', 'DIOSSSSSSSS', '43', '23', '25', '56', 'externo', 'correctivo', 'mensual', 'Por favor Arreglen esto de inmediato');
 
 -- --------------------------------------------------------
 
@@ -153,7 +154,7 @@ CREATE TABLE `repuesto` (
 
 INSERT INTO `repuesto` (`id`, `nombre`, `marca`, `referencia`, `cantidad`, `valor`) VALUES
 (24, 'un repuesto', 'marcador', 'no sabria decirle', '5', '35353'),
-(26, 'sebastian', 'fernando', '12mendo', '33', '4567');
+(28, 'sebancho', 'madrid ', '12mendo', '33', '234');
 
 -- --------------------------------------------------------
 
@@ -209,7 +210,7 @@ INSERT INTO `usuario` (`id`, `created`, `nombre`, `correo`, `clave`) VALUES
 -- Indices de la tabla `componente`
 --
 ALTER TABLE `componente`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indices de la tabla `maquina`
@@ -249,13 +250,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `componente`
 --
 ALTER TABLE `componente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT de la tabla `maquina`
 --
 ALTER TABLE `maquina`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de la tabla `orden`
@@ -267,7 +268,7 @@ ALTER TABLE `orden`
 -- AUTO_INCREMENT de la tabla `repuesto`
 --
 ALTER TABLE `repuesto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `tarea`
@@ -280,28 +281,6 @@ ALTER TABLE `tarea`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `componente`
---
-ALTER TABLE `componente`
-  ADD CONSTRAINT `componente_ibfk_1` FOREIGN KEY (`id_maquina`) REFERENCES `maquina` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `orden`
---
-ALTER TABLE `orden`
-  ADD CONSTRAINT `maquina-orden` FOREIGN KEY (`id_maquina`) REFERENCES `maquina` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `tarea`
---
-ALTER TABLE `tarea`
-  ADD CONSTRAINT `tarea_ibfk_1` FOREIGN KEY (`id_maquina`) REFERENCES `maquina` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
