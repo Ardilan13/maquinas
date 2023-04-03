@@ -200,7 +200,7 @@ $(".btn_maq").on("click", function (e) {
 
 //boton eliminar maquina
 
-$(".delete_maq").on("click", function (e) {
+$(".delete_maquina").on("click", function (e) {
   e.preventDefault();
 
   $.ajax({
@@ -211,7 +211,7 @@ $(".delete_maq").on("click", function (e) {
     success: function (text) {
       if (text == 1) {
         alert("Maquina Eliminada!");
-        window.location.href = "mod_tarea.php";
+        window.location.href = "mod_maquina.php";
       } else {
         alert("Error, su maquina no fue eliminada");
         console.log(text);
