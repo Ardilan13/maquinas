@@ -19,7 +19,7 @@ $con = conectar(); ?>
                             <th class='th_comp'>Fecha de Solicitud</th>
                             <th class='th_comp'>Tipo de Mantenimiento</th>
                             <th class='th_comp'>Ver</th>
-                            <th class='th_comp'>Eliminar</th>
+                            <th class='th_comp'>Borrar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,7 +35,7 @@ $con = conectar(); ?>
                                     <td><?php echo $row["fecha_solicitud"]; ?></td>
                                     <td><?php echo $row["tipo_mantenimiento"]; ?></td>
                                     <td><button class="ver_soli" id="<?php echo $row["id"]; ?>">Ver</button></td>
-                                    <td><button class="delete_soli" id="<?php echo $row["id"]; ?>">Eliminar</button></td>
+                                    <td><button class="delete_soli" id="<?php echo $row["id"]; ?>">Borrar</button></td>
                                 </tr>
                         <?php }
                         } else {

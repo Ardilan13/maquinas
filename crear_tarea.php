@@ -36,6 +36,7 @@ if ($id != null) {
         </div>
         <div class="info">
             <form id="agregar_tar">
+            <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
                 <div class="input">
                     <label for="maquina">Maquina:</label>
                     <select id="" name="maquina" <?php if ($id != null) echo 'disabled '; ?>>
@@ -66,16 +67,18 @@ if ($id != null) {
 
                 <div class="input">
                     <label for="activacion">Activacion:</label>
-                    <input type="date" id="activacion" name="activacion" value="<?php echo $activacion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    <input type="date" id="activacion" name="activacion" value="<?php echo $activacion; ?>" >
                 </div>
                 <div class="input">
                     <label for="proxima_activacion">Proxima_Activacion:</label>
-                    <input type="date" id="proxima_activacion" name="proxima_activacion" value="<?php echo $proxima_activacion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    <input type="date" id="proxima_activacion" name="proxima_activacion" value="<?php echo $proxima_activacion; ?>" >
                 </div>
                 <button id="regresar_tar">Volver</button>
                 <?php if ($id == null) { ?>
                     <button id="btn_creacion_tar">Crear Tarea</button>
-                <?php } ?>
+                <?php } else { ?>
+                    <button id="actualizar_tar">Actualizar</button>
+                <?php }  ?>
             </form>
         </div>
     </div>

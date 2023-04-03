@@ -45,9 +45,10 @@ if ($id != null) {
         </div>
         <div class="info">
             <form id="agregar_soli">
+            <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
                 <div class="input">
                     <label for="maquina">Maquina:</label>
-                    <select id="" name="maquina" <?php if ($id != null) echo 'disabled '; ?>>
+                    <select id="maquina" name="maquina" <?php if ($id != null) echo 'disabled '; ?>>
                         <?php if ($id != null) { ?>
                             <option value="<?php echo $maquina; ?>"><?php echo $nombre; ?></option>
                         <?php } else { ?>
@@ -82,7 +83,7 @@ if ($id != null) {
                 <?php } ?>
                 <div class="input">
                     <label for="fecha_solicitud">Fecha y Hora de la Solicitud:</label>
-                    <input type="date" id="fecha_solicitud" name="fecha_solicitud" value="<?php echo $fecha_solicitud; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    <input type="date" id="fecha_solicitud" name="fecha_solicitud" value="<?php echo $fecha_solicitud; ?>">
                 </div>
 
                 <div class="radio_buttons">
@@ -91,24 +92,20 @@ if ($id != null) {
                     </div>
                     <div class="radios">
                         <div>
-                            <input type="radio" name="tipo_mantenimiento" value="mecanico_preventivo" <?php if ($id != null) echo 'disabled ';
-                                                                                                        if ($tipo_mantenimiento == 'mecanico_preventivo') echo 'checked'; ?>>
+                            <input type="radio" name="tipo_mantenimiento" value="mecanico_preventivo" <?php if ($tipo_mantenimiento == 'mecanico_preventivo') echo 'checked'; ?>>
 
                             <label for="tipo_mantenimiento">Mecanico Preventivo</label>
                         </div>
                         <div>
-                            <input type="radio" name="tipo_mantenimiento" value="mecanico_conflictivo" <?php if ($id != null) echo 'disabled ';
-                                                                                                        if ($tipo_mantenimiento == 'mecanico_conflictivo') echo 'checked'; ?>>
+                            <input type="radio" name="tipo_mantenimiento" value="mecanico_conflictivo" <?php if ($tipo_mantenimiento == 'mecanico_conflictivo') echo 'checked'; ?>>
                             <label for="tipo_mantenimiento">Mecanico Correctivo</label>
                         </div>
                         <div>
-                            <input type="radio" name="tipo_mantenimiento" value="electrico_preventivo" <?php if ($id != null) echo 'disabled ';
-                                                                                                        if ($tipo_mantenimiento == 'electrico_preventivo') echo 'checked'; ?>>
+                            <input type="radio" name="tipo_mantenimiento" value="electrico_preventivo" <?php if ($tipo_mantenimiento == 'electrico_preventivo') echo 'checked'; ?>>
                             <label for="tipo_mantenimiento">Electrico Preventivo</label>
                         </div>
                         <div>
-                            <input type="radio" name="tipo_mantenimiento" value="electrico_conflictivo" <?php if ($id != null) echo 'disabled ';
-                                                                                                        if ($tipo_mantenimiento == 'electrico_conflictivo') echo 'checked'; ?>>
+                            <input type="radio" name="tipo_mantenimiento" value="electrico_conflictivo" <?php if ($tipo_mantenimiento == 'electrico_conflictivo') echo 'checked'; ?>>
                             <label for="tipo_mantenimiento">Electrico Correctivo</label>
                         </div>
                     </div>
@@ -116,24 +113,27 @@ if ($id != null) {
 
                 <div class="input">
                     <label for="descripcion">Descripcion del Servicio:</label>
-                    <input type="text" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    <input type="text" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>">
                 </div>
                 <div class="input">
                     <label for="solicitud_material">Solicitud de Materiales:</label>
-                    <input type="text" id="solicitud_material" name="solicitud_material" value="<?php echo $solicitud_material; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    <input type="text" id="solicitud_material" name="solicitud_material" value="<?php echo $solicitud_material; ?>">
                 </div>
                 <div class="input">
                     <label for="solicitud">Solicitado Por:</label>
-                    <input type="text" id="solicitud" name="solicitud" value="<?php echo $solicitud; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                    <input type="text" id="solicitud" name="solicitud" value="<?php echo $solicitud; ?>">
                 </div>
                 <button id="regresar_soli">Volver</button>
-
                 <?php if ($id == null) { ?>
                     <button id="btn_creacion_soli">Crear Solicitud</button>
-                <?php } ?>
+                <?php } else { ?>
+                    <button id="actualizar_sol">Actualizar</button>
+                <?php }  ?>
             </form>
         </div>
     </div>
 </main>
 
 <?php require_once 'includes/footer.php'; ?>
+
+

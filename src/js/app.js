@@ -116,9 +116,9 @@ $(".delete_rep").on("click", function (e) {
   e.preventDefault();
 
   $.ajax({
-    url: "ajax/delete_rep.php",
+    url: "ajax/delete_repu.php",
     data: "id=" + $(this).attr("id"),
-    type: "GET",
+    type: "POST",
     dataType: "text",
     success: function (text) {
       if (text == 1) {
@@ -134,6 +134,7 @@ $(".delete_rep").on("click", function (e) {
     },
   });
 });
+
 
 //boton eliminar solicitud
 
@@ -160,7 +161,31 @@ $(".delete_soli").on("click", function (e) {
   });
 });
 
-//Boton actualizar datos de solicitud
+//boton eliminar tarea
+
+$(".delete_tarea").on("click", function (e) {
+  e.preventDefault();
+
+  $.ajax({
+    url: "ajax/delete_tarea.php",
+    data: "id=" + $(this).attr("id"),
+    type: "GET",
+    dataType: "text",
+    success: function (text) {
+      if (text == 1) {
+        alert("Tarea Eliminada!");
+        window.location.href = "mod_tarea.php";
+      } else {
+        alert("Error, su tarea no fue eliminada");
+        console.log(text);
+      }
+    },
+    error: function (xhr, status, errorThrown) {
+      alert("Error");
+    },
+  });
+});
+
 
 //Botones que reenvian a los modulos de creacion
 $(".btn_comp").on("click", function (e) {
@@ -173,6 +198,8 @@ $(".btn_maq").on("click", function (e) {
   window.location.href = "crear_maquina.php";
 });
 
+//boton eliminar maquina
+
 $(".delete_maq").on("click", function (e) {
   e.preventDefault();
 
@@ -184,7 +211,7 @@ $(".delete_maq").on("click", function (e) {
     success: function (text) {
       if (text == 1) {
         alert("Maquina Eliminada!");
-        window.location.href = "mod_maquina.php";
+        window.location.href = "mod_tarea.php";
       } else {
         alert("Error, su maquina no fue eliminada");
         console.log(text);
@@ -195,7 +222,6 @@ $(".delete_maq").on("click", function (e) {
     },
   });
 });
-
 //botones de reenvio
 $(".btn_rep").on("click", function (e) {
   e.preventDefault();
@@ -279,11 +305,22 @@ $(".ver_soli").on("click", function (e) {
   $(location).prop("href", "crear_servicio.php?id=" + $(this).attr("id"));
 });
 
-//accede al menu crear,solicitud de servicio y le pasa el id por metodo GET
+//accede al menu crear,tarea y le pasa el id por metodo GET
 $(".ver_tarea").on("click", function (e) {
   e.preventDefault();
   $(location).prop("href", "crear_tarea.php?id=" + $(this).attr("id"));
 });
+//accede al menu crear,repuesto y le pasa el id por metodo GET
+$(".ver_rep").on("click", function (e) {
+  e.preventDefault();
+  $(location).prop("href", "crear_repuesto.php?id=" + $(this).attr("id"));
+});
+//accede al menu crear,componente y le pasa el id por metodo GET
+$(".ver_comp").on("click", function (e) {
+  e.preventDefault();
+  $(location).prop("href", "crear_componente.php?id=" + $(this).attr("id"));
+});
+
 
 //ajax que tiene  implementada la funcion para crear una maquina mediante metodo post.
 
@@ -349,6 +386,128 @@ $("#btn_creacion_soli").on("click", function (e) {
   });
 });
 
+//ajax actualizacion soli
+
+$("#actualizar_sol").on("click", function (e) {
+  e.preventDefault();
+
+$.ajax({
+  url: "ajax/actualizar_soli.php",
+  data: $("#agregar_soli").serialize(),
+  type: "POST",
+  dataType: "text",
+  success: function (text) {
+    if (text == 1) {
+      alert("Actualizacion Exitosa!");
+      $(location).prop("href", "mod_solicitud.php");
+    } else {
+      alert("Error, intente nuevamente.");
+      console.log(text);
+    }
+  },
+  error: function (xhr, status, errorThrown) {
+    alert("Error");
+  },
+});
+});
+
+//Ajax Actualizar repuesto
+$("#actualizar_rep").on("click", function (e) {
+  e.preventDefault();
+
+$.ajax({
+  url: "ajax/actualizar_repuesto.php",
+  data: $("#agregar_rep").serialize(),
+  type: "POST",
+  dataType: "text",
+  success: function (text) {
+    if (text == 1) {
+      alert("Actualizacion Exitosa!");
+      $(location).prop("href", "mod_inventario.php");
+    } else {
+      alert("Error, intente nuevamente.");
+      console.log(text);
+    }
+  },
+  error: function (xhr, status, errorThrown) {
+    alert("Error");
+  },
+});
+});
+
+//Ajax Actualizar componente
+$("#actualizar_com").on("click", function (e) {
+  e.preventDefault();
+
+$.ajax({
+  url: "ajax/actualizar_componente.php",
+  data: $("#agregar_comp").serialize(),
+  type: "POST",
+  dataType: "text",
+  success: function (text) {
+    if (text == 1) {
+      alert("Actualizacion Exitosa!");
+      $(location).prop("href", "mod_inventario.php");
+    } else {
+      alert("Error, intente nuevamente.");
+      console.log(text);
+    }
+  },
+  error: function (xhr, status, errorThrown) {
+    alert("Error");
+  },
+});
+});
+
+//Ajax Actualizar Maquina
+$("#actualizar_maq").on("click", function (e) {
+  e.preventDefault();
+
+$.ajax({
+  url: "ajax/actualizar_maquina.php",
+  data: $("#agregar_maqn").serialize(),
+  type: "POST",
+  dataType: "text",
+  success: function (text) {
+    if (text == 1) {
+      alert("Actualizacion Exitosa!");
+      $(location).prop("href", "mod_maquina.php");
+    } else {
+      alert("Error, intente nuevamente.");
+      console.log(text);
+    }
+  },
+  error: function (xhr, status, errorThrown) {
+    alert("Error");
+  },
+});
+});
+
+//ajax actualizacion tarea
+
+$("#actualizar_tar").on("click", function (e) {
+  e.preventDefault();
+
+$.ajax({
+  url: "ajax/actualizar_tarea.php",
+  data: $("#agregar_tar").serialize(),
+  type: "POST",
+  dataType: "text",
+  success: function (text) {
+    if (text == 1) {
+      alert("Actualizacion Exitosa!");
+      $(location).prop("href", "mod_tarea.php");
+    } else {
+      alert("Error, intente nuevamente.");
+      console.log(text);
+    }
+  },
+  error: function (xhr, status, errorThrown) {
+    alert("Error");
+  },
+});
+});
+
 //ajax que tiene  implementada la funcion para crear una tarea mediante metodo post.
 
 $("#btn_creacion_tar").on("click", function (e) {
@@ -380,6 +539,8 @@ $("#btn_creacion_tar").on("click", function (e) {
     },
   });
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   var btnFiltrar = document.getElementById("filtrar");

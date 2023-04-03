@@ -18,7 +18,8 @@ $con = conectar(); ?>
                             <th class='th_comp'>Nombre Maquina</th>
                             <th class='th_comp'>Fecha Activacion</th>
                             <th class='th_comp'>Periodicidad</th>
-                            <th class='th_comp'>Detalles</th>
+                            <th class='th_comp'>Ver</th>
+                            <th class='th_comp'>Borrar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,7 +33,8 @@ $con = conectar(); ?>
                                     <td><?php echo $row["nombre"]; ?></td>
                                     <td><?php echo $row["activacion"]; ?></td>
                                     <td><?php echo $row["periodicidad"]; ?></td>
-                                    <td><button class="ver_tarea" id="<?php echo $row["id"]; ?>">Detalles</button></td>
+                                    <td><button class="ver_tarea" id="<?php echo $row["id"]; ?>">Ver</button></td>
+                                    <td><button class="delete_tarea" id="<?php echo $row["id"]; ?>">Borrar</button></td>
                                 </tr>
                         <?php }
                         } else {

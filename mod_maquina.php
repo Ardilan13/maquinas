@@ -54,7 +54,7 @@ $correctivo = 0; ?>
                                     <td><?php echo $preventivo; ?></td>
                                     <td><?php echo $correctivo; ?></td>
                                     <td><button class="ver_maq" id="<?php echo $row["id"]; ?>">Ver</button></td>
-                                    <td><button class="btn_delete_rep delete_maq" id="<?php echo $row["id"]; ?>">Borrar</button></td>
+                                    <td><button class="delete_maq" id="<?php echo $row["id"]; ?>">Borrar</button></td>
                                 </tr>
                         <?php
                                 $preventivo = 0;

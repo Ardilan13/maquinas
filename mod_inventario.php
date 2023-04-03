@@ -19,7 +19,8 @@ $con = conectar(); ?>
                                 <th class="th_comp">Componente</th>
                                 <th class="th_comp">Marca</th>
                                 <th class="th_comp">Referencia</th>
-                                <th class="th_comp th_borrar">Borrar</th>
+                                <th class="th_comp">Ver</th>
+                                <th class="th_comp">Borrar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,8 +34,9 @@ $con = conectar(); ?>
                                         <td><?php echo $row["nombre_componente"]; ?></td>
                                         <td><?php echo $row["marca"]; ?></td>
                                         <td><?php echo $row["referencia"]; ?></td>
-
-                                        <td><button class="btn_delete_comp delete_comp" id="<?php echo $row["id"]; ?>">Borrar</button></td>
+                                        <td><button class="ver_comp" id="<?php echo $row["id"]; ?>">Ver</button></td>
+                                        <td><button class="delete_comp" id="<?php echo $row["id"]; ?>">Borrar</button></td>
+        
                                     </tr>
                             <?php }
                             } else {
@@ -55,7 +57,9 @@ $con = conectar(); ?>
                                 <th class="th_rep">Referencia</th>
                                 <th class="th_rep">Cantidad</th>
                                 <th class="th_rep">Valor</th>
-                                <th class="th_rep th_borrar">Borrar</th>
+                                <th class="th_rep">Ver</th>
+                                <th class="th_rep">Borrar</th>
+                               
                             </tr>
                         </thead>
                         <tbody>
@@ -70,7 +74,8 @@ $con = conectar(); ?>
                                         <td><?php echo $row["referencia"]; ?></td>
                                         <td><?php echo $row["cantidad"]; ?></td>
                                         <td><?php echo $row["valor"]; ?></td>
-                                        <td><button class="btn_delete_rep delete_rep" id="<?php echo $row["id"]; ?>">Borrar</button></td>
+                                        <td><button class="ver_rep" id="<?php echo $row["id"]; ?>">Ver</button></td>
+                                        <td><button class="delete_rep" id="<?php echo $row["id"]; ?>">Borrar</button></td>
                                     </tr>
                             <?php }
                             } else {
