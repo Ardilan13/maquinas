@@ -82,7 +82,6 @@ $(document).ready(function () {
     },
     responsive: false,
   });
-  $(".fc-today-button").html("Hoy ");
 });
 
 //ajax que tiene  implementada la funcion para eliminar un componente.
@@ -135,7 +134,6 @@ $(".delete_rep").on("click", function (e) {
   });
 });
 
-
 //boton eliminar solicitud
 
 $(".delete_soli").on("click", function (e) {
@@ -185,7 +183,6 @@ $(".delete_tarea").on("click", function (e) {
     },
   });
 });
-
 
 //Botones que reenvian a los modulos de creacion
 $(".btn_comp").on("click", function (e) {
@@ -321,7 +318,6 @@ $(".ver_comp").on("click", function (e) {
   $(location).prop("href", "crear_componente.php?id=" + $(this).attr("id"));
 });
 
-
 //ajax que tiene  implementada la funcion para crear una maquina mediante metodo post.
 
 $("#btn_creacion_maqn").on("click", function (e) {
@@ -391,96 +387,96 @@ $("#btn_creacion_soli").on("click", function (e) {
 $("#actualizar_sol").on("click", function (e) {
   e.preventDefault();
 
-$.ajax({
-  url: "ajax/actualizar_soli.php",
-  data: $("#agregar_soli").serialize(),
-  type: "POST",
-  dataType: "text",
-  success: function (text) {
-    if (text == 1) {
-      alert("Actualizacion Exitosa!");
-      $(location).prop("href", "mod_solicitud.php");
-    } else {
-      alert("Error, intente nuevamente.");
-      console.log(text);
-    }
-  },
-  error: function (xhr, status, errorThrown) {
-    alert("Error");
-  },
-});
+  $.ajax({
+    url: "ajax/actualizar_soli.php",
+    data: $("#agregar_soli").serialize(),
+    type: "POST",
+    dataType: "text",
+    success: function (text) {
+      if (text == 1) {
+        alert("Actualizacion Exitosa!");
+        $(location).prop("href", "mod_solicitud.php");
+      } else {
+        alert("Error, intente nuevamente.");
+        console.log(text);
+      }
+    },
+    error: function (xhr, status, errorThrown) {
+      alert("Error");
+    },
+  });
 });
 
 //Ajax Actualizar repuesto
 $("#actualizar_rep").on("click", function (e) {
   e.preventDefault();
 
-$.ajax({
-  url: "ajax/actualizar_repuesto.php",
-  data: $("#agregar_rep").serialize(),
-  type: "POST",
-  dataType: "text",
-  success: function (text) {
-    if (text == 1) {
-      alert("Actualizacion Exitosa!");
-      $(location).prop("href", "mod_inventario.php");
-    } else {
-      alert("Error, intente nuevamente.");
-      console.log(text);
-    }
-  },
-  error: function (xhr, status, errorThrown) {
-    alert("Error");
-  },
-});
+  $.ajax({
+    url: "ajax/actualizar_repuesto.php",
+    data: $("#agregar_rep").serialize(),
+    type: "POST",
+    dataType: "text",
+    success: function (text) {
+      if (text == 1) {
+        alert("Actualizacion Exitosa!");
+        $(location).prop("href", "mod_inventario.php");
+      } else {
+        alert("Error, intente nuevamente.");
+        console.log(text);
+      }
+    },
+    error: function (xhr, status, errorThrown) {
+      alert("Error");
+    },
+  });
 });
 
 //Ajax Actualizar componente
 $("#actualizar_com").on("click", function (e) {
   e.preventDefault();
 
-$.ajax({
-  url: "ajax/actualizar_componente.php",
-  data: $("#agregar_comp").serialize(),
-  type: "POST",
-  dataType: "text",
-  success: function (text) {
-    if (text == 1) {
-      alert("Actualizacion Exitosa!");
-      $(location).prop("href", "mod_inventario.php");
-    } else {
-      alert("Error, intente nuevamente.");
-      console.log(text);
-    }
-  },
-  error: function (xhr, status, errorThrown) {
-    alert("Error");
-  },
-});
+  $.ajax({
+    url: "ajax/actualizar_componente.php",
+    data: $("#agregar_comp").serialize(),
+    type: "POST",
+    dataType: "text",
+    success: function (text) {
+      if (text == 1) {
+        alert("Actualizacion Exitosa!");
+        $(location).prop("href", "mod_inventario.php");
+      } else {
+        alert("Error, intente nuevamente.");
+        console.log(text);
+      }
+    },
+    error: function (xhr, status, errorThrown) {
+      alert("Error");
+    },
+  });
 });
 
 //Ajax Actualizar Maquina
 $("#actualizar_maq").on("click", function (e) {
   e.preventDefault();
 
-$.ajax({
-  url: "ajax/actualizar_maquina.php",
-  data: $("#agregar_maqn").serialize(),
-  type: "POST",
-  dataType: "text",
-  success: function (text) {
-    if (text == 1) {
-      alert("Actualizacion Exitosa!");
-      $(location).prop("href", "mod_maquina.php");
-    } else {
-      alert("Error, intente nuevamente.");
-      console.log(text);
-    }
-  },
-  error: function (xhr, status, errorThrown) {
-    alert("Error");
-  },
-});
+  $.ajax({
+    url: "ajax/actualizar_maquina.php",
+    data: $("#agregar_maqn").serialize(),
+    type: "POST",
+    dataType: "text",
+    success: function (text) {
+      if (text == 1) {
+        alert("Actualizacion Exitosa!");
+        $(location).prop("href", "mod_maquina.php");
+      } else {
+        alert("Error, intente nuevamente.");
+        console.log(text);
+      }
+    },
+    error: function (xhr, status, errorThrown) {
+      alert("Error");
+    },
+  });
 });
 
 //ajax actualizacion tarea
@@ -488,24 +484,24 @@ $.ajax({
 $("#actualizar_tar").on("click", function (e) {
   e.preventDefault();
 
-$.ajax({
-  url: "ajax/actualizar_tarea.php",
-  data: $("#agregar_tar").serialize(),
-  type: "POST",
-  dataType: "text",
-  success: function (text) {
-    if (text == 1) {
-      alert("Actualizacion Exitosa!");
-      $(location).prop("href", "mod_tarea.php");
-    } else {
-      alert("Error, intente nuevamente.");
-      console.log(text);
-    }
-  },
-  error: function (xhr, status, errorThrown) {
-    alert("Error");
-  },
-});
+  $.ajax({
+    url: "ajax/actualizar_tarea.php",
+    data: $("#agregar_tar").serialize(),
+    type: "POST",
+    dataType: "text",
+    success: function (text) {
+      if (text == 1) {
+        alert("Actualizacion Exitosa!");
+        $(location).prop("href", "mod_tarea.php");
+      } else {
+        alert("Error, intente nuevamente.");
+        console.log(text);
+      }
+    },
+    error: function (xhr, status, errorThrown) {
+      alert("Error");
+    },
+  });
 });
 
 //ajax que tiene  implementada la funcion para crear una tarea mediante metodo post.
@@ -539,8 +535,6 @@ $("#btn_creacion_tar").on("click", function (e) {
     },
   });
 });
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
   var btnFiltrar = document.getElementById("filtrar");
