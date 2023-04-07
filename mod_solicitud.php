@@ -27,17 +27,19 @@ $con = conectar(); ?>
                         $login = "SELECT m.nombre, m.codigo, o.fecha_solicitud, o.tipo_mantenimiento,o.id from orden o INNER JOIN maquina m ON o.id_maquina= m.id ;";
                         $resultado = mysqli_query($con, $login);
                         if ($resultado->num_rows > 0) {
-                            while ($row = mysqli_fetch_assoc($resultado)) { ?>
-                                <tr>
-                                    <td><?php echo $row["id"]; ?></td>
-                                    <td><?php echo $row["nombre"]; ?></td>
-                                    <td><?php echo $row["codigo"]; ?></td>
-                                    <td><?php echo $row["fecha_solicitud"]; ?></td>
-                                    <td><?php echo $row["tipo_mantenimiento"]; ?></td>
-                                    <td><button class="ver_soli" id="<?php echo $row["id"]; ?>">Ver</button></td>
-                                    <td><button class="delete_soli delete" id="<?php echo $row["id"]; ?>">Borrar</button></td>
-                                </tr>
+                            while ($row = mysqli_fetch_assoc($resultado)) {
+                                if ($row["fecha_solicitud"] != null) { ?>
+                                    <tr>
+                                        <td><?php echo $row["id"]; ?></td>
+                                        <td><?php echo $row["nombre"]; ?></td>
+                                        <td><?php echo $row["codigo"]; ?></td>
+                                        <td><?php echo $row["fecha_solicitud"]; ?></td>
+                                        <td><?php echo $row["tipo_mantenimiento"]; ?></td>
+                                        <td><button class="ver_soli" id="<?php echo $row["id"]; ?>">Ver</button></td>
+                                        <td><button class="delete_soli delete" id="<?php echo $row["id"]; ?>">Borrar</button></td>
+                                    </tr>
                         <?php }
+                            }
                         } else {
                             echo "<td valign='top' colspan='8' class='dataTables_empty'>No hay Solicitudes de Servicio para mostrar</td>";
                         } ?>

@@ -7,7 +7,7 @@ if ($id != null) {
     $resultado = mysqli_query($con, $registro);
     $row = mysqli_fetch_assoc($resultado);
     $maquina = $row['id_maquina'];
-    $fecha_solicitud = date('Y-m-d');
+    $fecha_solicitud = $row['fecha_solicitud'];
     $tipo_mantenimiento = $row['tipo_mantenimiento'];
     $descripcion = $row['descripcion'];
     $solicitud_material = $row['solicitud_material'];
@@ -45,7 +45,7 @@ if ($id != null) {
         </div>
         <div class="info">
             <form id="agregar_soli">
-            <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
+                <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
                 <div class="input">
                     <label for="maquina">Maquina:</label>
                     <select id="" name="maquina" <?php if ($id != null) echo 'disabled '; ?>>
@@ -82,7 +82,7 @@ if ($id != null) {
                     </div>
                 <?php } ?>
                 <div class="input">
-                    <label for="fecha_solicitud">Fecha y Hora de la Solicitud:</label>
+                    <label for="fecha_solicitud">Fecha de la Solicitud:</label>
                     <input type="date" id="fecha_solicitud" name="fecha_solicitud" value="<?php echo $fecha_solicitud; ?>">
                 </div>
 
@@ -135,5 +135,3 @@ if ($id != null) {
 </main>
 
 <?php require_once 'includes/footer.php'; ?>
-
-

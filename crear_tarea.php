@@ -7,9 +7,9 @@ if ($id != null) {
     $resultado = mysqli_query($con, $registro);
     $row = mysqli_fetch_assoc($resultado);
     $maquina = $row['id_maquina'];
-    $activacion = date('Y-m-d');
-    $proxima_activacion = date('Y-m-d');
-    
+    $activacion = $row['activacion'];
+    $proxima_activacion = $row['proxima_activacion'];
+    $descripcion = $row['descripcion'];
 
     // Agregar código para seleccionar datos de la tabla maquina
     $query = "SELECT * FROM maquina WHERE id=$maquina";
@@ -18,7 +18,6 @@ if ($id != null) {
 
     $nombre = $maquina_data['nombre'];
     $periodicidad = $maquina_data['periodicidad'];
-    $descripcion = $maquina_data['descripcion'];
 } else {
     $activacion = '';
     $proxima_activacion = '';
@@ -32,11 +31,11 @@ if ($id != null) {
 <main>
     <div class="container">
         <div class="header">
-            <p>Solicitud de Plan</p>
+            <p>Plan de Mantenimiento</p>
         </div>
         <div class="info">
             <form id="agregar_tar">
-            <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
+                <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
                 <div class="input">
                     <label for="maquina">Maquina:</label>
                     <select id="" name="maquina" <?php if ($id != null) echo 'disabled '; ?>>
@@ -59,19 +58,18 @@ if ($id != null) {
                         <label for="periodicidad">Periodicidad:</label>
                         <input type="text" id="periodicidad" name="periodicidad" value="<?php echo $periodicidad; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
-                    <div class="input">
-                        <label for="descripcion">Descripcion:</label>
-                        <input type="text" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
-                    </div>
                 <?php } ?>
-
+                <div class="input">
+                    <label for="descripcion">Descripcion:</label>
+                    <input type="text" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>">
+                </div>
                 <div class="input">
                     <label for="activacion">Activacion:</label>
-                    <input type="date" id="activacion" name="activacion" value="<?php echo $activacion; ?>" >
+                    <input type="date" id="activacion" name="activacion" value="<?php echo $activacion; ?>">
                 </div>
                 <div class="input">
                     <label for="proxima_activacion">Proxima_Activacion:</label>
-                    <input type="date" id="proxima_activacion" name="proxima_activacion" value="<?php echo $proxima_activacion; ?>" >
+                    <input type="date" id="proxima_activacion" name="proxima_activacion" value="<?php echo $proxima_activacion; ?>">
                 </div>
                 <button id="regresar_tar">Volver</button>
                 <?php if ($id == null) { ?>

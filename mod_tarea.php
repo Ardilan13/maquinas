@@ -45,7 +45,7 @@ $con = conectar(); ?>
                 <button hidden id="clonar5">clon</button>
             </div>
             <div>
-                <label for="periodicidad">Ver tareas por periodicidad:</label>
+                <label for="periodicidad">Ver planes por periodicidad:</label>
                 <select id="periodicidad">
                     <option value="">Todas</option>
                     <option value="mensual">Mensual</option>
