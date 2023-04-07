@@ -20,11 +20,13 @@ $personal = $_POST["personal"]?? null;
 $tipo = $_POST["tipo"]?? null;
 $periodicidad = $_POST["periodicidad"]?? null;
 $descripcion = $_POST["descripcion"];
+$imagen = $_POST["imagen"];
+
 
 
 $registro = "INSERT INTO maquina (codigo, nombre, marca, modelo, ubicacion, serial, voltaje, vigencia, lugar_origen, datos_proveedor, uso_diario,
-temperatura, tiempo_carga, nivel_ruido, personal, tipo, periodicidad, descripcion) VALUES ('$codigo', '$nombre', '$marca', '$modelo', '$ubicacion', '$serial',
-'$voltaje', '$vigencia', '$lugar_origen', '$datos_proveedor', '$uso_diario', '$temperatura', '$tiempo_carga', '$nivel_ruido', '$personal', '$tipo', '$periodicidad', '$descripcion')";
+temperatura, tiempo_carga, nivel_ruido, personal, tipo, periodicidad, descripcion, imagen) VALUES ('$codigo', '$nombre', '$marca', '$modelo', '$ubicacion', '$serial',
+'$voltaje', '$vigencia', '$lugar_origen', '$datos_proveedor', '$uso_diario', '$temperatura', '$tiempo_carga', '$nivel_ruido', '$personal', '$tipo', '$periodicidad', '$descripcion', $'imagen')";
 
 
 $resultado = mysqli_query($con, $registro);

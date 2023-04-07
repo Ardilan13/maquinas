@@ -32,7 +32,7 @@ if ($id != null) {
 <main>
     <div class="container">
         <div class="header">
-            <p>Solicitud de Tarea</p>
+            <p>Solicitud de Plan</p>
         </div>
         <div class="info">
             <form id="agregar_tar">

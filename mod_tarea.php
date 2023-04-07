@@ -5,11 +5,11 @@ $con = conectar(); ?>
 <main>
     <div class="container">
         <div class="header">
-            <p>Tareas</p>
+            <p>Planes</p>
         </div>
         <div class="info">
             <div class="cont_gen">
-                <button class="btn_tar">Crear Tarea</button>
+                <button class="btn_tar">Crear Plan</button>
 
                 <table id="tarea" class="display" style="width:100%">
                     <thead>

@@ -10,11 +10,19 @@ if ($id != null) {
     $nombre_componente = $row['nombre_componente'];
     $marca = $row['marca'];
     $referencia = $row['referencia'];
+    // Agregar código para seleccionar datos de la tabla maquina
+    $query = "SELECT * FROM maquina WHERE id=$maquina";
+    $result = mysqli_query($con, $query);
+    $maquina_data = mysqli_fetch_assoc($result);
+
+    $nombre = $maquina_data['nombre'];
+
 } else {
     $nombre_componente = '';
     $marca = '';
     $referencia = '';
     $maquina = '';
+      $nombre = '';
 }
 ?>
 <main>
@@ -28,7 +36,6 @@ if ($id != null) {
                 <div class="input">
                     <label for="maquina">Maquina:</label>
                     <select id="maquina" name="maquina" value="<?php echo $maquina; ?>">
-
                     </select>
                 </div>
                 <div class="input">

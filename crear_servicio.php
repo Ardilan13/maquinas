@@ -48,7 +48,7 @@ if ($id != null) {
             <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
                 <div class="input">
                     <label for="maquina">Maquina:</label>
-                    <select id="maquina" name="maquina" <?php if ($id != null) echo 'disabled '; ?>>
+                    <select id="" name="maquina" <?php if ($id != null) echo 'disabled '; ?>>
                         <?php if ($id != null) { ?>
                             <option value="<?php echo $maquina; ?>"><?php echo $nombre; ?></option>
                         <?php } else { ?>

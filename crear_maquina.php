@@ -1,11 +1,17 @@
 <?php require_once 'includes/header.php';
 require_once 'conexion.php';
 $con = conectar();
-$id = $_GET["id"] ?? null;
+$id = isset($_GET["id"]) ? intval($_GET["id"]) : null; // Validar y obtener un entero
+
 if ($id != null) {
-    $registro = "SELECT * from maquina where id=$id";
-    $resultado = mysqli_query($con, $registro);
+    $registro = "SELECT * from maquina where id=?";
+    $stmt = mysqli_prepare($con, $registro);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    $resultado = mysqli_stmt_get_result($stmt);
     $row = mysqli_fetch_assoc($resultado);
+
+
     $codigo = $row['codigo'];
     $nombre = $row['nombre'];
     $marca = $row['marca'];
@@ -24,6 +30,8 @@ if ($id != null) {
     $tipo = $row['tipo'];
     $periodicidad = $row['periodicidad'];
     $descripcion = $row['descripcion'];
+    $imagen = $row['imagen'];
+
 } else {
     $codigo = '';
     $nombre = '';
@@ -43,6 +51,7 @@ if ($id != null) {
     $tipo = '';
     $periodicidad = '';
     $descripcion = '';
+    $imagen = '';
 }
 
 
@@ -54,15 +63,18 @@ if ($id != null) {
             <p>Consultar Activo</p>
         </div>
         <div class="info">
-
-            <form id="agregar_maqn">
-            <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
+            <form method="POST" enctype="multipart/form-data" id="agregar_maqn">
+                <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
                 <p>Especificaciones Tecnicas del Equipo</p>
 
                 <div class="flex">
                     <div class="input">
                         <label for="codigo">Codigo:</label>
                         <input type="text" id="codigo" name="codigo" value="<?php echo $codigo; ?>">
+                    </div>
+                    <div class="input" >
+                        <label for="imagen">Imagen:</label>
+                        <input type="file" id="imagen" name="imagen" value="<?php echo $imagen; ?>">
                     </div>
                     <div class="input">
                         <label for="serial">Serial:</label>
