@@ -19,7 +19,7 @@ if ($id != null) {
     $ubicacion = $row['ubicacion'];
     $serial = $row['serial'];
     $voltaje = $row['voltaje'];
-    $vigencia = date('Y-m-d');
+    $vigencia = $row['vigencia'];
     $lugar_origen = $row['lugar_origen'];
     $datos_proveedor = $row['datos_proveedor'];
     $uso_diario = $row['uso_diario'];
@@ -31,7 +31,6 @@ if ($id != null) {
     $periodicidad = $row['periodicidad'];
     $descripcion = $row['descripcion'];
     $imagen = $row['imagen'];
-
 } else {
     $codigo = '';
     $nombre = '';
@@ -72,7 +71,7 @@ if ($id != null) {
                         <label for="codigo">Codigo:</label>
                         <input type="text" id="codigo" name="codigo" value="<?php echo $codigo; ?>">
                     </div>
-                    <div class="input" >
+                    <div class="input">
                         <label for="imagen">Imagen:</label>
                         <input type="file" id="imagen" name="imagen" value="<?php echo $imagen; ?>">
                     </div>
