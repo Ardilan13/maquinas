@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 08-04-2023 a las 06:15:08
+-- Servidor: localhost:3309
+-- Tiempo de generación: 08-04-2023 a las 07:14:13
 -- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 7.4.29
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -105,46 +105,41 @@ CREATE TABLE `orden` (
   `solicitud` varchar(50) NOT NULL,
   `lugar_orden` varchar(50) NOT NULL,
   `asignacion` varchar(50) NOT NULL,
-  `tipo_mantenimiento` varchar(30) NOT NULL,
+  `tipo_mantenimiento` varchar(30) DEFAULT NULL,
   `motivo` varchar(50) NOT NULL,
-  `descripcion_tarea` text NOT NULL,
+  `descripcion_trabajo` text NOT NULL,
   `herramientas` varchar(200) NOT NULL,
-  `reporte` text NOT NULL,
   `observaciones` text NOT NULL,
   `fecha_hora_inicio` datetime DEFAULT NULL,
   `fecha_hora_fin` datetime DEFAULT NULL,
-  `mano_obra` int(50) DEFAULT NULL,
-  `transportes` int(100) DEFAULT NULL,
-  `consumibles` int(100) DEFAULT NULL,
-  `otros` int(100) DEFAULT NULL,
-  `valor_repuestos` int(100) DEFAULT NULL,
-  `total` int(100) DEFAULT NULL,
-  `estado` enum('abierto','cerrado') NOT NULL
+  `estado` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `orden`
 --
 
-INSERT INTO `orden` (`id`, `id_maquina`, `fecha_solicitud`, `descripcion`, `solicitud_material`, `solicitud`, `lugar_orden`, `asignacion`, `tipo_mantenimiento`, `motivo`, `descripcion_tarea`, `herramientas`, `reporte`, `observaciones`, `fecha_hora_inicio`, `fecha_hora_fin`, `mano_obra`, `transportes`, `consumibles`, `otros`, `valor_repuestos`, `total`, `estado`) VALUES
-(5, 47, '2023-04-03', 'Por favor Arreglen', 'ss', 'olis olis', '', '', 'electrico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(8, 0, '2023-04-03', 'NECESITO ARREGLAR PRONTO ESTO YAYAYA', 'Necesito cobre, oro, y a dilan yaya', 'Sebastian Andres Messi', '', '', 'electrico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(10, 47, '2023-02-25', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(12, 0, '2023-04-03', 'Por favor Arreglen esto de inmediato', 'sapo ternero', 'sebastian Messi', '', '', 'electrico_conflictivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(13, 57, '2023-03-03', 'scsscsc', 'ggn', 'gmg', '', '', 'electrico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(14, 56, '2023-03-03', '', 'ss', 'ss', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(15, 47, '2023-03-03', '', '', 'sc', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(16, 56, '2023-03-03', 'no tienen nada que ver', 'por favor damelos', 'sebancho ', '', '', 'mecanico_conflictivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(17, 57, '2023-03-03', 'hola que hace', 'donde estas', 'pedro', '', '', 'electrico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(18, 47, '2023-03-03', 'scsscsc', 'd3d3d3d', '3d3d3d', '', '', 'electrico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(19, 57, '2023-03-03', 'yo soy CRPINGA', 'venga deme', 'dilan corredor leonel andress vinicus', '', '', 'mecanico_conflictivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(20, 47, '2023-03-03', 'NECESITO ARREGLAR PRONTO ESTO', 'Necesito cobre, oro, y a dilan', 'Sebastian Andres Messi', '', '', 'mecanico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(21, 47, '2023-03-16', 'scsscsc', 'hbhbf', 'fg', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(22, 47, '2023-04-07', 'prueba', 'si', 'dilan', '', '', 'mecanico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(23, 59, '2023-04-07', 'prueba', 'prueba', 'prueba', '', '', 'mecanico_conflictivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(24, 59, NULL, 'puede ser', '', '', '', '', '', '', '', '', '', '', '2023-04-29 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(25, 56, '2023-04-13', '1231', '1231', '1231', '', '', 'mecanico_conflictivo', '', '', '', '', '', '2023-04-13 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(26, 60, NULL, 'ssisisis', '', '', '', '', '', '', '', '', '', '', '2023-04-13 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto');
+INSERT INTO `orden` (`id`, `id_maquina`, `fecha_solicitud`, `descripcion`, `solicitud_material`, `solicitud`, `lugar_orden`, `asignacion`, `tipo_mantenimiento`, `motivo`, `descripcion_trabajo`, `herramientas`, `observaciones`, `fecha_hora_inicio`, `fecha_hora_fin`, `estado`) VALUES
+(5, 47, '2023-04-03', 'Por favor Arreglen', 'ss', 'olis olis', '', '', 'electrico_preventivo', '', 'DESCRIBEME', 'SI O NO', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'abierto'),
+(8, 0, '2023-04-03', 'NECESITO ARREGLAR PRONTO ESTO YAYAYA', 'Necesito cobre, oro, y a dilan yaya', 'Sebastian Andres Messi', '', '', 'electrico_preventivo', '', '', '', '', NULL, NULL, 'abierto'),
+(10, 47, '2023-02-25', '', '', '', '', '', 'electrico_preventivo', '', '', '', '', '2023-02-25 00:00:00', NULL, 'abierto'),
+(12, 0, '2023-04-03', 'Por favor Arreglen esto de inmediato', 'sapo ternero', 'sebastian Messi', '', '', 'electrico_conflictivo', '', '', '', '', NULL, NULL, 'abierto'),
+(13, 57, '2023-03-03', 'scsscsc', 'ggn', 'gmg', '', '', 'electrico_preventivo', '', '', '', '', NULL, NULL, 'abierto'),
+(14, 56, '2023-03-03', '', 'ss', 'ss', '', '', 'mecanico_preventivo', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'abierto'),
+(15, 47, '2023-03-03', '', '', 'sc', '', '', '', '', '', '', '', '2023-03-03 00:00:00', '0000-00-00 00:00:00', 'abierto'),
+(16, 56, '2023-03-03', 'no tienen nada que ver', 'por favor damelos', 'sebancho ', '', '', 'mecanico_conflictivo', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'abierto'),
+(17, 57, '2023-03-03', 'hola que hace', 'donde estas', 'pedro', '', '', 'electrico_preventivo', '', '', '', '', NULL, NULL, 'abierto'),
+(18, 47, '2023-03-03', 'scsscsc', 'd3d3d3d', '3d3d3d', '', '', 'electrico_preventivo', '', '', '', '', NULL, NULL, 'abierto'),
+(19, 57, '2023-03-03', 'yo soy CRPINGA', 'venga deme', 'dilan corredor leonel andress vinicus', '', '', 'mecanico_conflictivo', '', '', '', '', NULL, NULL, 'abierto'),
+(20, 47, '2023-03-03', 'NECESITO ARREGLAR PRONTO ESTO', 'Necesito cobre, oro, y a dilan', 'Sebastian Andres Messi', '', '', 'mecanico_preventivo', '', '', '', '', NULL, NULL, 'abierto'),
+(21, 47, '2023-03-16', 'scsscsc', 'hbhbf', 'fg', '', '', '', '', '', '', '', NULL, NULL, 'abierto'),
+(22, 47, '2023-04-07', 'prueba', 'si', 'dilan', '', '', 'mecanico_preventivo', '', '', '', '', NULL, NULL, 'abierto'),
+(23, 59, '2023-04-07', 'prueba', 'prueba', 'prueba', '', '', 'mecanico_conflictivo', '', '', '', '', NULL, NULL, 'abierto'),
+(24, 59, NULL, 'puede ser', '', '', '', '', '', '', '', '', '', '2023-04-29 00:00:00', NULL, 'abierto'),
+(25, 56, '2023-04-13', '1231', '1231', '1231', '', '', 'mecanico_conflictivo', '', '', '', '', '2023-04-13 00:00:00', '0000-00-00 00:00:00', 'abierto'),
+(26, 60, '2023-04-03', 'ssisisis', 'scsc', 'sebastian Messi', 'SI ESTAS', 'NO SE ', 'electrico_preventivo', 'hola que hace', 'DESCRIBEMEee', 'SI O NO', 'SI', '2023-04-13 00:00:00', '0000-00-00 00:00:00', 'cerrado'),
+(27, 47, '2023-04-11', 'Por favor Arreglen', 'scsc', 'scscs', '', '', '', '', '', '', '', '2023-04-11 00:00:00', NULL, ''),
+(28, 47, '2023-04-27', 'Por favor Arreglen', 'scsc', 'scscs', '', '', '', '', '', '', '', '2023-04-27 00:00:00', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -279,7 +274,7 @@ ALTER TABLE `maquina`
 -- AUTO_INCREMENT de la tabla `orden`
 --
 ALTER TABLE `orden`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `repuesto`

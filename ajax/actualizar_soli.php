@@ -6,7 +6,7 @@ $fecha_solicitud = $_POST["fecha_solicitud"];
 $descripcion = $_POST["descripcion"];
 $solicitud_material = $_POST["solicitud_material"];
 $solicitud = $_POST["solicitud"];
-$tipo_mantenimiento = $_POST["tipo_mantenimiento"];
+$tipo_mantenimiento = $_POST["tipo_mantenimiento"]?? null;
 
 $actualizar =  "UPDATE `orden` SET `fecha_solicitud`='$fecha_solicitud',`fecha_hora_inicio`='$fecha_solicitud',`descripcion`='$descripcion',`solicitud_material`='$solicitud_material',`solicitud`='$solicitud',`tipo_mantenimiento`='$tipo_mantenimiento' WHERE id = '$id'";
 $resultado = mysqli_query($con, $actualizar);

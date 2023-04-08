@@ -654,16 +654,3 @@ $("#regresar_orden").on("click", function (e) {
   window.location.href = "mod_orden.php";
 });
 
-$(document).ready(function () {
-  $("#estado").change(function () {
-    var nuevoEstado = $(this).val(); // Obtén el nuevo valor seleccionado
-    $.ajax({
-      type: "POST",
-      url: "actualizar_estado.php", // Archivo PHP que manejará la actualización
-      data: { estado: nuevoEstado }, // Datos que se enviarán al servidor
-      success: function (response) {
-        console.log(response); // Maneja la respuesta del servidor
-      },
-    });
-  });
-});

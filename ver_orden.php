@@ -198,11 +198,17 @@ if ($id != null) {
                         <label for="fecha_hora_fin">Fecha y Hora Fin:</label>
                         <input type="datetime" id="fecha_hora_fin" name="fecha_hora_fin" value="<?php echo $fecha_hora_fin; ?>">
                     </div>
-                    <select name="estado" id="estado" value="<?php echo $estado; ?>">
-                        <option value="abierto" <?php echo $estado == 'abierto' ? 'selected' : ''; ?>>Abierto</option>
-                        <option value="cerrado" <?php echo $estado == 'cerrado' ? 'selected' : ''; ?>>Cerrado</option>
-                    </select>
+                    <div>
+                        <label for="estado">Estado:</label>
+                    </div>
+                    <div class="radios">
+                        <input type="radio" name="estado" value="abierto" <?php if ($estado == 'abierto') echo 'checked'; ?>>
+                        <label for="estado">Abierto</label>
 
+                        <input type="radio" name="estado" value="cerrado" <?php if ($estado == 'cerrado') echo 'checked'; ?>>
+                        <label for="estado">Cerrado</label>
+
+                    </div>
                 </div>
                 <?php if ($id != null) { ?>
                     <button id="regresar_orden">Volver</button>
