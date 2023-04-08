@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3309
--- Tiempo de generación: 03-04-2023 a las 19:51:54
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 08-04-2023 a las 06:15:08
 -- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Versión de PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -68,19 +68,27 @@ CREATE TABLE `maquina` (
   `personal` varchar(12) NOT NULL,
   `tipo` varchar(20) NOT NULL,
   `periodicidad` varchar(15) NOT NULL,
-  `descripcion` text NOT NULL
+  `descripcion` text NOT NULL,
+  `img` text NOT NULL,
+  `qr` text DEFAULT NULL,
+  `manual` text DEFAULT NULL,
+  `hoja` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `maquina`
 --
 
-INSERT INTO `maquina` (`id`, `codigo`, `nombre`, `marca`, `modelo`, `ubicacion`, `serial`, `voltaje`, `vigencia`, `lugar_origen`, `datos_proveedor`, `uso_diario`, `temperatura`, `tiempo_carga`, `nivel_ruido`, `personal`, `tipo`, `periodicidad`, `descripcion`) VALUES
-(47, 'MwC Component', 'Dilan 2.0', 'Barcel', 'epitelios', '23', '4567', 'amperios', '2023-04-03', '2023-04-03', 'Es importante ', '43', '23', '25', '56', 'interno', 'correctivo', 'trimestral', 'Por favor Arreglen'),
-(56, '', 'dilanchito', '', '', '', '', '', '2023-04-03', '2023-04-03', '', '', '', '', '', '', '', 'semestral', ''),
-(57, 'fjgfg', 'bmmmh', '', '', '', 'fggfg', '', '2023-02-24', '0000-00-00', '', '', '', '', '', 'interno', 'correctivo', 'trimestral', ''),
-(59, '', 'huevo', '', '', '', '', '', '2023-03-27', '2023-03-27', 'DIOSSSSSSSS', '', '', '45', '', '', '', '', ''),
-(60, '2191969', 'Martillo Volador', 'madrid ', 'epitelios', '23', '4949', '34', '2023-04-03', '2023-04-03', 'DIOSSSSSSSS', '43', '23', '25', '56', 'externo', 'correctivo', 'mensual', 'Por favor Arreglen esto de inmediato');
+INSERT INTO `maquina` (`id`, `codigo`, `nombre`, `marca`, `modelo`, `ubicacion`, `serial`, `voltaje`, `vigencia`, `lugar_origen`, `datos_proveedor`, `uso_diario`, `temperatura`, `tiempo_carga`, `nivel_ruido`, `personal`, `tipo`, `periodicidad`, `descripcion`, `img`, `qr`, `manual`, `hoja`) VALUES
+(47, 'MwC Component', 'Dilan 2.0', 'Barcel', 'epitelios', '23', '4567', 'amperios', '2023-04-03', '2023-04-03', 'Es importante ', '43', '23', '25', '56', 'interno', 'correctivo', 'trimestral', 'Por favor Arreglen', '', NULL, NULL, NULL),
+(56, '', 'dilanchito', '', '', '', '', '', '2023-04-03', '2023-04-03', '', '', '', '', '', '', '', 'semestral', '', '', NULL, NULL, NULL),
+(57, 'fjgfg', 'bmmmh', '', '', '', 'fggfg', '', '2023-02-24', '0000-00-00', '', '', '', '', '', 'interno', 'correctivo', 'trimestral', '', '', NULL, NULL, NULL),
+(59, '', 'huevo', '', '', '', '', '', '2023-03-27', '2023-03-27', 'DIOSSSSSSSS', '', '', '45', '', '', '', '', '', '', NULL, NULL, NULL),
+(60, '2191969', 'Martillo Volador', 'madrid ', 'epitelios', '23', '4949', '34', '2023-04-03', '2023-04-03', 'DIOSSSSSSSS', '43', '23', '25', '56', 'externo', 'correctivo', 'mensual', 'Por favor Arreglen esto de inmediato', '', NULL, NULL, NULL),
+(61, 'a', 'a', 'a', 'a', 'a', 'a', 'a', '2023-04-13', '2023-04-13', 'a', 'a', 'a', 'a', 'a', 'externo', 'correctivo', 'trimestral', 'a', '../build/img/maquinas/AFD_2.png', NULL, NULL, NULL),
+(62, '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', '', '', '../build/img/maquinas/imagen_2023-02-07_204617566.png', NULL, NULL, NULL),
+(63, '123456', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', '', '', '../build/img/maquinas/123456/imagen_2023-02-07_204617566.png', '../build/img/maquinas/123456/WhatsApp Image 2023-02-07 at 9.44.23 AM (1).jpeg', '../build/img/maquinas/123456/Mon Plaisir College HAVO - VWO Profiel 2023 - 2024 (1).docx', '../build/img/maquinas/123456/Migración de una página web de un servidor a otro.docx'),
+(64, '123456789', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', '', '', '../build/img/maquinas/123456789/imagen_2023-02-07_204617566.png', '../build/img/maquinas/123456789/WhatsApp Image 2023-02-07 at 9.44.23 AM (1).jpeg', '../build/img/maquinas/123456789/Mon Plaisir College HAVO - VWO Profiel 2023 - 2024 (1).docx', '../build/img/maquinas/123456789/Migración de una página web de un servidor a otro.docx');
 
 -- --------------------------------------------------------
 
@@ -131,7 +139,12 @@ INSERT INTO `orden` (`id`, `id_maquina`, `fecha_solicitud`, `descripcion`, `soli
 (18, 47, '2023-03-03', 'scsscsc', 'd3d3d3d', '3d3d3d', '', '', 'electrico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
 (19, 57, '2023-03-03', 'yo soy CRPINGA', 'venga deme', 'dilan corredor leonel andress vinicus', '', '', 'mecanico_conflictivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
 (20, 47, '2023-03-03', 'NECESITO ARREGLAR PRONTO ESTO', 'Necesito cobre, oro, y a dilan', 'Sebastian Andres Messi', '', '', 'mecanico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
-(21, 47, '2023-03-16', 'scsscsc', 'hbhbf', 'fg', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto');
+(21, 47, '2023-03-16', 'scsscsc', 'hbhbf', 'fg', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
+(22, 47, '2023-04-07', 'prueba', 'si', 'dilan', '', '', 'mecanico_preventivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
+(23, 59, '2023-04-07', 'prueba', 'prueba', 'prueba', '', '', 'mecanico_conflictivo', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
+(24, 59, NULL, 'puede ser', '', '', '', '', '', '', '', '', '', '', '2023-04-29 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
+(25, 56, '2023-04-13', '1231', '1231', '1231', '', '', 'mecanico_conflictivo', '', '', '', '', '', '2023-04-13 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto'),
+(26, 60, NULL, 'ssisisis', '', '', '', '', '', '', '', '', '', '', '2023-04-13 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abierto');
 
 -- --------------------------------------------------------
 
@@ -176,7 +189,11 @@ CREATE TABLE `tarea` (
 --
 
 INSERT INTO `tarea` (`id`, `id_maquina`, `activacion`, `periodicidad`, `descripcion`, `proxima_activacion`) VALUES
-(16, 57, '2023-04-07', '', '', '2023-04-03');
+(16, 57, '2023-04-07', '', '', '2023-04-03'),
+(18, 47, '2023-04-07', '', '', '2023-04-07'),
+(19, 59, '2023-04-13', '', 'prueba12345', '2023-04-13'),
+(20, 59, '2023-04-06', '', 'puede ser', '2023-04-29'),
+(21, 60, '2023-04-13', '', 'ssisisis', '2023-04-13');
 
 -- --------------------------------------------------------
 
@@ -256,13 +273,13 @@ ALTER TABLE `componente`
 -- AUTO_INCREMENT de la tabla `maquina`
 --
 ALTER TABLE `maquina`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT de la tabla `orden`
 --
 ALTER TABLE `orden`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `repuesto`
@@ -274,7 +291,7 @@ ALTER TABLE `repuesto`
 -- AUTO_INCREMENT de la tabla `tarea`
 --
 ALTER TABLE `tarea`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
