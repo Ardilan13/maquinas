@@ -323,10 +323,20 @@ $(".ver_comp").on("click", function (e) {
   $(location).prop("href", "crear_componente.php?id=" + $(this).attr("id"));
 });
 
+const MAXIMO_TAMANIO_BYTES = 2000000; // 1MB = 1 millón de bytes
+
+// Obtener referencia al elemento
+
+$("input[type=file]").bind("change", function (e) {
+  if (this.files[0].size > MAXIMO_TAMANIO_BYTES) {
+    alert("El tamaño del archivo debe ser menor a 2MB");
+    $(this).val("");
+  }
+});
 
 //ajax que tiene  implementada la funcion para crear una maquina mediante metodo post.
 
-$("#btn_creacion_maqn").on("click", function (e) {
+/* $("#btn_creacion_maqn").on("click", function (e) {
   e.preventDefault();
 
   var nombre = $("#nombre").val();
@@ -354,7 +364,7 @@ $("#btn_creacion_maqn").on("click", function (e) {
       alert("Error");
     },
   });
-});
+}); */
 
 //ajax que tiene  implementada la funcion para crear una solicitud mediante metodo post.
 

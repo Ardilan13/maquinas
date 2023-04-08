@@ -30,7 +30,10 @@ if ($id != null) {
     $tipo = $row['tipo'];
     $periodicidad = $row['periodicidad'];
     $descripcion = $row['descripcion'];
-    $imagen = $row['imagen'];
+    $img = $row['img'];
+    $qr = $row['qr'];
+    $hoja = $row['hoja'];
+    $manual = $row['manual'];
 } else {
     $codigo = '';
     $nombre = '';
@@ -50,7 +53,10 @@ if ($id != null) {
     $tipo = '';
     $periodicidad = '';
     $descripcion = '';
-    $imagen = '';
+    $img = '';
+    $qr = '';
+    $hoja = '';
+    $manual = '';
 }
 
 
@@ -62,51 +68,67 @@ if ($id != null) {
             <p>Consultar Activo</p>
         </div>
         <div class="info">
-            <form method="POST" enctype="multipart/form-data" id="agregar_maqn">
+            <form action="ajax/add_maqui.php" method="POST" enctype="multipart/form-data" id="agregar_maqn">
                 <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
                 <p>Especificaciones Tecnicas del Equipo</p>
 
-                <div class="flex">
-                    <div class="input">
-                        <label for="codigo">Codigo:</label>
-                        <input type="text" id="codigo" name="codigo" value="<?php echo $codigo; ?>">
+                <div class="flex flex_img">
+                    <div class="flex_files">
+                        <div class="input_file">
+                            <label for="imagen">Imagen:</label>
+                            <input type="file" id="imagen" name="imagen" value="<?php echo $img ?>" accept="image/*">
+                        </div>
+                        <div class="input_file">
+                            <label for="qr">Qr:</label>
+                            <input type="file" id="qr" name="qr" value="<?php echo $qr ?>" accept="image/*">
+                        </div>
+                        <div class="input_file">
+                            <label for="hoja">Hoja de vida:</label>
+                            <input type="file" id="hoja" name="hoja" value="<?php echo $hoja ?>" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf">
+                        </div>
+                        <div class="input_file">
+                            <label for="manual">Manual:</label>
+                            <input type="file" id="manual" name="manual" value="<?php echo $manual ?>" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf">
+                        </div>
                     </div>
-                    <div class="input">
-                        <label for="imagen">Imagen:</label>
-                        <input type="file" id="imagen" name="imagen" value="<?php echo $imagen; ?>">
-                    </div>
-                    <div class="input">
-                        <label for="serial">Serial:</label>
-                        <input type="text" id="serial" name="serial" value="<?php echo $serial; ?>">
-                    </div>
+                    <div class="flex">
+                        <div class="input">
+                            <label for="codigo">Codigo:</label>
+                            <input type="text" id="codigo" name="codigo" value="<?php echo $codigo; ?>">
+                        </div>
+                        <div class=" input">
+                            <label for="serial">Serial:</label>
+                            <input type="text" id="serial" name="serial" value="<?php echo $serial; ?>">
+                        </div>
 
-                    <div class="input">
-                        <label for="voltaje">Voltaje:</label>
-                        <input type="text" id="voltaje" name="voltaje" value="<?php echo $voltaje; ?>">
-                    </div>
-                    <div class="input">
-                        <label for="datos_proveedor">Datos del Proveedor:</label>
-                        <input type="text" id="datos_proveedor" name="datos_proveedor" value="<?php echo $datos_proveedor; ?>">
-                    </div>
-                    <div class="input">
-                        <label for="ubicacion">Numero de Inventario:</label>
-                        <input type="text" id="ubicacion" name="ubicacion" value="<?php echo $ubicacion; ?>">
-                    </div>
-                    <div class="input">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" value="<?php echo $nombre; ?>">
-                    </div>
-                    <div class="input">
-                        <label for="marca">Marca:</label>
-                        <input type="text" id="marca" name="marca" value="<?php echo $marca; ?>">
-                    </div>
-                    <div class="input">
-                        <label for="vigencia">Vigente desde(YYYY-MM-DD):</label>
-                        <input type="date" id="vigencia" name="vigencia" value="<?php echo $vigencia; ?>">
-                    </div>
-                    <div class="input">
-                        <label for="modelo">Modelo:</label>
-                        <input type="text" id="modelo" name="modelo" value="<?php echo $modelo; ?>">
+                        <div class="input">
+                            <label for="voltaje">Voltaje:</label>
+                            <input type="text" id="voltaje" name="voltaje" value="<?php echo $voltaje; ?>">
+                        </div>
+                        <div class="input">
+                            <label for="datos_proveedor">Datos del Proveedor:</label>
+                            <input type="text" id="datos_proveedor" name="datos_proveedor" value="<?php echo $datos_proveedor; ?>">
+                        </div>
+                        <div class="input">
+                            <label for="ubicacion">Numero de Inventario:</label>
+                            <input type="text" id="ubicacion" name="ubicacion" value="<?php echo $ubicacion; ?>">
+                        </div>
+                        <div class="input">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" value="<?php echo $nombre; ?>">
+                        </div>
+                        <div class="input">
+                            <label for="marca">Marca:</label>
+                            <input type="text" id="marca" name="marca" value="<?php echo $marca; ?>">
+                        </div>
+                        <div class="input">
+                            <label for="vigencia">Vigente desde(DD-MM-YYYY):</label>
+                            <input type="date" id="vigencia" name="vigencia" value="<?php echo $vigencia; ?>">
+                        </div>
+                        <div class="input">
+                            <label for="modelo">Modelo:</label>
+                            <input type="text" id="modelo" name="modelo" value="<?php echo $modelo; ?>">
+                        </div>
                     </div>
                 </div>
 
