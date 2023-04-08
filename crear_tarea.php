@@ -60,7 +60,7 @@ if ($id != null) {
                     </div>
                 <?php } ?>
                 <div class="input">
-                    <label for="descripcion">Descripcion:</label>
+                    <label for="descripcion">Descripcion Plan:</label>
                     <input type="text" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>">
                 </div>
                 <div class="input">

@@ -195,6 +195,11 @@ $(".btn_maq").on("click", function (e) {
   window.location.href = "crear_maquina.php";
 });
 
+$(".ver_trabajo").on("click", function (e) {
+  e.preventDefault();
+  window.location.href = "ver_orden.php";
+});
+
 //boton eliminar maquina
 
 $(".delete_maquina").on("click", function (e) {
@@ -317,6 +322,7 @@ $(".ver_comp").on("click", function (e) {
   e.preventDefault();
   $(location).prop("href", "crear_componente.php?id=" + $(this).attr("id"));
 });
+
 
 //ajax que tiene  implementada la funcion para crear una maquina mediante metodo post.
 
