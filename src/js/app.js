@@ -323,6 +323,14 @@ $(".ver_comp").on("click", function (e) {
   $(location).prop("href", "crear_componente.php?id=" + $(this).attr("id"));
 });
 
+$(".ver_trabajo").on("click", function (e) {
+  e.preventDefault();
+  $(location).prop("href", "ver_orden.php?id=" + $(this).attr("id"));
+});
+
+
+
+
 
 //ajax que tiene  implementada la funcion para crear una maquina mediante metodo post.
 
@@ -485,6 +493,30 @@ $("#actualizar_maq").on("click", function (e) {
   });
 });
 
+//Ajax Actualizar orden
+$("#actualizar_orden").on("click", function (e) {
+  e.preventDefault();
+
+  $.ajax({
+    url: "ajax/actualizar_orden.php",
+    data: $("#agregar_orden").serialize(),
+    type: "POST",
+    dataType: "text",
+    success: function (text) {
+      if (text == 1) {
+        alert("Actualizacion Exitosa!");
+        $(location).prop("href", "mod_orden.php");
+      } else {
+        alert("Error, intente nuevamente.");
+        console.log(text);
+      }
+    },
+    error: function (xhr, status, errorThrown) {
+      alert("Error");
+    },
+  });
+});
+
 //ajax actualizacion tarea
 
 $("#actualizar_tar").on("click", function (e) {
@@ -609,4 +641,23 @@ $("#regresar_tar").on("click", function (e) {
 $("#regresar_maqn").on("click", function (e) {
   e.preventDefault();
   window.location.href = "mod_maquina.php";
+});
+
+$("#regresar_orden").on("click", function (e) {
+  e.preventDefault();
+  window.location.href = "mod_orden.php";
+});
+
+$(document).ready(function() {
+  $('#estado').change(function() {
+      var nuevoEstado = $(this).val(); // Obtén el nuevo valor seleccionado
+      $.ajax({
+          type: 'POST',
+          url: 'actualizar_estado.php', // Archivo PHP que manejará la actualización
+          data: { estado: nuevoEstado }, // Datos que se enviarán al servidor
+          success: function(response) {
+              console.log(response); // Maneja la respuesta del servidor
+          }
+      });
+  });
 });

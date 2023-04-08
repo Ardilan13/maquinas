@@ -1,7 +1,7 @@
 <?php require_once 'includes/header.php';
 require_once 'conexion.php';
 $con = conectar();
-$id = isset($_GET["id"]) ? intval($_GET["id"]) : null; // Validar y obtener un entero
+$id = $_GET["id"] ?? null;
 
 if ($id != null) {
     $registro = "SELECT * from orden where id=$id";
@@ -20,6 +20,8 @@ if ($id != null) {
     $herramientas = $row['herramientas'];
     $fecha_hora_inicio = $row['fecha_hora_inicio'];
     $fecha_hora_fin = $row['fecha_hora_fin'];
+    $descripcion_trabajo = $row['descripcion_trabajo'];
+    $estado = $row['estado'];
 
     // Agregar código para seleccionar datos de la tabla maquina
     $query = "SELECT * FROM maquina WHERE id=$maquina";
@@ -31,7 +33,7 @@ if ($id != null) {
     $marca = $maquina_data['marca'];
     $modelo = $maquina_data['modelo'];
     $ubicacion = $maquina_data['ubicacion'];
-    $periodicidad = $maquina_data['$periodicidad'];
+    $periodicidad = $maquina_data['periodicidad'];
 } else {
     $maquina = '';
     $fecha_solicitud = '';
@@ -52,8 +54,9 @@ if ($id != null) {
     $herramientas = '';
     $fecha_hora_inicio = '';
     $fecha_hora_fin = '';
+    $descripcion_trabajo = '';
+    $estado = '';
 }
-
 
 ?>
 
@@ -63,21 +66,24 @@ if ($id != null) {
             <p>Consultar Orden de Trabajo</p>
         </div>
         <div class="info">
-            <form id="agregar_maqn">
+            <form id="agregar_orden">
                 <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
                 <p>Detalles del Activo</p>
                 <div class="flex">
                     <div class="input">
                         <label for="maquina">Maquina:</label>
-                        <select id="" name="maquina" <?php if ($id != null) echo 'disabled '; ?>>
-                            <option value="<?php echo $maquina; ?>"><?php echo $nombre; ?></option>
-                            <?php
-                            // Agregar código para seleccionar todas las maquinas de la tabla maquina
-                            $query = "SELECT * FROM maquina";
-                            $result = mysqli_query($con, $query);
-                            while ($row = mysqli_fetch_assoc($result)) {
-                            ?>
-                                <option value="<?php echo $row['id']; ?>"><?php echo $row['nombre']; ?></option>
+                        <select id="maquina" name="maquina" value="<?php echo $maquina; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+                            <?php if ($id != null) { ?>
+                                <option value="<?php echo $maquina; ?>"><?php echo $nombre; ?></option>
+                            <?php } else { ?>
+                                <?php
+                                // Agregar código para seleccionar todas las maquinas de la tabla maquina
+                                $query = "SELECT * FROM maquina";
+                                $result = mysqli_query($con, $query);
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                    <option value="<?php echo $row['id']; ?>" <?php if ($row['id'] == $maquina) echo 'selected'; ?>><?php echo $row['nombre']; ?></option>
+                                <?php } ?>
                             <?php } ?>
                         </select>
                     </div>
@@ -97,25 +103,13 @@ if ($id != null) {
                         <label for="ubicacion">Numero de Inventario:</label>
                         <input type="text" id="ubicacion" name="ubicacion" value="<?php echo $ubicacion; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
-                </div>
-                <p>Detalles del Plan de Mantenimiento</p>
-                <div class="flex">
                     <div class="input">
                         <label for="periodicidad">Periodicidad:</label>
                         <input type="text" id="periodicidad" name="periodicidad" value="<?php echo $periodicidad; ?>" <?php if ($id != null) echo 'disabled '; ?>>
                     </div>
-                    <div class="input">
-                        <label for="descripcion">Descripcion Plan:</label>
-                        <input type="text" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>">
-                    </div>
-                    <div class="input">
-                        <label for="activacion">Activacion:</label>
-                        <input type="date" id="activacion" name="activacion" value="<?php echo $activacion; ?>">
-                    </div>
-                    <div class="input">
-                        <label for="proxima_activacion">Proxima Activacion:</label>
-                        <input type="date" id="proxima_activacion" name="proxima_activacion" value="<?php echo $proxima_activacion; ?>">
-                    </div>
+                </div>
+                <p>Detalles del Plan de Mantenimiento</p>
+                <div class="flex">
                     <div class="input">
                         <label for="motivo">Motivo:</label>
                         <input type="text" id="motivo" name="motivo" value="<?php echo $motivo; ?>">
@@ -134,11 +128,16 @@ if ($id != null) {
                 <p>Detalles del Trabajo</p>
                 <div class="flex">
                     <div class="input">
-                        <label for="herramientas">Herramientas Necesarias::</label>
-                        <input type="text" id="herramientas" name="herramientas" value="<?php echo $asignacion; ?>">
+                        <label for="herramientas">Herramientas Necesarias:</label>
+                        <input type="text" id="herramientas" name="herramientas" value="<?php echo $herramientas; ?>">
+                    </div>
+                    <div class="input">
+                        <label for="descripcion_trabajo">Descripcion del trabajo:</label>
+                        <input type="text" id="descripcion_trabajo" name="descripcion_trabajo" value="<?php echo $descripcion_trabajo; ?>">
                     </div>
 
                 </div>
+
                 <p>Reporte De Solicitud</p>
                 <div class="flex">
                     <div class="input">
@@ -199,12 +198,15 @@ if ($id != null) {
                         <label for="fecha_hora_fin">Fecha y Hora Fin:</label>
                         <input type="datetime" id="fecha_hora_fin" name="fecha_hora_fin" value="<?php echo $fecha_hora_fin; ?>">
                     </div>
+                    <select name="estado" id="estado" value="<?php echo $estado; ?>">
+                        <option value="abierto" <?php echo $estado == 'abierto' ? 'selected' : ''; ?>>Abierto</option>
+                        <option value="cerrado" <?php echo $estado == 'cerrado' ? 'selected' : ''; ?>>Cerrado</option>
+                    </select>
+
                 </div>
-                <button id="regresar_maqn">Volver</button>
-                <?php if ($id == null) { ?>
-                    <button id="btn_creacion_maqn">Actualizar</button>
-                <?php } else { ?>
-                    <button id="actualizar_maq">Actualizar</button>
+                <?php if ($id != null) { ?>
+                    <button id="regresar_orden">Volver</button>
+                    <button id="actualizar_orden">Actualizar</button>
                 <?php }  ?>
 
             </form>
