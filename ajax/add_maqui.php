@@ -55,7 +55,7 @@ temperatura, tiempo_carga, nivel_ruido, personal, tipo, periodicidad, descripcio
 
 $resultado = mysqli_query($con, $registro);
 if ($resultado) {
-    echo 1;
+    header("Location: ../mod_maquina.php");
 } else {
     echo $registro;
 }
