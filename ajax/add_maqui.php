@@ -21,7 +21,7 @@ $tipo = $_POST["tipo"] ?? null;
 $periodicidad = $_POST["periodicidad"] ?? null;
 $descripcion = $_POST["descripcion"];
 
-$estructura = "/var/www/html/maquinas/build/img/maquinas/" . $codigo;
+$estructura = "../build/img/maquinas/" . $codigo;
 if (!mkdir($estructura, 0777, true)) {
     echo "Error al crear el directorio";
 }
