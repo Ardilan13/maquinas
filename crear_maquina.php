@@ -1,4 +1,5 @@
-<?php require_once 'includes/header.php';
+<?php
+require_once 'includes/header.php';
 require_once 'conexion.php';
 $con = conectar();
 $id = isset($_GET["id"]) ? intval($_GET["id"]) : null; // Validar y obtener un entero
@@ -19,7 +20,7 @@ if ($id != null) {
     $ubicacion = $row['ubicacion'];
     $serial = $row['serial'];
     $voltaje = $row['voltaje'];
-    $vigencia = $row['vigencia'] ?? null;
+    $vigencia = $row['vigencia'];
     $lugar_origen = $row['lugar_origen'];
     $datos_proveedor = $row['datos_proveedor'];
     $uso_diario = $row['uso_diario'];
@@ -42,7 +43,7 @@ if ($id != null) {
     $ubicacion = '';
     $serial = '';
     $voltaje = '';
-    $vigencia = '';
+    $vigencia = null;
     $lugar_origen = '';
     $datos_proveedor = '';
     $uso_diario = '';

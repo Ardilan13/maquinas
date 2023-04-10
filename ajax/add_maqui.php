@@ -22,7 +22,7 @@ $periodicidad = $_POST["periodicidad"] ?? null;
 $descripcion = $_POST["descripcion"];
 
 $estructura = "../build/img/maquinas/" . $codigo;
-if (!mkdir($estructura, 0777, true)) {
+if (!mkdir($estructura, 0755, true)) {
     echo "Error al crear el directorio";
 }
 
