@@ -9,8 +9,8 @@ $descripcion = $_POST["descripcion"];
 $solicitud_material = $_POST["solicitud_material"];
 $solicitud = $_POST["solicitud"];
 
-$registro = "INSERT INTO orden (id_maquina, fecha_solicitud, tipo_mantenimiento, descripcion, solicitud_material, solicitud,fecha_hora_inicio) VALUES ($maquina, '$fecha_solicitud', '$tipo_mantenimiento', 
-'$descripcion', '$solicitud_material', '$solicitud', '$fecha_solicitud')";
+$registro = "INSERT INTO orden (id_maquina, fecha_solicitud, tipo_mantenimiento, descripcion, solicitud_material, solicitud,fecha_hora_inicio,estado) VALUES ($maquina, '$fecha_solicitud', '$tipo_mantenimiento', 
+'$descripcion', '$solicitud_material', '$solicitud', '$fecha_solicitud','abierto')";
 
 $resultado = mysqli_query($con, $registro);
 if ($resultado) {

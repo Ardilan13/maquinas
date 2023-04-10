@@ -1,6 +1,7 @@
 <?php require_once 'includes/header.php';
 require_once 'conexion.php';
 $con = conectar();
+
 $id = $_GET["id"] ?? null;
 
 if ($id != null) {
@@ -53,7 +54,7 @@ if ($id != null) {
     $observaciones = '';
     $herramientas = '';
     $fecha_hora_inicio = '';
-    $fecha_hora_fin = '';
+    $fecha_hora_fin = date("Y-m-d H:i:s");
     $descripcion_trabajo = '';
     $estado = '';
 }
@@ -140,11 +141,6 @@ if ($id != null) {
 
                 <p>Reporte De Solicitud</p>
                 <div class="flex">
-                    <div class="input">
-                        <label for="fecha_solicitud">Fecha de la Solicitud:</label>
-                        <input type="date" id="fecha_solicitud" name="fecha_solicitud" value="<?php echo $fecha_solicitud; ?>">
-                    </div>
-
                     <div class="radio_buttons">
                         <div>
                             <label for="tipo_mantenimiento">Tipo de Mantenimiento:</label>
@@ -192,11 +188,11 @@ if ($id != null) {
                     </div>
                     <div class="input">
                         <label for="fecha_hora_inicio">Fecha y Hora Inicio:</label>
-                        <input type="datetime" id="fecha_hora_inicio" name="fecha_hora_inicio" value="<?php echo $fecha_hora_inicio; ?>">
+                        <input type="datetime-local" id="fecha_hora_inicio" name="fecha_hora_inicio" value="<?php echo $fecha_hora_inicio; ?>">
                     </div>
                     <div class="input">
                         <label for="fecha_hora_fin">Fecha y Hora Fin:</label>
-                        <input type="datetime" id="fecha_hora_fin" name="fecha_hora_fin" value="<?php echo $fecha_hora_fin; ?>">
+                        <input type="datetime-local" id="fecha_hora_fin" name="fecha_hora_fin" value="<?php echo $fecha_hora_fin; ?>">
                     </div>
                     <div>
                         <label for="estado">Estado:</label>
