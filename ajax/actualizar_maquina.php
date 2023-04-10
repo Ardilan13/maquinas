@@ -26,7 +26,7 @@ if (!mkdir($estructura, 0777, true)) {
     echo "Error al crear el directorio";
 }
 
-if (isset($_FILES["imagen"]["name"])) {
+if (isset($_FILES["imagen"]["name"]) && $_FILES["imagen"]["name"] != "") {
     $imagen = $_FILES["imagen"]["name"];
     $imagen_temporal = $_FILES["imagen"]["tmp_name"];
     $ruta_imagen = $estructura . '/' . $imagen;
@@ -35,7 +35,7 @@ if (isset($_FILES["imagen"]["name"])) {
     $ruta_imagen = $_POST["imagen"];
 }
 
-if (isset($_FILES["qr"]["name"])) {
+if (isset($_FILES["qr"]["name"]) && $_FILES["qr"]["name"] != "") {
     $qr = $_FILES["qr"]["name"];
     $qr_temporal = $_FILES["qr"]["tmp_name"];
     $ruta_qr = $estructura . '/' . $qr;
@@ -44,7 +44,7 @@ if (isset($_FILES["qr"]["name"])) {
     $ruta_qr = $_POST["qr"];
 }
 
-if (isset($_FILES["manual"]["name"])) {
+if (isset($_FILES["manual"]["name"]) && $_FILES["manual"]["name"] != "") {
     $manual = $_FILES["manual"]["name"];
     $manual_temporal = $_FILES["manual"]["tmp_name"];
     $ruta_manual = $estructura . '/' . $manual;
@@ -53,7 +53,7 @@ if (isset($_FILES["manual"]["name"])) {
     $ruta_manual = $_POST["manual"];
 }
 
-if (isset($_FILES["hoja"]["name"])) {
+if (isset($_FILES["hoja"]["name"]) && $_FILES["hoja"]["name"] != "") {
     $hoja = $_FILES["hoja"]["name"];
     $hoja_temporal = $_FILES["hoja"]["tmp_name"];
     $ruta_hoja = $estructura . '/' . $hoja;

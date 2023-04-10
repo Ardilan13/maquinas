@@ -53,10 +53,10 @@ if ($id != null) {
     $tipo = '';
     $periodicidad = '';
     $descripcion = '';
-    $img = '';
-    $qr = '';
-    $hoja = '';
-    $manual = '';
+    $img = null;
+    $qr = null;
+    $hoja = null;
+    $manual = null;
 }
 
 
