@@ -476,7 +476,7 @@ $("#actualizar_com").on("click", function (e) {
 });
 
 //Ajax Actualizar Maquina
-/* $("#actualizar_maq").on("click", function (e) {
+$("#actualizar_maq").on("click", function (e) {
   e.preventDefault();
 
   $.ajax({
@@ -497,7 +497,7 @@ $("#actualizar_com").on("click", function (e) {
       alert("Error");
     },
   });
-}); */
+});
 
 //Ajax Actualizar orden
 $("#actualizar_orden").on("click", function (e) {
@@ -653,3 +653,5 @@ $("#regresar_orden").on("click", function (e) {
   e.preventDefault();
   window.location.href = "mod_orden.php";
 });
+
+

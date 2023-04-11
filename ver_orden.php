@@ -116,18 +116,13 @@ if ($id != null) {
                         <input type="text" id="motivo" name="motivo" value="<?php echo $motivo; ?>">
                     </div>
                     <div class="input">
-                        <label for="lugar_orden">Lugar donde se realizara la Actividad:</label>
+                        <label for="lugar_orden">Lugar de la Actividad:</label>
                         <input type="text" id="lugar_orden" name="lugar_orden" value="<?php echo $lugar_orden; ?>">
                     </div>
                     <div class="input">
                         <label for="asignacion">Asignada A::</label>
                         <input type="text" id="asignacion" name="asignacion" value="<?php echo $asignacion; ?>">
                     </div>
-                </div>
-
-
-                <p>Detalles del Trabajo</p>
-                <div class="flex">
                     <div class="input">
                         <label for="herramientas">Herramientas Necesarias:</label>
                         <input type="text" id="herramientas" name="herramientas" value="<?php echo $herramientas; ?>">
@@ -136,74 +131,75 @@ if ($id != null) {
                         <label for="descripcion_trabajo">Descripcion del trabajo:</label>
                         <input type="text" id="descripcion_trabajo" name="descripcion_trabajo" value="<?php echo $descripcion_trabajo; ?>">
                     </div>
-
+                    <div class="input">
+                        <label for="observaciones">Observaciones:</label>
+                        <input type="text" id="observaciones" name="observaciones" value="<?php echo $observaciones; ?>">
+                    </div>
                 </div>
-
                 <p>Reporte De Solicitud</p>
                 <div class="flex">
-                    <div class="radio_buttons">
-                        <div>
-                            <label for="tipo_mantenimiento">Tipo de Mantenimiento:</label>
-                        </div>
-                        <div class="radios">
+                <div class="grid">
+                        <div class="input input_radio">
                             <div>
+                                <label for="tipo_mantenimiento">Tipo de Mantenimiento:</label>
+                            </div>
+
+                            <div class="radios">
+
                                 <input type="radio" name="tipo_mantenimiento" value="mecanico_preventivo" <?php if ($tipo_mantenimiento == 'mecanico_preventivo') echo 'checked'; ?>>
 
                                 <label for="tipo_mantenimiento">Mecanico Preventivo</label>
-                            </div>
-                            <div>
+
+
                                 <input type="radio" name="tipo_mantenimiento" value="mecanico_conflictivo" <?php if ($tipo_mantenimiento == 'mecanico_conflictivo') echo 'checked'; ?>>
                                 <label for="tipo_mantenimiento">Mecanico Correctivo</label>
-                            </div>
-                            <div>
+
+
                                 <input type="radio" name="tipo_mantenimiento" value="electrico_preventivo" <?php if ($tipo_mantenimiento == 'electrico_preventivo') echo 'checked'; ?>>
                                 <label for="tipo_mantenimiento">Electrico Preventivo</label>
-                            </div>
-                            <div>
+
+
                                 <input type="radio" name="tipo_mantenimiento" value="electrico_conflictivo" <?php if ($tipo_mantenimiento == 'electrico_conflictivo') echo 'checked'; ?>>
                                 <label for="tipo_mantenimiento">Electrico Correctivo</label>
                             </div>
                         </div>
                     </div>
+                    
 
                     <div class="input">
                         <label for="descripcion">Descripcion del Servicio:</label>
                         <input type="text" id="descripcion" name="descripcion" value="<?php echo $descripcion; ?>">
                     </div>
                     <div class="input">
+                        <label for="fecha_hora_inicio">Fecha_Hora Inicio:</label>
+                        <input type="datetime-local" id="fecha_hora_inicio" name="fecha_hora_inicio" value="<?php echo $fecha_hora_inicio; ?>">
+                    </div>
+                    <div class="input">
                         <label for="solicitud_material">Solicitud de Materiales:</label>
                         <input type="text" id="solicitud_material" name="solicitud_material" value="<?php echo $solicitud_material; ?>">
                     </div>
                     <div class="input">
-                        <label for="solicitud">Solicitado Por:</label>
-                        <input type="text" id="solicitud" name="solicitud" value="<?php echo $solicitud; ?>">
-                    </div>
-                    <div class="input">
-                        <label for="solicitud">Solicitado Por:</label>
-                        <input type="text" id="solicitud" name="solicitud" value="<?php echo $solicitud; ?>">
-                    </div>
-                    <div class="input">
-                        <label for="observaciones">Observaciones:</label>
-                        <input type="text" id="observaciones" name="observaciones" value="<?php echo $observaciones; ?>">
-                    </div>
-                    <div class="input">
-                        <label for="fecha_hora_inicio">Fecha y Hora Inicio:</label>
-                        <input type="datetime-local" id="fecha_hora_inicio" name="fecha_hora_inicio" value="<?php echo $fecha_hora_inicio; ?>">
-                    </div>
-                    <div class="input">
-                        <label for="fecha_hora_fin">Fecha y Hora Fin:</label>
+                        <label for="fecha_hora_fin">Fecha_Hora Fin:</label>
                         <input type="datetime-local" id="fecha_hora_fin" name="fecha_hora_fin" value="<?php echo $fecha_hora_fin; ?>">
                     </div>
-                    <div>
-                        <label for="estado">Estado:</label>
+                    <div class="input">
+                        <label for="solicitud">Solicitado Por:</label>
+                        <input type="text" id="solicitud" name="solicitud" value="<?php echo $solicitud; ?>">
                     </div>
-                    <div class="radios">
-                        <input type="radio" name="estado" value="abierto" <?php if ($estado == 'abierto') echo 'checked'; ?>>
-                        <label for="estado">Abierto</label>
+                    
+                        <div class="input input_radio">
+                            <div>
+                                <label for="estado">Estado:</label>
+                            </div>
+                            <div class="radios">
+                                <input type="radio" name="estado" value="abierto" <?php if ($estado == 'abierto') echo 'checked'; ?>>
+                                <label for="estado">Abierto</label>
 
-                        <input type="radio" name="estado" value="cerrado" <?php if ($estado == 'cerrado') echo 'checked'; ?>>
-                        <label for="estado">Cerrado</label>
+                                <input type="radio" name="estado" value="cerrado" <?php if ($estado == 'cerrado') echo 'checked'; ?>>
+                                <label for="estado">Cerrado</label>
 
+                            </div>
+                        
                     </div>
                 </div>
                 <?php if ($id != null) { ?>
