@@ -17,11 +17,15 @@
     <header>
         <div class="header_img">
             <picture>
-                <source srcset="build/img/logo.jpg" type="image/jpg">
-                <source srcset="build/img/logo.jpg" type="image/jpeg">
-                <img class="logo" loading="lazy" src="build/img/logo.jpg" alt="Texto entrada blog">
+                <source srcset="build/img/uispng.png" type="image/jpg">
+                <source srcset="build/img/uispng.jpg" type="image/jpeg">
+                <img class="logo" loading="lazy" src="build/img/uispng.webp" alt="UIS">
             </picture>
-            <p>MantUIS</p>
+            <picture>
+                <source srcset="build/img/logo_mecanica.png" type="image/jpg">
+                <source srcset="build/img/logo_mecanica.jpg" type="image/jpeg">
+                <img class="logo" loading="lazy" src="build/img/logo_mecanica.webp" alt="MecanicaF">
+            </picture>
         </div>
         <div id="header_registro">
             <a href="index.php">Ingresar</a>
