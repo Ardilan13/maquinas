@@ -11,7 +11,7 @@ $final = json_encode($ordenes);
 <main>
     <div class="container">
         <div class="header">
-            <p>Programación</p>
+            <p>Gestion</p>
         </div>
         <div class="info calendario">
             <div id="calendar"></div>

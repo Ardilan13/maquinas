@@ -109,7 +109,7 @@ if ($id != null) {
                             <?php } else { ?>
                                 <div class="input_file">
                                     <label for="hoja">Hoja:</label>
-                                    <input type="file" id="hoja" name="hoja" value="<?php echo $hoja ?>" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf">
+                                    <input type="file" id="hoja" name="hoja" value="<?php echo $hoja ?>" accept=".xlsx,.xls,.xlsm,.doc, .docx,.ppt, .pptx,.txt,.pdf">
                                 </div>
                             <?php  } ?>
                             <?php if ($manual != '') { ?>
@@ -120,7 +120,7 @@ if ($id != null) {
                             <?php } else { ?>
                                 <div class="input_file">
                                     <label for="manual">Manual:</label>
-                                    <input type="file" id="manual" name="manual" value="<?php echo $manual ?>" accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf">
+                                    <input type="file" id="manual" name="manual" value="<?php echo $manual ?>" accept=".xlsx,.xls,.xlsm,.doc, .docx,.ppt, .pptx,.txt,.pdf">
                                 </div>
                             <?php  } ?>
                         </div>

@@ -23,11 +23,15 @@
 
         <div class="header_img_login">
             <picture>
-                <source srcset="build/img/logo.jpg" type="image/jpg">
-                <source srcset="build/img/logo.jpg" type="image/jpeg">
-                <img class="logo" loading="lazy" src="build/img/logo.jpg" alt="Texto entrada blog">
+                <source srcset="build/img/uispng.png" type="image/jpg">
+                <source srcset="build/img/uispng.jpg" type="image/jpeg">
+                <img class="logo" loading="lazy" src="build/img/uispng.webp" alt="UIS">
             </picture>
-            <p>MantUIS</p>
+            <picture>
+                <source srcset="build/img/logo_mecanica.png" type="image/jpg">
+                <source srcset="build/img/logo_mecanica.jpg" type="image/jpeg">
+                <img class="logo" loading="lazy" src="build/img/logo_mecanica.webp" alt="MecanicaF">
+            </picture>
         </div>
         <div id="header_user">
             <a id="a_user"><?php echo $_SESSION["nombre"]; ?></a>
@@ -42,6 +46,6 @@
             <a href="mod_solicitud.php">Solicitudes</a>
             <a href="mod_orden.php">Ordenes</a>
             <a href="mod_tarea.php">Planes</a>
-            <a href="mod_calendario.php">Programacion</a>
+            <a href="mod_calendario.php">Gestion</a>
         </div>
     </nav>

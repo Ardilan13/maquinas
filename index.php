@@ -18,6 +18,7 @@
             </form>
             <button id="btn_login">Ingresar</button>
         </div>
+        <p>Gestión del mantenimiento preventivo para equipos críticos dentro de la Universidad Industrial de Santander SEDE PRINCIPAL.</p>
     </div>
 </main>
 
