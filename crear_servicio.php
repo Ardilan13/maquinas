@@ -8,7 +8,7 @@ if ($id != null) {
     $row = mysqli_fetch_assoc($resultado);
     $maquina = $row['id_maquina'];
     $fecha_solicitud = $row['fecha_solicitud'];
-    $tipo_mantenimiento = $row['tipo_mantenimiento']; 
+    $tipo_mantenimiento = $row['tipo_mantenimiento'];
     $descripcion = $row['descripcion'];
     $solicitud_material = $row['solicitud_material'];
     $solicitud = $row['solicitud'];
@@ -58,7 +58,7 @@ if ($id != null) {
                             $result = mysqli_query($con, $query);
                             while ($row = mysqli_fetch_assoc($result)) {
                             ?>
-                                <option value="<?php echo $row['id']; ?>"><?php echo $row['nombre']; ?></option>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['codigo']; ?></option>
                             <?php } ?>
                         <?php } ?>
                     </select>

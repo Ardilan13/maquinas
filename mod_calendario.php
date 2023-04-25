@@ -53,7 +53,8 @@ $final = json_encode($ordenes);
             header: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'month,agendaWeek,agendaDay'
+                right: 'month,agendaWeek,agendaDay',
+                color: '#6ab646'
             },
             eventSources: [{
                 events: <?php echo $final; ?>,
@@ -72,5 +73,10 @@ $final = json_encode($ordenes);
         $(".fc-content").hover(function() {
             $(this).css("cursor", "pointer");
         });
+    })
+
+    $(document).ready(function() {
+        $('.fc-state-default').css('background-color', '#6ab646');
+        $('.fc-state-default').css('background-image', 'none');
     })
 </script>

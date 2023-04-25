@@ -48,7 +48,7 @@ if ($id != null) {
                             $result = mysqli_query($con, $query);
                             while ($row = mysqli_fetch_assoc($result)) {
                             ?>
-                                <option value="<?php echo $row['id']; ?>"><?php echo $row['nombre']; ?></option>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['codigo']; ?></option>
                             <?php } ?>
                         <?php } ?>
                     </select>

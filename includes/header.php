@@ -43,9 +43,9 @@
             <a href="menu.php">Inicio</a>
             <a href="mod_maquina.php">Activos</a>
             <a href="mod_inventario.php">Inventario</a>
-            <a href="mod_solicitud.php">Solicitudes</a>
-            <a href="mod_orden.php">Ordenes</a>
             <a href="mod_tarea.php">Planes</a>
             <a href="mod_calendario.php">Gestion</a>
+            <a href="mod_orden.php">Ordenes</a>
+            <a href="mod_solicitud.php">Solicitudes</a>
         </div>
     </nav>

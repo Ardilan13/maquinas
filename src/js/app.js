@@ -270,6 +270,11 @@ $(".header_img").on("click", function (e) {
   window.location.href = "menu.php";
 });
 
+$(".header_img_login").on("click", function (e) {
+  e.preventDefault();
+  window.location.href = "menu.php";
+});
+
 //ajax que tiene  implementada la funcion para crear un componente mediante metodo post.
 
 $("#btn_creacion_comp").on("click", function (e) {
