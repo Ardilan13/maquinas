@@ -2,8 +2,8 @@
 
 function conectar()
 {
-    $usuario = "ardilan";
-    $contra = "transformice13";
+    $usuario = "root";
+    $contra = "";
     $ip = "localhost";
     $bd = "control_maquinas";
     $port = "3306";

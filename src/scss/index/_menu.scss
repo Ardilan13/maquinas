@@ -3,14 +3,15 @@
 .menu_principal {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 5% 10%;
+  margin: 0 5% 3% 5%;
 
   .mp_btn,
   #cerrar_sesion {
-    margin: 0 5rem;
-    padding: 1.5rem 0;
     width: auto;
-    background-color: v.$verde;
-    color: v.$blanco;
+    max-height: 20rem;
+    background-color: v.$grisO;
+    color: v.$negro;
     margin-bottom: 1.2rem;
     border-radius: 5px;
     display: flex;
@@ -19,8 +20,15 @@
     font-weight: 500;
     font-size: 2rem;
   }
+  .mp_btn img {
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    height: 100%;
+    max-height: 15rem;
+  }
   .mp_btn:hover {
     background-color: darken(v.$verde, 10);
+    color: v.$blanco;
   }
   #cerrar_sesion {
     background-color: v.$rojo;

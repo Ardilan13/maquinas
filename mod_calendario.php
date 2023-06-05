@@ -1,6 +1,6 @@
 <?php require_once 'includes/header.php';
 
-$pdo = new PDO("mysql:host=localhost;dbname=control_maquinas", "ardilan", "transformice13");
+$pdo = new PDO("mysql:host=localhost;dbname=control_maquinas", "root", "");
 $orden = $pdo->prepare("SELECT descripcion as title,fecha_solicitud as start,tipo_mantenimiento,(SELECT nombre FROM maquina WHERE id = id_maquina) as nombre from orden WHERE estado = 'abierto'");
 $orden->execute();
 
