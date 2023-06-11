@@ -39,38 +39,95 @@
 }
 
 .slider-container {
-  height: 380px;
+  height: 400px;
   padding: 1rem 2rem;
 }
 
 .slider {
-  background-image: url("../../build/img/activos.jpeg");
-  background-size: cover;
+  background-image: url("../../build/img/sede7.jpeg");
+  background-size: contain;
   height: 100%;
   width: 100%;
   border-radius: 10px;
-  animation: animate 20s infinite;
+  animation: animate 40s infinite;
 }
 
 @keyframes animate {
-  20% {
-    background-image: url("../../build/img/activos.jpeg");
-    background-size: cover;
+  14% {
+    background-image: url("../../build/img/sede1.jpeg");
+    background-size: contain;
+    -moz-background-size: 100% 100%; /*Firefox 3.6*/
+
+    -o-background-size: 100% 100%; /*opera*/
+
+    -webkit-background-size: 100% 100%; /*Safari*/
+
+    background-size: 100% 100%; /*estandar css3*/
   }
-  40% {
-    background-image: url("../../build/img/inventario.jpeg");
-    background-size: cover;
+  28% {
+    background-image: url("../../build/img/sede2.jpeg");
+    background-size: contain;
+    -moz-background-size: 100% 100%; /*Firefox 3.6*/
+
+    -o-background-size: 100% 100%; /*opera*/
+
+    -webkit-background-size: 100% 100%; /*Safari*/
+
+    background-size: 100% 100%; /*estandar css3*/
   }
-  60% {
-    background-image: url("../../build/img/solicitud.jpeg");
-    background-size: cover;
+  42% {
+    background-image: url("../../build/img/sede3.jpeg");
+    background-size: contain;
+    -moz-background-size: 100% 100%; /*Firefox 3.6*/
+
+    -o-background-size: 100% 100%; /*opera*/
+
+    -webkit-background-size: 100% 100%; /*Safari*/
+
+    background-size: 100% 100%; /*estandar css3*/
   }
-  80% {
-    background-image: url("../../build/img/orden.jpeg");
-    background-size: cover;
+  56% {
+    background-image: url("../../build/img/sede4.jpeg");
+    background-size: contain;
+    -moz-background-size: 100% 100%; /*Firefox 3.6*/
+
+    -o-background-size: 100% 100%; /*opera*/
+
+    -webkit-background-size: 100% 100%; /*Safari*/
+
+    background-size: 100% 100%; /*estandar css3*/
+  }
+  70% {
+    background-image: url("../../build/img/sede5.jpeg");
+    background-size: contain;
+    -moz-background-size: 100% 100%; /*Firefox 3.6*/
+
+    -o-background-size: 100% 100%; /*opera*/
+
+    -webkit-background-size: 100% 100%; /*Safari*/
+
+    background-size: 100% 100%; /*estandar css3*/
+  }
+  84% {
+    background-image: url("../../build/img/sede6.jpeg");
+    background-size: contain;
+    -moz-background-size: 100% 100%; /*Firefox 3.6*/
+
+    -o-background-size: 100% 100%; /*opera*/
+
+    -webkit-background-size: 100% 100%; /*Safari*/
+
+    background-size: 100% 100%; /*estandar css3*/
   }
   100% {
-    background-image: url("../../build/img/planes.jpeg");
-    background-size: cover;
+    background-image: url("../../build/img/sede7.jpeg");
+    background-size: contain;
+    -moz-background-size: 100% 100%; /*Firefox 3.6*/
+
+    -o-background-size: 100% 100%; /*opera*/
+
+    -webkit-background-size: 100% 100%; /*Safari*/
+
+    background-size: 100% 100%; /*estandar css3*/
   }
 }
