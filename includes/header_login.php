@@ -28,8 +28,3 @@
             <a href="registro.php">Registro</a>
         </div>
     </header>
-    <nav>
-        <div class="links">
-            <a></a>
-        </div>
-    </nav>
