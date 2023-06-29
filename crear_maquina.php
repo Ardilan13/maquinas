@@ -175,27 +175,27 @@ if ($id != null) {
                     <div class="flex">
                         <div class="input">
                             <label for="uso_diario">Horas de Uso Diario:</label>
-                            <input type="text" id="uso_diario" name="uso_diario" value="<?php echo $uso_diario; ?>">
+                            <input type="text" class="input-margin" id="uso_diario" name="uso_diario" value="<?php echo $uso_diario; ?>">
                         </div>
                         <div class="input">
                             <label for="temperatura">Temperatura de operación (°C):</label>
-                            <input type="text" id="temperatura" name="temperatura" value="<?php echo $temperatura; ?>">
+                            <input type="text" class="input-margin" id="temperatura" name="temperatura" value="<?php echo $temperatura; ?>">
                         </div>
                         <div class="input">
                             <label for="datos_proveedor">Datos del Proveedor:</label>
-                            <input type="text" id="datos_proveedor" name="datos_proveedor" value="<?php echo $datos_proveedor; ?>">
+                            <input type="text" class="input-margin" id="datos_proveedor" name="datos_proveedor" value="<?php echo $datos_proveedor; ?>">
                         </div>
                         <div class="input">
                             <label for="nivel_ruido">Nivel de Ruido:</label>
-                            <input type="text" id="nivel_ruido" name="nivel_ruido" value="<?php echo $nivel_ruido; ?>">
+                            <input type="text" class="input-margin" id="nivel_ruido" name="nivel_ruido" value="<?php echo $nivel_ruido; ?>">
                         </div>
                         <div class="input">
                             <label for="tiempo_carga">Indicadores de desempeño:</label>
-                            <input type="text" id="tiempo_carga" name="tiempo_carga" value="<?php echo $tiempo_carga; ?>">
+                            <input type="text" class="input-margin" id="tiempo_carga" name="tiempo_carga" value="<?php echo $tiempo_carga; ?>">
                         </div>
                         <div class="input">
                             <label for="lugar_origen">Fecha de Operacion:</label>
-                            <input type="date" id="lugar_origen" name="lugar_origen" value="<?php echo $lugar_origen; ?>">
+                            <input type="date" class="input-margin" id="lugar_origen" name="lugar_origen" value="<?php echo $lugar_origen; ?>">
                         </div>
                     </div>
                     <p>Mantenimiento</p>

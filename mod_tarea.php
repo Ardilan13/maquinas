@@ -5,7 +5,7 @@ $con = conectar(); ?>
 <main>
     <div class="container">
         <div class="header">
-            <p>Planes</p>
+            <p>Planes de mantenimiento</p>
         </div>
         <div class="info">
             <div class="cont_gen">
