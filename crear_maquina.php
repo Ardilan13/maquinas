@@ -239,6 +239,68 @@ if ($id != null) {
                                 <label for="tipo">Preventivo</label>
                             </div>
                         </div>
+                        <?php if ($id != null) {
+                            $tiempo = 0;
+                            $tiempo_c = 0;
+                            $i = 0;
+                            $estados = 0;
+                            $cerrados = 0;
+
+                            $inicial = new DateTime($vigencia);
+                            $hoy = new DateTime(date("Y-m-d H:i:s"));
+                            $creacion = $inicial->diff($hoy);
+                            $meses_c = $creacion->format('%m');
+                            $dias_c = $creacion->format('%d');
+                            $horas_c = $creacion->format('%H');
+
+                            $tiempo_c = $tiempo_c + (($meses_c * 30) * 24 + $dias_c * 24 + $horas_c);
+
+                            $query = "SELECT fecha_hora_inicio,fecha_hora_fin FROM orden WHERE id_maquina = $id AND estado = 'cerrado'";
+                            $result = mysqli_query($con, $query);
+                            while ($row = mysqli_fetch_array($result)) {
+                                $fecha1 = new DateTime($row["fecha_hora_inicio"]); //fecha inicial
+                                $fecha2 = new DateTime($row["fecha_hora_fin"]); //fecha de cierre
+
+                                $intervalo = $fecha1->diff($fecha2);
+                                $meses = $intervalo->format('%m');
+                                $dias = $intervalo->format('%d');
+                                $horas = $intervalo->format('%H');
+
+                                $tiempo = $tiempo + (($meses * 30) * 24 + $dias * 24 + $horas);
+                                $i++;
+                            }
+                            $total = ($tiempo_c - $tiempo) / $i;
+                            $ttr = $tiempo / $i;
+                            $d = $total / $total + $ttr;
+
+                            $query_generado = "SELECT estado FROM orden WHERE id_maquina = $id AND estado != ''";
+                            $result1 = mysqli_query($con, $query_generado);
+                            while ($row1 = mysqli_fetch_array($result1)) {
+                                $estados++;
+                                if ($row1["estado"] == 'cerrado') {
+                                    $cerrados++;
+                                }
+                            }
+                            $imc = $cerrados / $estados;
+                        ?>
+                            <div class="input input_radio">
+                                <div>
+                                    <b>MTBF: <?php echo $total ?> Horas</b>
+                                </div>
+                                <div>
+                                    <b>MTTR: <?php echo $ttr ?> Horas</b>
+                                </div>
+                                <div>
+                                    <b>D: <?php echo $d ?> Horas</b>
+                                </div>
+                                <div>
+                                    <b>IMP: <?php echo $imp ?></b>
+                                </div>
+                                <div>
+                                    <b>IMC: <?php echo $imc ?></b>
+                                </div>
+                            </div>
+                        <?php } ?>
                     </div>
                     <div class="input">
                         <label for="descripcion">Descripcion del Mantenimiento:</label>
