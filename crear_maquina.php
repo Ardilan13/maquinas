@@ -245,6 +245,11 @@ if ($id != null) {
                             $i = 0;
                             $estados = 0;
                             $cerrados = 0;
+                            $total = 0;
+                            $ttr = 0;
+                            $d = 0;
+                            $imp = 0;
+                            $imc = 0;
 
                             $inicial = new DateTime($vigencia);
                             $hoy = new DateTime(date("Y-m-d H:i:s"));
@@ -269,9 +274,18 @@ if ($id != null) {
                                 $tiempo = $tiempo + (($meses * 30) * 24 + $dias * 24 + $horas);
                                 $i++;
                             }
-                            $total = ($tiempo_c - $tiempo) / $i;
-                            $ttr = $tiempo / $i;
-                            $d = $total / $total + $ttr;
+                            if ($i == 0) {
+                                $i = 1;
+                            }
+
+                            if ($tiempo > 0) {
+                                $total = ($tiempo_c - $tiempo) / $i;
+                                $ttr = $tiempo / $i;
+                            }
+
+                            if ($total + $ttr > 0) {
+                                $d = $total / $total + $ttr;
+                            }
 
                             $query_generado = "SELECT estado FROM orden WHERE id_maquina = $id AND estado != ''";
                             $result1 = mysqli_query($con, $query_generado);
@@ -281,7 +295,9 @@ if ($id != null) {
                                     $cerrados++;
                                 }
                             }
-                            $imc = $cerrados / $estados;
+                            if ($estados > 0) {
+                                $imc = $cerrados / $estados;
+                            }
                         ?>
                             <div class="input input_radio">
                                 <div>
