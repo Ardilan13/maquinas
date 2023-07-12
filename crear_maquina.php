@@ -250,8 +250,10 @@ if ($id != null) {
                             $d = 0;
                             $imp = 0;
                             $imc = 0;
+                            $planes = 0;
+                            $planes_c = 0;
 
-                            $inicial = new DateTime($vigencia);
+                            $inicial = new DateTime($lugar_origen);
                             $hoy = new DateTime(date("Y-m-d H:i:s"));
                             $creacion = $inicial->diff($hoy);
                             $meses_c = $creacion->format('%m');
@@ -284,7 +286,7 @@ if ($id != null) {
                             }
 
                             if ($total + $ttr > 0) {
-                                $d = $total / $total + $ttr;
+                                $d = $total / ($total + $ttr);
                             }
 
                             $query_generado = "SELECT estado FROM orden WHERE id_maquina = $id AND estado != ''";
@@ -298,6 +300,18 @@ if ($id != null) {
                             if ($estados > 0) {
                                 $imc = $cerrados / $estados;
                             }
+
+                            $query_generado = "SELECT estado FROM orden WHERE id_maquina = $id AND fecha_solicitud IS null";
+                            $result1 = mysqli_query($con, $query_generado);
+                            while ($row1 = mysqli_fetch_array($result1)) {
+                                $planes++;
+                                if ($row1["estado"] == 'cerrado') {
+                                    $planes_c++;
+                                }
+                            }
+                            if ($planes > 0) {
+                                $imp = $planes / $planes_c;
+                            }
                         ?>
                             <div class="input input_radio">
                                 <div>
@@ -307,13 +321,13 @@ if ($id != null) {
                                     <b>MTTR: <?php echo $ttr ?> Horas</b>
                                 </div>
                                 <div>
-                                    <b>D: <?php echo $d ?> Horas</b>
+                                    <b>D: <?php echo number_format($d * 100, 2) ?> %</b>
                                 </div>
                                 <div>
-                                    <b>IMP: <?php echo $imp ?></b>
+                                    <b>IMP: <?php echo number_format($imp * 100, 2) ?>%</b>
                                 </div>
                                 <div>
-                                    <b>IMC: <?php echo $imc ?></b>
+                                    <b>IMC: <?php echo number_format($imc * 100, 2) ?>%</b>
                                 </div>
                             </div>
                         <?php } ?>
