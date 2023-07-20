@@ -7,6 +7,7 @@ if ($id != null) {
     $resultado = mysqli_query($con, $registro);
     $row = mysqli_fetch_assoc($resultado);
     $maquina = $row['id_maquina'];
+    $componente = $row['id_componente'];
     $activacion = $row['activacion'];
     $proxima_activacion = $row['proxima_activacion'];
     $descripcion = $row['descripcion'];
@@ -17,7 +18,24 @@ if ($id != null) {
     $maquina_data = mysqli_fetch_assoc($result);
 
     $nombre = $maquina_data['nombre'];
+    $codigo = $maquina_data['codigo'];
     $periodicidad = $maquina_data['periodicidad'];
+
+    // Agregar código para seleccionar datos de la tabla componente
+    $component_data = null;
+    if ($componente != null) {
+        $query = "SELECT * FROM componente WHERE id=$componente";
+        $result = mysqli_query($con, $query);
+        $component_data = mysqli_fetch_assoc($result);
+    }
+
+    // Verificar si $component_data no es null antes de acceder a la posición 'nombre_componente'
+    if ($component_data != null && $componente != null) {
+        $nombre_componente = $component_data['nombre_componente'];
+    } else {
+        // Si $component_data es null, asignar un valor predeterminado o mostrar un mensaje de error
+        $nombre_componente = '';
+    }
 } else {
     $activacion = '';
     $proxima_activacion = '';
@@ -25,6 +43,9 @@ if ($id != null) {
     $nombre = '';
     $periodicidad = '';
     $descripcion = '';
+    $nombre_componente = '';
+    $componente = null;
+    $codigo = '';
 }
 
 ?>
@@ -34,6 +55,12 @@ if ($id != null) {
             <p>Plan de Mantenimiento</p>
         </div>
         <div class="info">
+        <?php if ($id != null) { ?>
+            <div class="input">
+                <label for="codigo">Codigo:</label>
+                <input type="text" id="codigo" name="codigo" value="<?php echo $codigo; ?>" <?php if ($id != null) echo 'disabled '; ?>>
+            </div>
+            <?php } ?>
             <form id="agregar_tar">
                 <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
                 <div class="input">
@@ -53,6 +80,24 @@ if ($id != null) {
                         <?php } ?>
                     </select>
                 </div>
+                <div class="input">
+                    <label for="maquina">Componente:</label>
+                    <select id="" name="componente" <?php if ($id != null) echo 'disabled '; ?>>
+                        <?php if ($id != null) { ?>
+                            <option value="<?php echo $componente; ?>" selected><?php echo $nombre_componente; ?></option>
+                            <?php } else {
+                            // Agregar código para seleccionar todos los componentes de la tabla componente
+                            $query = "SELECT * FROM componente";
+                            $result = mysqli_query($con, $query);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $selected = ($row['id'] == $componente) ? 'selected' : '';
+                            ?>
+                                <option value="<?php echo $row['id']; ?>" <?php echo $selected; ?>><?php echo $row['nombre_componente']; ?></option>
+                            <?php } ?>
+                        <?php } ?>
+                    </select>
+                </div>
+
                 <?php if ($id != null) { ?>
                     <div class="input">
                         <label for="periodicidad">Periodicidad:</label>

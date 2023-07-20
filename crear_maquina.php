@@ -29,7 +29,6 @@ if ($id != null) {
     $nivel_ruido = $row['nivel_ruido'];
     $personal = $row['personal'];
     $tipo = $row['tipo'];
-    $periodicidad = $row['periodicidad'];
     $descripcion = $row['descripcion'];
     $img = $row['img'];
     $qr = $row['qr'];
@@ -52,7 +51,6 @@ if ($id != null) {
     $nivel_ruido = '';
     $personal = '';
     $tipo = '';
-    $periodicidad = '';
     $descripcion = '';
     $img = null;
     $qr = null;
@@ -182,10 +180,6 @@ if ($id != null) {
                             <input type="text" class="input-margin" id="temperatura" name="temperatura" value="<?php echo $temperatura; ?>">
                         </div>
                         <div class="input">
-                            <label for="datos_proveedor">Datos del Proveedor:</label>
-                            <input type="text" class="input-margin" id="datos_proveedor" name="datos_proveedor" value="<?php echo $datos_proveedor; ?>">
-                        </div>
-                        <div class="input">
                             <label for="nivel_ruido">Nivel de Ruido:</label>
                             <input type="text" class="input-margin" id="nivel_ruido" name="nivel_ruido" value="<?php echo $nivel_ruido; ?>">
                         </div>
@@ -208,24 +202,6 @@ if ($id != null) {
                                 <input type="radio" name="personal" value="externo" <?php if ($personal == 'externo') echo 'checked'; ?>>
 
                                 <label for="personal">Externo</label>
-                            </div>
-                        </div>
-                        <div class="input input_radio">
-                            <div>
-                                <label for="periodo">Periodicidad:</label>
-                            </div>
-                            <div class="radios">
-                                <input type="radio" name="periodicidad" value="mensual" <?php if ($periodicidad == 'mensual') echo 'checked'; ?>>
-                                <label for="periodicidad">Mensual</label>
-
-                                <input type="radio" name="periodicidad" value="trimestral" <?php if ($periodicidad == 'trimestral') echo 'checked'; ?>>
-                                <label for="periodicidad">Trimestral</label>
-
-                                <input type="radio" name="periodicidad" value="semestral" <?php if ($periodicidad == 'semestral') echo 'checked'; ?>>
-                                <label for="periodicidad">Semestral</label>
-
-                                <input type="radio" name="periodicidad" value="anual" <?php if ($periodicidad == 'anual') echo 'checked'; ?>>
-                                <label for="periodicidad">Anual</label>
                             </div>
                         </div>
                         <div class="input input_radio">
@@ -309,7 +285,7 @@ if ($id != null) {
                                     $planes_c++;
                                 }
                             }
-                            if ($planes > 0) {
+                            if ($planes > 0 && $planes_c > 0) {
                                 $imp = $planes / $planes_c;
                             }
                         ?>

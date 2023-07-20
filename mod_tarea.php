@@ -15,6 +15,7 @@ $con = conectar(); ?>
                     <thead>
                         <tr>
                             <th class='th_comp'>ID</th>
+                            <th class='th_comp'>Codigo</th>
                             <th class='th_comp'>Nombre Maquina</th>
                             <th class='th_comp'>Fecha Activacion</th>
                             <th class='th_comp'>Periodicidad</th>
@@ -24,12 +25,13 @@ $con = conectar(); ?>
                     </thead>
                     <tbody>
                         <?php
-                        $login = "SELECT m.nombre, t.activacion, m.periodicidad, t.id from tarea t INNER JOIN maquina m ON t.id_maquina= m.id ;";
+                        $login = "SELECT m.nombre, m.codigo, t.activacion, m.periodicidad, t.id from tarea t INNER JOIN maquina m ON t.id_maquina= m.id ;";
                         $resultado = mysqli_query($con, $login);
                         if ($resultado->num_rows > 0) {
                             while ($row = mysqli_fetch_assoc($resultado)) { ?>
                                 <tr class="<?php echo $row['periodicidad']; ?>">
                                     <td><?php echo $row["id"]; ?></td>
+                                    <td><?php echo $row["codigo"]; ?></td>
                                     <td><?php echo $row["nombre"]; ?></td>
                                     <td><?php echo $row["activacion"]; ?></td>
                                     <td><?php echo $row["periodicidad"]; ?></td>
